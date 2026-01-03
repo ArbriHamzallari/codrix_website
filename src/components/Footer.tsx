@@ -22,7 +22,7 @@ export default function Footer() {
                             <span className="text-xl font-bold font-heading text-white">Codrix</span>
                         </Link>
                         <p className="text-slate-400 text-sm leading-relaxed">
-                            Premium website development for ambitious businesses in Albania & Kosovo.
+                            Premium website development for ambitious businesses in worldwide.
                         </p>
                     </div>
 

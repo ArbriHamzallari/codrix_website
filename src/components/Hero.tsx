@@ -26,7 +26,7 @@ export default function Hero() {
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                             <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
                         </span>
-                        Accepting New Projects for 2025
+                        Accepting New Projects for 2026
                     </div>
                 </motion.div>
 
@@ -46,7 +46,7 @@ export default function Hero() {
                     transition={{ duration: 0.6, delay: 0.4 }}
                     className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed"
                 >
-                    We build premium, high-performance websites for businesses in Albania & Kosovo.
+                    We build premium, high-performance websites for businesses worldwide.
                     Stand out from the competition with a site that actually converts.
                 </motion.p>
 

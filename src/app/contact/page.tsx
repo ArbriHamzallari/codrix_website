@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Phone, Send } from 'lucide-react';
+import { Mail, MapPin, Phone, Send, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
 import { useState } from 'react';
 
 export default function Contact() {
@@ -10,11 +10,44 @@ export default function Contact() {
         email: '',
         message: ''
     });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+    const [errorMessage, setErrorMessage] = useState('');
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Handle form submission logic here
-        alert('Thanks for contacting us! We will get back to you shortly.');
+        setIsSubmitting(true);
+        setSubmitStatus('idle');
+        setErrorMessage('');
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || 'Failed to send message');
+            }
+
+            setSubmitStatus('success');
+            setFormData({ name: '', email: '', message: '' });
+            
+            // Reset success message after 5 seconds
+            setTimeout(() => {
+                setSubmitStatus('idle');
+            }, 5000);
+        } catch (error) {
+            setSubmitStatus('error');
+            setErrorMessage(error instanceof Error ? error.message : 'Failed to send message. Please try again.');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -71,7 +104,7 @@ export default function Contact() {
                                     </div>
                                     <div>
                                         <h4 className="font-semibold text-white">Location</h4>
-                                        <p className="text-slate-400">Tirana, Albania & Pristina, Kosovo</p>
+                                        <p className="text-slate-400">Tirana, Albania </p>
                                     </div>
                                 </div>
                             </div>
@@ -80,7 +113,7 @@ export default function Contact() {
                         <div className="bg-gradient-to-br from-primary to-secondary p-8 rounded-2xl text-white">
                             <h3 className="text-2xl font-bold font-heading mb-4">Ready to start?</h3>
                             <p className="mb-6 opacity-90">
-                                We are currently accepting new projects for Q1 2025. Secure your spot today.
+                                We are currently accepting new projects for Q1 2026. Secure your spot today.
                             </p>
                         </div>
                     </motion.div>
@@ -126,11 +159,34 @@ export default function Contact() {
                                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                                 />
                             </div>
+                            {submitStatus === 'success' && (
+                                <div className="p-4 bg-green-500/10 border border-green-500/50 rounded-lg flex items-center gap-3 text-green-400">
+                                    <CheckCircle2 size={20} />
+                                    <p>Message sent successfully! We&apos;ll get back to you shortly.</p>
+                                </div>
+                            )}
+                            
+                            {submitStatus === 'error' && (
+                                <div className="p-4 bg-red-500/10 border border-red-500/50 rounded-lg flex items-center gap-3 text-red-400">
+                                    <AlertCircle size={20} />
+                                    <p>{errorMessage}</p>
+                                </div>
+                            )}
+
                             <button
                                 type="submit"
-                                className="w-full py-4 bg-primary hover:bg-primary/90 text-white font-bold rounded-lg transition-colors flex items-center justify-center gap-2"
+                                disabled={isSubmitting}
+                                className="w-full py-4 bg-primary hover:bg-primary/90 disabled:bg-primary/50 disabled:cursor-not-allowed text-white font-bold rounded-lg transition-colors flex items-center justify-center gap-2"
                             >
-                                Send Message <Send size={20} />
+                                {isSubmitting ? (
+                                    <>
+                                        Sending... <Loader2 size={20} className="animate-spin" />
+                                    </>
+                                ) : (
+                                    <>
+                                        Send Message <Send size={20} />
+                                    </>
+                                )}
                             </button>
                         </form>
                     </motion.div>
