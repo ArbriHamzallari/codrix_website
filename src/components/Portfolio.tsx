@@ -25,6 +25,13 @@ const projects = [
         image: '/klajdi.jpg',
         link: 'https://klajdiresort.al/',
         color: 'from-orange-500 to-red-500'
+    },
+    {
+        title: 'RapsMedia',
+        category: 'Music Platform',
+        image: '/rapsmedia.png',
+        link: 'https://rapsmedia.vercel.app/',
+        color: 'from-purple-600 to-pink-600'
     }
 ];
 
@@ -59,7 +66,7 @@ export default function Portfolio() {
                     </motion.div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {projects.map((project, index) => (
                         <motion.div
                             key={index}
