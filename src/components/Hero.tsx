@@ -36,8 +36,8 @@ export default function Hero() {
                     transition={{ duration: 0.6, delay: 0.2 }}
                     className="text-5xl md:text-7xl lg:text-8xl font-bold font-heading tracking-tight mb-8"
                 >
-                    Build a Website That <br />
-                    <span className="text-gradient">Means Business</span>
+                    From Vision to Launch: <br />
+                    <span className="text-gradient">Code That Scales</span>
                 </motion.h1>
 
                 <motion.p
@@ -46,8 +46,7 @@ export default function Hero() {
                     transition={{ duration: 0.6, delay: 0.4 }}
                     className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed"
                 >
-                    We build premium, high-performance websites for businesses worldwide.
-                    Stand out from the competition with a site that actually converts.
+                    Expert web, mobile, and software development with lightning speed, exceptional quality, and unwavering reliability—built for startups and businesses ready to compete.
                 </motion.p>
 
                 <motion.div
