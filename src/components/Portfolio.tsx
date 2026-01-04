@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const projects = [
     {
-        title: 'Auto Start Group',
+        title: 'AutoZone Albania',
         category: 'Car Dealership',
         image: '/autostart.jpg',
         link: 'https://autostartgroup.master.al/',
