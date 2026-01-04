@@ -20,7 +20,7 @@ export default function CTA() {
                     href="/contact"
                     className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary font-bold rounded-full hover:bg-slate-100 transition-colors shadow-lg hover:shadow-white/20"
                 >
-                    Start Your Project <ArrowRight size={20} />
+                    Let's Build Together <ArrowRight size={20} />
                 </Link>
             </div>
         </section>

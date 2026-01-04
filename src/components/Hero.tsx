@@ -46,7 +46,7 @@ export default function Hero() {
                     transition={{ duration: 0.6, delay: 0.4 }}
                     className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed"
                 >
-                    Expert web, mobile, and software development with lightning speed, exceptional quality, and unwavering reliability—built for startups and businesses ready to compete.
+                    Expert web, mobile, and software development with lightning speed, exceptional quality, and unwavering reliability. Built for startups and businesses ready to compete.
                 </motion.p>
 
                 <motion.div
@@ -61,7 +61,7 @@ export default function Hero() {
                     >
                         <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shimmer" />
                         <span className="relative flex items-center gap-2">
-                            Start Your Project <ArrowRight size={20} />
+                            Get Started Today <ArrowRight size={20} />
                         </span>
                     </Link>
 
@@ -69,7 +69,7 @@ export default function Hero() {
                         href="#work"
                         className="px-8 py-4 text-white font-medium hover:text-primary transition-colors flex items-center gap-2"
                     >
-                        View Our Work <ChevronRight size={20} />
+                        See Our Work <ChevronRight size={20} />
                     </Link>
                 </motion.div>
             </div>

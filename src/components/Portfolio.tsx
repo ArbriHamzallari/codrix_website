@@ -65,7 +65,7 @@ export default function Portfolio() {
                         transition={{ duration: 0.6 }}
                     >
                         <Link href="/portfolio" className="text-primary hover:text-white font-medium transition-colors">
-                            View All Projects &rarr;
+                            See All Projects →
                         </Link>
                     </motion.div>
                 </div>

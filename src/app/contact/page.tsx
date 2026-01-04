@@ -184,7 +184,7 @@ export default function Contact() {
                                     </>
                                 ) : (
                                     <>
-                                        Send Message <Send size={20} />
+                                        Send Now <Send size={20} />
                                     </>
                                 )}
                             </button>

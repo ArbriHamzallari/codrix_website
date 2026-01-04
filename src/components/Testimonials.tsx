@@ -5,7 +5,7 @@ import { Quote } from 'lucide-react';
 
 const testimonials = [
     {
-        quote: "Codrix Solutions transformed our outdated website into a modern, high-performance platform that increased our online sales by 300% in just three months. Their team's communication was exceptional—they kept us informed every step of the way and delivered ahead of schedule. We couldn't be happier with the results.",
+        quote: "Codrix Solutions transformed our outdated website into a modern, high-performance platform that increased our online sales by 300% in just three months. Their team's communication was exceptional. They kept us informed every step of the way and delivered ahead of schedule. We couldn't be happier with the results.",
         author: "Sarah Chen",
         role: "CEO, TechStart Innovations",
         company: "Web Development"
@@ -49,7 +49,7 @@ export default function Testimonials() {
                         What Our <span className="text-gradient">Clients Say</span>
                     </h2>
                     <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-                        Don't just take our word for it—hear from businesses that have transformed their digital presence with us.
+                        Don't just take our word for it. Hear from businesses that have transformed their digital presence with us.
                     </p>
                 </motion.div>
 
