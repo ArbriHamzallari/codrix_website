@@ -92,8 +92,10 @@ export default function Systems() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
                     {systems.map((system, index) => {
-                        const ContentWrapper = system.href ? Link : 'div';
-                        const wrapperProps = system.href ? { href: system.href } : {};
+                        const contentClassName = cn(
+                            "group p-10 rounded-2xl bg-white/5 border border-white/5 hover:border-primary/50 transition-all duration-300 hover:bg-white/10 block",
+                            system.className
+                        );
 
                         return (
                             <motion.div
@@ -103,31 +105,45 @@ export default function Systems() {
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                             >
-                                <ContentWrapper
-                                    {...wrapperProps}
-                                    className={cn(
-                                        "group p-10 rounded-2xl bg-white/5 border border-white/5 hover:border-primary/50 transition-all duration-300 hover:bg-white/10 block",
-                                        system.className
-                                    )}
-                                >
-                                    <div className="mb-6 p-4 rounded-xl bg-white/5 w-fit group-hover:bg-white/10 transition-colors">
-                                        {system.icon}
-                                    </div>
-                                    <h3 className="text-2xl font-bold font-heading mb-4 text-white group-hover:text-primary transition-colors">
-                                        {system.title}
-                                    </h3>
-                                    <p className="text-slate-400 leading-relaxed mb-6 text-lg">
-                                        {system.description}
-                                    </p>
-                                    <div className="pt-6 border-t border-white/5 flex items-center justify-between">
-                                        <span className="text-sm font-semibold text-primary uppercase tracking-wide">
-                                            {system.leverage}
-                                        </span>
-                                        {system.href && (
+                                {system.href ? (
+                                    <Link
+                                        href={system.href}
+                                        className={contentClassName}
+                                    >
+                                        <div className="mb-6 p-4 rounded-xl bg-white/5 w-fit group-hover:bg-white/10 transition-colors">
+                                            {system.icon}
+                                        </div>
+                                        <h3 className="text-2xl font-bold font-heading mb-4 text-white group-hover:text-primary transition-colors">
+                                            {system.title}
+                                        </h3>
+                                        <p className="text-slate-400 leading-relaxed mb-6 text-lg">
+                                            {system.description}
+                                        </p>
+                                        <div className="pt-6 border-t border-white/5 flex items-center justify-between">
+                                            <span className="text-sm font-semibold text-primary uppercase tracking-wide">
+                                                {system.leverage}
+                                            </span>
                                             <ArrowRight className="w-5 h-5 text-slate-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
-                                        )}
+                                        </div>
+                                    </Link>
+                                ) : (
+                                    <div className={contentClassName}>
+                                        <div className="mb-6 p-4 rounded-xl bg-white/5 w-fit group-hover:bg-white/10 transition-colors">
+                                            {system.icon}
+                                        </div>
+                                        <h3 className="text-2xl font-bold font-heading mb-4 text-white group-hover:text-primary transition-colors">
+                                            {system.title}
+                                        </h3>
+                                        <p className="text-slate-400 leading-relaxed mb-6 text-lg">
+                                            {system.description}
+                                        </p>
+                                        <div className="pt-6 border-t border-white/5 flex items-center justify-between">
+                                            <span className="text-sm font-semibold text-primary uppercase tracking-wide">
+                                                {system.leverage}
+                                            </span>
+                                        </div>
                                     </div>
-                                </ContentWrapper>
+                                )}
                             </motion.div>
                         );
                     })}
