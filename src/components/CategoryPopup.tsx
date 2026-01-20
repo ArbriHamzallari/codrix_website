@@ -48,11 +48,12 @@ export default function CategoryPopup({
         // Timer trigger
         if (triggerType === 'timer' || triggerType === 'timer-or-exit') {
             timer = setTimeout(() => {
-                setIsOpen(true);
-                if (!popupOpenTime) {
+                const currentlyOpen = sessionStorage.getItem(storageKey) === 'true';
+                if (!currentlyOpen) {
+                    setIsOpen(true);
                     setPopupOpenTime(Date.now());
+                    sessionStorage.setItem(storageKey, 'true');
                 }
-                sessionStorage.setItem(storageKey, 'true');
             }, timerDelay);
         }
 
@@ -60,12 +61,11 @@ export default function CategoryPopup({
         if (triggerType === 'scroll' || triggerType === 'scroll-or-exit') {
             scrollHandler = () => {
                 const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+                const currentlyOpen = sessionStorage.getItem(storageKey) === 'true';
                 
-                if (scrollPercent >= scrollThreshold && !isOpen) {
+                if (scrollPercent >= scrollThreshold && !currentlyOpen) {
                     setIsOpen(true);
-                    if (!popupOpenTime) {
-                        setPopupOpenTime(Date.now());
-                    }
+                    setPopupOpenTime(Date.now());
                     sessionStorage.setItem(storageKey, 'true');
                 }
             };
@@ -80,13 +80,12 @@ export default function CategoryPopup({
                 // Trigger when mouse is in top 2% of viewport and moving upward
                 const currentY = e.clientY;
                 const isMovingUp = currentY < lastY;
+                const currentlyOpen = sessionStorage.getItem(storageKey) === 'true';
                 
-                if (currentY <= window.innerHeight * 0.02 && isMovingUp && !isOpen) {
+                if (currentY <= window.innerHeight * 0.02 && isMovingUp && !currentlyOpen) {
                     setIsOpen(true);
                     setIsExitIntent(true);
-                    if (!popupOpenTime) {
-                        setPopupOpenTime(Date.now());
-                    }
+                    setPopupOpenTime(Date.now());
                     sessionStorage.setItem(storageKey, 'true');
                 }
                 
@@ -96,12 +95,11 @@ export default function CategoryPopup({
             
             // Also listen for mouseleave on document (browser-level exit)
             mouseLeaveHandler = () => {
-                if (!isOpen) {
+                const currentlyOpen = sessionStorage.getItem(storageKey) === 'true';
+                if (!currentlyOpen) {
                     setIsOpen(true);
                     setIsExitIntent(true);
-                    if (!popupOpenTime) {
-                        setPopupOpenTime(Date.now());
-                    }
+                    setPopupOpenTime(Date.now());
                     sessionStorage.setItem(storageKey, 'true');
                 }
             };
@@ -115,7 +113,7 @@ export default function CategoryPopup({
             if (exitIntentHandler) document.removeEventListener('mousemove', exitIntentHandler);
             if (mouseLeaveHandler) document.removeEventListener('mouseleave', mouseLeaveHandler);
         };
-    }, [pageKey, triggerType, timerDelay, scrollThreshold, isOpen]);
+    }, [pageKey, triggerType, timerDelay, scrollThreshold]);
 
     // Session-based decision window: Show urgency message after 2 minutes of popup being open
     useEffect(() => {
