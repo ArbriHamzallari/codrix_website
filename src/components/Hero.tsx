@@ -41,9 +41,18 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto mb-16 leading-relaxed font-light"
+                    className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto mb-8 leading-relaxed font-light"
                 >
                     For serious businesses who want leverage, not staff.
+                </motion.p>
+
+                <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    className="text-sm text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed"
+                >
+                    Systems scale better than staff. Built to reduce operating costs.
                 </motion.p>
 
                 <motion.div

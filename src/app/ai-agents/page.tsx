@@ -181,8 +181,11 @@ export default function AIAgents() {
                                 Why This <span className="text-gradient">Saves You Money</span>
                             </h2>
                         </div>
-                        <p className="text-slate-300 text-lg mb-8 leading-relaxed">
+                        <p className="text-slate-300 text-lg mb-4 leading-relaxed">
                             <span className="font-semibold text-white">Predictable monthly cost</span> that replaces unpredictable staffing expenses.
+                        </p>
+                        <p className="text-slate-400 text-sm mb-8 leading-relaxed">
+                            Replaces multiple manual roles. Lower cost than hiring. Systems scale better than staff.
                         </p>
                         <div className="space-y-4">
                             {financialBenefits.map((benefit, index) => (
@@ -276,11 +279,14 @@ export default function AIAgents() {
                     transition={{ duration: 0.6, delay: 1.0 }}
                     className="text-center p-12 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl border border-primary/20"
                 >
-                    <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-12 text-white leading-tight">
+                    <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-8 text-white leading-tight">
                         Replace manual work with an AI Agent<br />
                         <span className="text-gradient">that pays for itself</span>
                     </h3>
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <p className="text-slate-400 text-sm mb-12 max-w-2xl mx-auto">
+                        Replaces multiple manual roles. Lower cost than hiring. Systems scale better than staff.
+                    </p>
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
                         <button
                             onClick={handleContactClick}
                             className="inline-flex items-center gap-3 px-10 py-5 bg-primary hover:bg-primary/90 text-white font-semibold rounded-full transition-all hover:scale-105 shadow-lg shadow-primary/20 text-lg"
@@ -295,6 +301,9 @@ export default function AIAgents() {
                             {phoneNumber}
                         </button>
                     </div>
+                    <p className="text-slate-500 text-xs">
+                        Limited onboarding slots. Current intake closing soon.
+                    </p>
                 </motion.div>
             </div>
 

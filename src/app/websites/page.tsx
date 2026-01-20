@@ -238,8 +238,11 @@ export default function Websites() {
                             ))}
                         </div>
                         <div className="mt-12 text-center">
-                            <p className="text-white text-3xl md:text-4xl font-bold leading-tight">
+                            <p className="text-white text-3xl md:text-4xl font-bold leading-tight mb-4">
                                 The website as a <span className="text-gradient">compounding asset</span>.
+                            </p>
+                            <p className="text-slate-300 text-sm">
+                                Most clients recover the investment through saved time and increased conversions.
                             </p>
                         </div>
                     </div>
@@ -331,11 +334,14 @@ export default function Websites() {
                     transition={{ duration: 0.6, delay: 1.6 }}
                     className="text-center p-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl border-2 border-primary/20"
                 >
-                    <h3 className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading mb-12 text-white leading-tight">
+                    <h3 className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading mb-8 text-white leading-tight">
                         Build a Website<br />
                         That <span className="text-gradient">Actually Works</span>
                     </h3>
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-12">
+                    <p className="text-slate-400 text-sm mb-12 max-w-2xl mx-auto">
+                        Most clients recover the investment through saved time and increased conversions. One system replaces multiple manual tasks.
+                    </p>
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-6">
                         <button
                             onClick={handleContactClick}
                             className="inline-flex items-center gap-3 px-12 py-6 bg-primary hover:bg-primary/90 text-white font-bold rounded-full transition-all hover:scale-105 shadow-lg shadow-primary/20 text-xl"
@@ -351,6 +357,9 @@ export default function Websites() {
                             {phoneNumber}
                         </button>
                     </div>
+                    <p className="text-slate-500 text-xs">
+                        Limited onboarding slots. Current intake closing soon.
+                    </p>
                 </motion.div>
             </div>
 

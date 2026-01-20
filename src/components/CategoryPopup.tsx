@@ -28,6 +28,9 @@ export default function CategoryPopup({
     scrollThreshold = 50,
 }: CategoryPopupProps) {
     const [isOpen, setIsOpen] = useState(false);
+    const [showUrgencyMessage, setShowUrgencyMessage] = useState(false);
+    const [popupOpenTime, setPopupOpenTime] = useState<number | null>(null);
+    const [isExitIntent, setIsExitIntent] = useState(false);
 
     useEffect(() => {
         const storageKey = `codrix_popup_${pageKey}`;
@@ -46,6 +49,9 @@ export default function CategoryPopup({
         if (triggerType === 'timer' || triggerType === 'timer-or-exit') {
             timer = setTimeout(() => {
                 setIsOpen(true);
+                if (!popupOpenTime) {
+                    setPopupOpenTime(Date.now());
+                }
                 sessionStorage.setItem(storageKey, 'true');
             }, timerDelay);
         }
@@ -57,6 +63,9 @@ export default function CategoryPopup({
                 
                 if (scrollPercent >= scrollThreshold && !isOpen) {
                     setIsOpen(true);
+                    if (!popupOpenTime) {
+                        setPopupOpenTime(Date.now());
+                    }
                     sessionStorage.setItem(storageKey, 'true');
                 }
             };
@@ -74,6 +83,10 @@ export default function CategoryPopup({
                 
                 if (currentY <= window.innerHeight * 0.02 && isMovingUp && !isOpen) {
                     setIsOpen(true);
+                    setIsExitIntent(true);
+                    if (!popupOpenTime) {
+                        setPopupOpenTime(Date.now());
+                    }
                     sessionStorage.setItem(storageKey, 'true');
                 }
                 
@@ -85,6 +98,10 @@ export default function CategoryPopup({
             mouseLeaveHandler = () => {
                 if (!isOpen) {
                     setIsOpen(true);
+                    setIsExitIntent(true);
+                    if (!popupOpenTime) {
+                        setPopupOpenTime(Date.now());
+                    }
                     sessionStorage.setItem(storageKey, 'true');
                 }
             };
@@ -99,6 +116,34 @@ export default function CategoryPopup({
             if (mouseLeaveHandler) document.removeEventListener('mouseleave', mouseLeaveHandler);
         };
     }, [pageKey, triggerType, timerDelay, scrollThreshold, isOpen]);
+
+    // Session-based decision window: Show urgency message after 2 minutes of popup being open
+    useEffect(() => {
+        if (!isOpen) return;
+        
+        // Set popup open time if not already set
+        if (!popupOpenTime) {
+            setPopupOpenTime(Date.now());
+            return; // Wait for next render after setting time
+        }
+
+        const urgencyStorageKey = `codrix_popup_urgency_${pageKey}`;
+        const hasShownUrgency = localStorage.getItem(urgencyStorageKey);
+        
+        if (hasShownUrgency) {
+            setShowUrgencyMessage(true);
+            return;
+        }
+
+        const urgencyTimer = setTimeout(() => {
+            setShowUrgencyMessage(true);
+            localStorage.setItem(urgencyStorageKey, 'true');
+        }, 120000); // 2 minutes
+
+        return () => {
+            clearTimeout(urgencyTimer);
+        };
+    }, [isOpen, popupOpenTime, pageKey]);
 
     const handleClose = () => {
         setIsOpen(false);
@@ -144,19 +189,41 @@ export default function CategoryPopup({
 
                             <div className="text-center">
                                 <h3 className="text-3xl md:text-4xl font-bold font-heading text-white mb-6 leading-tight">
-                                    {title}
+                                    {isExitIntent ? "Before you leave" : title}
                                 </h3>
                                 
-                                <p className="text-slate-300 mb-8 leading-relaxed text-lg">
-                                    {body}
+                                <p className="text-slate-300 mb-4 leading-relaxed text-lg">
+                                    {isExitIntent ? 
+                                        "We limit how many systems we deploy at one time. If this is relevant, this may be the right moment to act." : 
+                                        body
+                                    }
                                 </p>
+
+                                <p className="text-slate-400 text-sm mb-4">
+                                    Designed to pay for itself. Predictable monthly investment replaces multiple manual roles.
+                                </p>
+
+                                {showUrgencyMessage && (
+                                    <motion.p
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        transition={{ duration: 0.5 }}
+                                        className="text-slate-500 text-xs mb-8 leading-relaxed"
+                                    >
+                                        Availability for this system may close soon. If this is relevant, now is the right time to act.
+                                    </motion.p>
+                                )}
+                                
+                                {!showUrgencyMessage && (
+                                    <div className="mb-8" />
+                                )}
 
                                 <button
                                     onClick={handleWhatsAppClick}
                                     className="w-full px-8 py-5 bg-primary hover:bg-primary/90 text-white font-semibold rounded-full transition-all hover:scale-105 flex items-center justify-center gap-3 mb-4 text-lg"
                                 >
                                     <MessageCircle size={22} />
-                                    {ctaText}
+                                    {isExitIntent ? "Check Availability" : ctaText}
                                 </button>
 
                                 <button

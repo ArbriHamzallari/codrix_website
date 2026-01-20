@@ -134,16 +134,22 @@ export default function Contact() {
 
                         <div className="bg-gradient-to-br from-primary to-secondary p-8 rounded-2xl text-white">
                             <h3 className="text-2xl font-bold font-heading mb-4">Limited Capacity</h3>
-                            <p className="mb-6 opacity-90 leading-relaxed">
+                            <p className="mb-4 opacity-90 leading-relaxed">
                                 Accepting new installations for Q1 2026.
+                            </p>
+                            <p className="mb-6 opacity-75 text-sm leading-relaxed">
+                                Predictable monthly investment replaces multiple manual roles.
                             </p>
                             <button
                                 onClick={handleWhatsAppClick}
-                                className="w-full px-6 py-3 bg-white text-primary font-semibold rounded-lg hover:bg-slate-100 transition-colors flex items-center justify-center gap-2"
+                                className="w-full px-6 py-3 bg-white text-primary font-semibold rounded-lg hover:bg-slate-100 transition-colors flex items-center justify-center gap-2 mb-3"
                             >
                                 <MessageCircle size={20} />
                                 Start on WhatsApp
                             </button>
+                            <p className="text-white/60 text-xs text-center">
+                                Availability reviewed weekly. Limited onboarding slots.
+                            </p>
                         </div>
                     </motion.div>
 

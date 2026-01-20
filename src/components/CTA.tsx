@@ -22,7 +22,7 @@ export default function CTA() {
                     Limited capacity for Q1 2026.
                 </p>
 
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
                     <button
                         onClick={handleWhatsAppClick}
                         className="group relative px-10 py-5 bg-primary text-white font-semibold rounded-full overflow-hidden transition-all hover:shadow-[0_0_40px_-10px_rgba(79,110,247,0.5)] hover:scale-105 text-lg"
@@ -33,6 +33,14 @@ export default function CTA() {
                         </span>
                     </button>
                 </div>
+
+                <p className="text-slate-400 text-sm mb-6 max-w-2xl mx-auto">
+                    Systems scale better than staff. Most clients recover the investment through saved time and increased conversions.
+                </p>
+                
+                <p className="text-slate-500 text-xs mb-12 max-w-xl mx-auto">
+                    Availability reviewed weekly. Limited onboarding slots.
+                </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto text-left">
                     <div className="flex items-start gap-3 p-6 bg-white/5 rounded-xl border border-white/5">

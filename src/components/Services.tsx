@@ -118,11 +118,17 @@ export default function Services() {
                 >
                     <button
                         onClick={handleWhatsAppClick}
-                        className="inline-flex items-center gap-3 px-10 py-5 bg-primary hover:bg-primary/90 text-white font-semibold rounded-full transition-all hover:scale-105 shadow-lg shadow-primary/20 text-lg"
+                        className="inline-flex items-center gap-3 px-10 py-5 bg-primary hover:bg-primary/90 text-white font-semibold rounded-full transition-all hover:scale-105 shadow-lg shadow-primary/20 text-lg mb-6"
                     >
                         <MessageCircle size={22} />
                         Discuss System Installation
                     </button>
+                    <p className="text-slate-400 text-sm max-w-xl mx-auto mb-2">
+                        Built to reduce operating costs. One system replaces multiple manual tasks.
+                    </p>
+                    <p className="text-slate-500 text-xs max-w-lg mx-auto">
+                        New partnerships evaluated monthly. Current intake closing soon.
+                    </p>
                 </motion.div>
             </div>
         </section>

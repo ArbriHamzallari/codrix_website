@@ -172,8 +172,11 @@ export default function CRM() {
                                 Why This <span className="text-gradient">Saves Money</span>
                             </h2>
                         </div>
-                        <p className="text-slate-300 text-lg mb-8 leading-relaxed">
+                        <p className="text-slate-300 text-lg mb-4 leading-relaxed">
                             A <span className="font-semibold text-white">predictable ROI engine</span> that pays for itself quickly.
+                        </p>
+                        <p className="text-slate-400 text-sm mb-8 leading-relaxed">
+                            Lower cost than hiring. Built to reduce operating costs. Avoid the cost of missed opportunities.
                         </p>
                         <div className="space-y-4">
                             {financialBenefits.map((benefit, index) => (
@@ -271,7 +274,10 @@ export default function CRM() {
                         Stop losing leads.<br />
                         <span className="text-gradient">Automate your lifecycle.</span>
                     </h3>
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <p className="text-slate-400 text-sm mb-8 max-w-2xl mx-auto">
+                        Avoid the cost of missed opportunities. Lower cost than hiring. Predictable monthly investment.
+                    </p>
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
                         <button
                             onClick={handleContactClick}
                             className="inline-flex items-center gap-3 px-10 py-5 bg-primary hover:bg-primary/90 text-white font-semibold rounded-full transition-all hover:scale-105 shadow-lg shadow-primary/20 text-lg"
@@ -286,6 +292,9 @@ export default function CRM() {
                             {phoneNumber}
                         </button>
                     </div>
+                    <p className="text-slate-500 text-xs">
+                        Availability reviewed weekly. We do not onboard continuously.
+                    </p>
                 </motion.div>
             </div>
 

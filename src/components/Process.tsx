@@ -45,8 +45,11 @@ export default function Process() {
                     <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold font-heading mb-8 tracking-tight">
                         How We <span className="text-gradient">Install</span>
                     </h2>
-                    <p className="text-slate-400 text-lg max-w-2xl mx-auto font-light leading-relaxed">
+                    <p className="text-slate-400 text-lg max-w-2xl mx-auto font-light leading-relaxed mb-4">
                         Operator-led framework. Outcome-focused. Built for scale.
+                    </p>
+                    <p className="text-slate-500 text-sm max-w-xl mx-auto">
+                        Systems designed to pay for themselves. Hiring scales costs. Systems scale profit.
                     </p>
                 </motion.div>
 

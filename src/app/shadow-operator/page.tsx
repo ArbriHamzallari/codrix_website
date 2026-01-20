@@ -2,11 +2,31 @@
 
 import { motion } from 'framer-motion';
 import { UserCheck, MessageCircle, CheckCircle2, X, Settings, DollarSign, Zap, Users, Target, Lock } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import CategoryPopup from '@/components/CategoryPopup';
 
 export default function ShadowOperator() {
+    const [showCapacityWarning, setShowCapacityWarning] = useState(false);
     const whatsappNumber = '+3550689007252';
     const phoneNumber = '+3550689007252';
+    
+    useEffect(() => {
+        const hasShownWarning = localStorage.getItem('shadow_operator_capacity_warning');
+        
+        if (hasShownWarning) {
+            setShowCapacityWarning(true);
+            return;
+        }
+
+        const capacityTimer = setTimeout(() => {
+            setShowCapacityWarning(true);
+            localStorage.setItem('shadow_operator_capacity_warning', 'true');
+        }, 180000); // 3 minutes
+
+        return () => {
+            clearTimeout(capacityTimer);
+        };
+    }, []);
     
     const handleApplyClick = () => {
         const whatsappMessage = encodeURIComponent('I am interested in applying for the Shadow Operator Program. I have an existing audience and am serious about building something real.');
@@ -326,11 +346,26 @@ export default function ShadowOperator() {
                     </h3>
                     <button
                         onClick={handleApplyClick}
-                        className="inline-flex items-center gap-3 px-12 py-6 bg-primary hover:bg-primary/90 text-white font-bold rounded-full transition-all hover:scale-105 shadow-lg shadow-primary/20 text-xl"
+                        className="inline-flex items-center gap-3 px-12 py-6 bg-primary hover:bg-primary/90 text-white font-bold rounded-full transition-all hover:scale-105 shadow-lg shadow-primary/20 text-xl mb-6"
                     >
                         <UserCheck size={24} />
                         Apply for Consideration
                     </button>
+                    
+                    <p className="text-slate-400 text-sm mb-4">
+                        Applications are reviewed in limited windows. If you are seeing this page, there is currently capacity.
+                    </p>
+                    
+                    {showCapacityWarning && (
+                        <motion.p
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.8 }}
+                            className="text-slate-500 text-xs"
+                        >
+                            Once capacity is reached, applications are paused.
+                        </motion.p>
+                    )}
                 </motion.div>
             </div>
 
