@@ -68,11 +68,11 @@ export default function Contact() {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-16"
                 >
-                    <h1 className="text-4xl md:text-6xl font-bold font-heading mb-6 tracking-tight">
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-heading mb-8 tracking-tight">
                         Install <span className="text-gradient">Your System</span>
                     </h1>
-                    <p className="text-slate-400 text-xl max-w-3xl mx-auto font-light leading-relaxed">
-                        Discuss installing a revenue system for your business. We work with serious businesses and creators who understand leverage.
+                    <p className="text-slate-400 text-xl max-w-2xl mx-auto font-light leading-relaxed">
+                        We work with serious businesses who understand leverage.
                     </p>
                     
                     <motion.div
@@ -135,7 +135,7 @@ export default function Contact() {
                         <div className="bg-gradient-to-br from-primary to-secondary p-8 rounded-2xl text-white">
                             <h3 className="text-2xl font-bold font-heading mb-4">Limited Capacity</h3>
                             <p className="mb-6 opacity-90 leading-relaxed">
-                                We&apos;re accepting new installations for Q1 2026. We work with serious businesses and creators who understand leverage.
+                                Accepting new installations for Q1 2026.
                             </p>
                             <button
                                 onClick={handleWhatsAppClick}

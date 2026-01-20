@@ -22,7 +22,7 @@ export default function Footer() {
                             <span className="text-xl font-bold font-heading text-white">Codrix</span>
                         </Link>
                         <p className="text-slate-400 text-sm leading-relaxed font-light">
-                            Operator-led company that installs revenue systems for serious businesses and creators.
+                            Installing revenue systems for serious businesses.
                         </p>
                     </div>
 

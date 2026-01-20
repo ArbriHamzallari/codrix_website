@@ -15,11 +15,11 @@ export default function CTA() {
             <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-primary/10 blur-[150px] rounded-full" />
 
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-                <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold font-heading mb-8 leading-tight tracking-tight">
-                    Ready to Install <span className="text-gradient">Your System?</span>
+                <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold font-heading mb-12 leading-tight tracking-tight">
+                    Install <span className="text-gradient">Your System</span>
                 </h2>
-                <p className="text-xl md:text-2xl text-slate-300 mb-12 max-w-3xl mx-auto font-light leading-relaxed">
-                    We work with serious businesses and creators who understand leverage. Limited capacity for Q1 2026.
+                <p className="text-xl text-slate-300 mb-16 max-w-2xl mx-auto font-light leading-relaxed">
+                    Limited capacity for Q1 2026.
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">

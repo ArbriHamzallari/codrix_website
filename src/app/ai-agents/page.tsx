@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { MessageCircle, CheckCircle2, TrendingUp, DollarSign, Users, Zap, ArrowRight, Clock, Globe, Headphones } from 'lucide-react';
+import CategoryPopup from '@/components/CategoryPopup';
 
 export default function AIAgents() {
     const whatsappNumber = '+3550689007252';
@@ -52,9 +53,9 @@ export default function AIAgents() {
     const financialBenefits = [
         'Hiring and managing staff is expensive and scales poorly. The AI Agent replaces a large portion of front-desk and customer support work.',
         'Businesses typically reduce staff workload by up to 60%, allowing existing employees to focus on higher-value work that drives revenue.',
-        'The cost of the AI Agent is significantly lower than hiring even a single employee — with none of the overhead, training, or management complexity.',
+        'The cost of the AI Agent is significantly lower than hiring even a single employee. No overhead, training, or management complexity.',
         'There are no sick days, no vacations, no night shifts, and no human error. The AI Agent operates consistently, every hour of every day.',
-        'This is a predictable monthly operating cost that replaces unpredictable staffing expenses — giving you better control over your bottom line.'
+        'A predictable monthly operating cost that replaces unpredictable staffing expenses. Better control over your bottom line.'
     ];
 
     const revenueDrivers = [
@@ -105,11 +106,12 @@ export default function AIAgents() {
                     transition={{ duration: 0.6 }}
                     className="mb-20 text-center"
                 >
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-6 tracking-tight leading-tight">
-                        AI Agents That Reduce Costs<br />and Increase Revenue
+                    <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold font-heading mb-8 tracking-tight leading-tight">
+                        AI Agents That Reduce Costs<br />
+                        <span className="text-gradient">and Increase Revenue</span>
                     </h1>
-                    <p className="text-slate-300 text-xl md:text-2xl max-w-4xl mx-auto font-light leading-relaxed mb-10">
-                        Our AI Agents handle customer communication, bookings, and follow-ups automatically — allowing businesses to grow without increasing staff.
+                    <p className="text-slate-300 text-xl max-w-3xl mx-auto font-light leading-relaxed mb-12">
+                        AI Agents handle customer communication, bookings, and follow-ups automatically. Businesses grow without increasing staff.
                     </p>
                     <motion.div
                         initial={{ opacity: 0, y: 10 }}
@@ -133,11 +135,11 @@ export default function AIAgents() {
                     transition={{ duration: 0.6, delay: 0.2 }}
                     className="mb-20"
                 >
-                    <h2 className="text-3xl md:text-4xl font-bold font-heading mb-6 text-white">
-                        What Our AI Agents Handle For You
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-8 text-white">
+                        What Our AI Agents Handle
                     </h2>
-                    <p className="text-slate-400 text-lg mb-10 max-w-3xl leading-relaxed">
-                        The AI Agent acts as a digital front desk and sales assistant that works 24/7, handling the repetitive communication tasks that consume your staff's time.
+                    <p className="text-slate-400 text-lg mb-12 max-w-2xl leading-relaxed">
+                        Digital front desk and sales assistant. Works 24/7. Handles repetitive communication tasks.
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {agentCapabilities.map((capability, index) => {
@@ -175,12 +177,12 @@ export default function AIAgents() {
                     <div className="bg-gradient-to-br from-primary/10 to-secondary/10 p-10 rounded-2xl border border-primary/20">
                         <div className="flex items-center gap-3 mb-6">
                             <DollarSign className="w-8 h-8 text-primary" />
-                            <h2 className="text-3xl md:text-4xl font-bold font-heading text-white">
-                                Why This Saves You Money
+                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-white">
+                                Why This <span className="text-gradient">Saves You Money</span>
                             </h2>
                         </div>
                         <p className="text-slate-300 text-lg mb-8 leading-relaxed">
-                            A <span className="font-semibold text-white">predictable monthly operating cost</span> that replaces unpredictable staffing expenses.
+                            <span className="font-semibold text-white">Predictable monthly cost</span> that replaces unpredictable staffing expenses.
                         </p>
                         <div className="space-y-4">
                             {financialBenefits.map((benefit, index) => (
@@ -208,12 +210,12 @@ export default function AIAgents() {
                 >
                     <div className="flex items-center gap-3 mb-6">
                         <TrendingUp className="w-8 h-8 text-primary" />
-                        <h2 className="text-3xl md:text-4xl font-bold font-heading text-white">
-                            How the AI Agent Increases Revenue
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-white">
+                            How This <span className="text-gradient">Increases Revenue</span>
                         </h2>
                     </div>
-                    <p className="text-slate-400 text-lg mb-10 max-w-3xl leading-relaxed">
-                        The AI Agent doesn't just save money — it helps close more deals.
+                    <p className="text-slate-400 text-lg mb-12 max-w-2xl leading-relaxed">
+                        The AI Agent doesn't just save money. It helps close more deals.
                     </p>
                     <div className="space-y-6">
                         {revenueDrivers.map((driver, index) => (
@@ -247,8 +249,8 @@ export default function AIAgents() {
                 >
                     <div className="flex items-center gap-3 mb-6">
                         <Users className="w-8 h-8 text-primary" />
-                        <h2 className="text-3xl md:text-4xl font-bold font-heading text-white">
-                            Who Benefits Most From AI Agents
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-white">
+                            Who This <span className="text-gradient">Is For</span>
                         </h2>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -274,12 +276,10 @@ export default function AIAgents() {
                     transition={{ duration: 0.6, delay: 1.0 }}
                     className="text-center p-12 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl border border-primary/20"
                 >
-                    <h3 className="text-3xl md:text-4xl font-bold font-heading mb-6 text-white leading-tight">
-                        Replace manual work with an AI Agent<br />that pays for itself.
+                    <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-12 text-white leading-tight">
+                        Replace manual work with an AI Agent<br />
+                        <span className="text-gradient">that pays for itself</span>
                     </h3>
-                    <p className="text-slate-300 mb-8 text-lg max-w-2xl mx-auto leading-relaxed">
-                        Contact us to discuss how AI Agents can reduce your operational costs and increase your revenue.
-                    </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                         <button
                             onClick={handleContactClick}
@@ -297,6 +297,17 @@ export default function AIAgents() {
                     </div>
                 </motion.div>
             </div>
+
+            <CategoryPopup
+                pageKey="ai-agents"
+                title="Still paying staff to answer the same questions?"
+                body="Our AI Agents handle conversations, bookings, and follow-ups automatically. Most businesses save significant costs within the first months."
+                ctaText="See If AI Makes Sense For Me"
+                whatsappNumber="+3550689007252"
+                whatsappMessage="I'd like to discuss how AI Agents can reduce costs and increase revenue for my business."
+                triggerType="timer-or-exit"
+                timerDelay={8000}
+            />
         </section>
     );
 }

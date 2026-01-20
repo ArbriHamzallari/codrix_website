@@ -31,19 +31,19 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold font-heading tracking-tight mb-8 leading-tight text-white"
+                    className="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold font-heading tracking-tight mb-12 leading-tight text-white"
                 >
-                    We Build AI Systems That Replace Manual Work<br className="hidden md:block" />
-                    <span className="text-gradient">& Turn Attention Into Revenue</span>
+                    Revenue Systems<br className="hidden md:block" />
+                    <span className="text-gradient">That Replace Work</span>
                 </motion.h1>
 
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="text-lg md:text-xl lg:text-2xl text-slate-300 max-w-4xl mx-auto mb-12 leading-relaxed font-light"
+                    className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto mb-16 leading-relaxed font-light"
                 >
-                    For clinics, hotels, restaurants & creators who want more clients — without hiring more staff.
+                    For serious businesses who want leverage, not staff.
                 </motion.p>
 
                 <motion.div

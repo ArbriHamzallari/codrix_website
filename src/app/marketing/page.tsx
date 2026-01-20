@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { TrendingUp, MessageCircle, Zap, Target, ArrowRight, DollarSign, Phone } from 'lucide-react';
+import CategoryPopup from '@/components/CategoryPopup';
 
 export default function Marketing() {
     const whatsappNumber = '+3550689007252';
@@ -58,12 +59,12 @@ export default function Marketing() {
                     transition={{ duration: 0.6 }}
                     className="mb-24 text-center"
                 >
-                    <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold font-heading mb-8 tracking-tight leading-tight">
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold font-heading mb-12 tracking-tight leading-tight">
                         Marketing That Brings<br />
                         <span className="text-gradient">Clients Every Month</span>
                     </h1>
-                    <p className="text-slate-300 text-2xl md:text-3xl max-w-4xl mx-auto font-light leading-relaxed mb-12">
-                        We build automated marketing systems that attract, qualify, and convert clients without constant manual effort.
+                    <p className="text-slate-300 text-xl md:text-2xl max-w-3xl mx-auto font-light leading-relaxed mb-16">
+                        Automated marketing systems that attract, qualify, and convert clients.
                     </p>
                     <motion.div
                         initial={{ opacity: 0, y: 10 }}
@@ -87,10 +88,9 @@ export default function Marketing() {
                     transition={{ duration: 0.6, delay: 0.2 }}
                     className="mb-24"
                 >
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-8 text-white text-center leading-tight">
-                        Most Businesses Don't Have a<br />
-                        <span className="text-gradient">Marketing Problem.</span><br />
-                        They Have a <span className="text-primary">System Problem.</span>
+                    <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading mb-12 text-white text-center leading-tight">
+                        Not a <span className="text-gradient">Marketing Problem</span>.<br />
+                        A <span className="text-primary">System Problem</span>.
                     </h2>
                     <div className="max-w-3xl mx-auto space-y-6 mt-12">
                         <div className="text-center">
@@ -118,7 +118,7 @@ export default function Marketing() {
                     transition={{ duration: 0.6, delay: 0.4 }}
                     className="mb-24"
                 >
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-12 text-white text-center leading-tight">
+                    <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading mb-12 text-white text-center leading-tight">
                         How Our <span className="text-gradient">Marketing System</span> Works
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -161,7 +161,7 @@ export default function Marketing() {
                     <div className="bg-gradient-to-br from-primary/20 to-secondary/20 p-12 rounded-3xl border-2 border-primary/30">
                         <div className="flex items-center gap-4 mb-8 justify-center">
                             <DollarSign className="w-10 h-10 text-primary" />
-                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-white text-center leading-tight">
+                            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading text-white text-center leading-tight">
                                 Why This Makes You <span className="text-gradient">More Money</span>
                             </h2>
                         </div>
@@ -197,9 +197,9 @@ export default function Marketing() {
                     transition={{ duration: 0.6, delay: 0.8 }}
                     className="text-center p-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl border-2 border-primary/20"
                 >
-                    <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-8 text-white leading-tight">
+                    <h3 className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading mb-12 text-white leading-tight">
                         Stop relying on luck.<br />
-                        <span className="text-gradient">Build a marketing system.</span>
+                        <span className="text-gradient">Build a marketing system</span>
                     </h3>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-12">
                         <button
@@ -219,6 +219,17 @@ export default function Marketing() {
                     </div>
                 </motion.div>
             </div>
+
+            <CategoryPopup
+                pageKey="marketing"
+                title="Marketing should not be unpredictable."
+                body="We build systems that bring clients every month without relying on luck or constant campaigns."
+                ctaText="Build My Marketing System"
+                whatsappNumber="+3550689007252"
+                whatsappMessage="I want to build a marketing system that brings clients every month."
+                triggerType="timer"
+                timerDelay={8000}
+            />
         </section>
     );
 }

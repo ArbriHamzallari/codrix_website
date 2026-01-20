@@ -16,7 +16,7 @@ const systems = [
     {
         icon: <Zap className="w-10 h-10 text-secondary" />,
         title: 'Automation',
-        description: 'Replace manual processes with intelligent workflows. Systems that handle operations, reduce costs, and create leverage—no human input required.',
+        description: 'Replace manual processes with intelligent workflows. Systems that handle operations, reduce costs, and create leverage. No human input required.',
         leverage: '60-80% operational cost reduction',
     },
     {
@@ -29,7 +29,7 @@ const systems = [
     {
         icon: <TrendingUp className="w-10 h-10 text-green-400" />,
         title: 'Marketing Systems',
-        description: 'End-to-end marketing systems that generate, nurture, and convert leads. From awareness to revenue—fully automated and optimized for performance.',
+        description: 'End-to-end marketing systems that generate, nurture, and convert leads. From awareness to revenue. Fully automated and optimized for performance.',
         leverage: '2-4x increase in qualified leads',
         href: '/marketing',
     },
@@ -42,14 +42,14 @@ const systems = [
     {
         icon: <Globe className="w-10 h-10 text-blue-400" />,
         title: 'Website Development',
-        description: 'High-converting websites that turn traffic into revenue. Not just design—complete revenue systems optimized for conversion and growth.',
+        description: 'High-converting websites that turn traffic into revenue. Complete revenue systems optimized for conversion and growth.',
         leverage: 'Revenue-focused platforms',
         href: '/websites',
     },
     {
         icon: <UserCheck className="w-10 h-10 text-red-400" />,
         title: 'Shadow Operator',
-        description: 'Long-term partnership where we operate as your technical co-founder. We build systems, manage operations, and drive growth—you focus on what you do best.',
+        description: 'Long-term partnership where we operate as your technical co-founder. We build systems, manage operations, and drive growth. You focus on what you do best.',
         leverage: 'Operator-level leverage',
         href: '/shadow-operator',
         className: 'md:col-span-3'
@@ -75,11 +75,11 @@ export default function Systems() {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-20"
                 >
-                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-heading mb-6 tracking-tight">
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-heading mb-8 tracking-tight">
                         Systems We <span className="text-gradient">Install</span>
                     </h1>
-                    <p className="text-slate-400 text-xl md:text-2xl max-w-3xl mx-auto font-light leading-relaxed mb-12">
-                        We don&apos;t sell services. We install revenue systems and create leverage for serious businesses.
+                    <p className="text-slate-400 text-xl max-w-2xl mx-auto font-light leading-relaxed mb-16">
+                        We install revenue systems and create leverage for serious businesses.
                     </p>
                     <button
                         onClick={handleWhatsAppClick}

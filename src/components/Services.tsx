@@ -8,43 +8,43 @@ const systems = [
     {
         icon: <Database className="w-8 h-8 text-primary" />,
         title: 'CRM Systems',
-        description: 'Complete customer relationship management systems that track, nurture, and convert leads automatically. Built for scale, designed for results.',
+        description: 'Complete systems that track, nurture, and convert leads automatically. Built for scale.',
         leverage: 'Automated lead management & conversion',
     },
     {
         icon: <Zap className="w-8 h-8 text-secondary" />,
         title: 'Automation',
-        description: 'Replace manual processes with intelligent workflows. Systems that handle operations, reduce costs, and create leverage—no human input required.',
+        description: 'Replace manual processes with intelligent workflows. Reduce costs. Create leverage.',
         leverage: '60-80% operational cost reduction',
     },
     {
         icon: <Bot className="w-8 h-8 text-purple-400" />,
         title: 'AI Agents',
-        description: 'Intelligent AI agents that handle customer inquiries, qualify leads, schedule appointments, and manage operations 24/7. Your business never sleeps.',
+        description: 'Intelligent agents that handle inquiries, qualify leads, and schedule appointments 24/7.',
         leverage: '24/7 automated operations',
     },
     {
         icon: <TrendingUp className="w-8 h-8 text-green-400" />,
         title: 'Marketing Systems',
-        description: 'End-to-end marketing systems that generate, nurture, and convert leads. From awareness to revenue—fully automated and optimized for performance.',
+        description: 'End-to-end systems that generate, nurture, and convert leads. Fully automated.',
         leverage: '2-4x increase in qualified leads',
     },
     {
         icon: <Users className="w-8 h-8 text-orange-400" />,
         title: 'Lead Generation',
-        description: 'Systems that consistently deliver high-quality leads. We build the infrastructure, you close the deals. Predictable pipeline, scalable growth.',
+        description: 'Systems that consistently deliver high-quality leads. Predictable pipeline. Scalable growth.',
         leverage: 'Predictable lead flow',
     },
     {
         icon: <Globe className="w-8 h-8 text-blue-400" />,
         title: 'Website Development',
-        description: 'High-converting websites that turn traffic into revenue. Not just design—complete revenue systems optimized for conversion and growth.',
+        description: 'High-converting websites that turn traffic into revenue. Complete revenue systems optimized for conversion and growth.',
         leverage: 'Revenue-focused platforms',
     },
     {
         icon: <UserCheck className="w-8 h-8 text-red-400" />,
         title: 'Shadow Operator',
-        description: 'Long-term partnership where we operate as your technical co-founder. We build systems, manage operations, and drive growth—you focus on what you do best.',
+        description: 'Long-term partnership. We operate as your technical co-founder. We build systems, manage operations, and drive growth.',
         leverage: 'Operator-level leverage',
         className: 'md:col-span-3'
     },
@@ -70,11 +70,11 @@ export default function Services() {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-20"
                 >
-                    <h2 className="text-4xl md:text-6xl font-bold font-heading mb-6 tracking-tight">
+                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold font-heading mb-8 tracking-tight">
                         Systems We <span className="text-gradient">Install</span>
                     </h2>
-                    <p className="text-slate-400 text-xl max-w-3xl mx-auto font-light leading-relaxed">
-                        We don&apos;t sell services. We install revenue systems and create leverage for serious businesses.
+                    <p className="text-slate-400 text-xl max-w-2xl mx-auto font-light leading-relaxed">
+                        We install revenue systems and create leverage for serious businesses.
                     </p>
                 </motion.div>
 

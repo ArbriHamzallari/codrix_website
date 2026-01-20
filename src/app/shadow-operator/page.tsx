@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { UserCheck, MessageCircle, CheckCircle2, X, Settings, DollarSign, Zap, Users, Target, Lock } from 'lucide-react';
+import CategoryPopup from '@/components/CategoryPopup';
 
 export default function ShadowOperator() {
     const whatsappNumber = '+3550689007252';
@@ -76,15 +77,12 @@ export default function ShadowOperator() {
                     transition={{ duration: 0.6 }}
                     className="mb-24 text-center"
                 >
-                    <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold font-heading mb-8 tracking-tight leading-tight">
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold font-heading mb-12 tracking-tight leading-tight">
                         Shadow Operator<br />
                         <span className="text-gradient">Program</span>
                     </h1>
-                    <p className="text-slate-300 text-2xl md:text-3xl max-w-4xl mx-auto font-light leading-relaxed mb-6">
+                    <p className="text-slate-300 text-xl md:text-2xl max-w-3xl mx-auto font-light leading-relaxed mb-16">
                         You build the audience. We build and operate the business.
-                    </p>
-                    <p className="text-slate-400 text-lg md:text-xl max-w-3xl mx-auto font-light mb-12">
-                        This is a private partnership for creators and operators who want leverage, not more work.
                     </p>
                     <motion.div
                         initial={{ opacity: 0, y: 10 }}
@@ -108,14 +106,14 @@ export default function ShadowOperator() {
                     transition={{ duration: 0.6, delay: 0.2 }}
                     className="mb-24"
                 >
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-12 text-white text-center leading-tight">
+                    <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading mb-12 text-white text-center leading-tight">
                         What a <span className="text-gradient">Shadow Operator</span> Is
                     </h2>
-                    <div className="max-w-4xl mx-auto space-y-8 text-center">
-                        <p className="text-slate-300 text-2xl md:text-3xl font-light leading-relaxed">
-                            A Shadow Operator builds and runs the systems behind a personal brand or audience.
+                    <div className="max-w-3xl mx-auto space-y-8 text-center">
+                        <p className="text-slate-300 text-xl md:text-2xl font-light leading-relaxed">
+                            We build and run the systems behind a personal brand or audience.
                         </p>
-                        <p className="text-slate-300 text-2xl md:text-3xl font-light leading-relaxed">
+                        <p className="text-slate-300 text-xl md:text-2xl font-light leading-relaxed">
                             We handle monetization, infrastructure, automation, and operations.
                         </p>
                         <div className="pt-8 space-y-6">
@@ -123,7 +121,7 @@ export default function ShadowOperator() {
                                 You focus on <span className="text-gradient">visibility</span>.
                             </p>
                             <p className="text-white text-3xl md:text-4xl font-semibold">
-                                We focus on turning <span className="text-primary">attention into revenue</span>.
+                                We turn <span className="text-primary">attention into revenue</span>.
                             </p>
                         </div>
                     </div>
@@ -136,7 +134,7 @@ export default function ShadowOperator() {
                     transition={{ duration: 0.6, delay: 0.4 }}
                     className="mb-24"
                 >
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-12 text-white text-center leading-tight">
+                    <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading mb-12 text-white text-center leading-tight">
                         What We Operate<br />
                         <span className="text-gradient">Behind the Scenes</span>
                     </h2>
@@ -180,7 +178,7 @@ export default function ShadowOperator() {
                     transition={{ duration: 0.6, delay: 0.6 }}
                     className="mb-24"
                 >
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-12 text-white text-center leading-tight">
+                    <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading mb-12 text-white text-center leading-tight">
                         How the <span className="text-gradient">Partnership</span> Works
                     </h2>
                     <div className="max-w-4xl mx-auto space-y-6">
@@ -208,7 +206,7 @@ export default function ShadowOperator() {
                     className="mb-24"
                 >
                     <div className="bg-gradient-to-br from-primary/20 to-secondary/20 p-12 rounded-3xl border-2 border-primary/30">
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-12 text-white text-center leading-tight">
+                        <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading mb-12 text-white text-center leading-tight">
                             How This Is <span className="text-gradient">Structured</span>
                         </h2>
                         <div className="max-w-4xl mx-auto space-y-8">
@@ -244,7 +242,7 @@ export default function ShadowOperator() {
                     transition={{ duration: 0.6, delay: 1.0 }}
                     className="mb-24"
                 >
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-12 text-white text-center leading-tight">
+                    <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading mb-12 text-white text-center leading-tight">
                         Who This <span className="text-gradient">Is For</span>
                     </h2>
                     <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -270,7 +268,7 @@ export default function ShadowOperator() {
                     transition={{ duration: 0.6, delay: 1.2 }}
                     className="mb-24"
                 >
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-12 text-white text-center leading-tight">
+                    <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading mb-12 text-white text-center leading-tight">
                         Who This <span className="text-primary">Is Not For</span>
                     </h2>
                     <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -299,19 +297,16 @@ export default function ShadowOperator() {
                     <div className="bg-dark-lighter p-12 rounded-3xl border-2 border-white/10">
                         <div className="flex items-center gap-4 mb-8 justify-center">
                             <Lock className="w-10 h-10 text-primary" />
-                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-white text-center leading-tight">
+                            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading text-white text-center leading-tight">
                                 <span className="text-gradient">Limited Capacity</span>
                             </h2>
                         </div>
-                        <div className="max-w-4xl mx-auto text-center space-y-8">
-                            <p className="text-slate-300 text-2xl md:text-3xl font-light leading-relaxed">
+                        <div className="max-w-3xl mx-auto text-center space-y-8">
+                            <p className="text-slate-300 text-xl md:text-2xl font-light leading-relaxed">
                                 We only accept a small number of partners at a time.
                             </p>
-                            <p className="text-slate-300 text-2xl md:text-3xl font-light leading-relaxed">
-                                Each partnership requires deep involvement and long-term thinking.
-                            </p>
                             <p className="text-white text-3xl md:text-4xl font-semibold leading-tight mt-8">
-                                If you are accepted, it is because we believe the upside justifies the investment.
+                                If you are accepted, we believe the upside justifies the investment.
                             </p>
                         </div>
                     </div>
@@ -324,10 +319,10 @@ export default function ShadowOperator() {
                     transition={{ duration: 0.6, delay: 1.6 }}
                     className="text-center p-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl border-2 border-primary/20"
                 >
-                    <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-12 text-white leading-tight">
+                    <h3 className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading mb-12 text-white leading-tight">
                         Apply Only If You Are<br />
                         <span className="text-gradient">Serious About Building</span><br />
-                        Something Real.
+                        Something Real
                     </h3>
                     <button
                         onClick={handleApplyClick}
@@ -338,6 +333,17 @@ export default function ShadowOperator() {
                     </button>
                 </motion.div>
             </div>
+
+            <CategoryPopup
+                pageKey="shadow-operator"
+                title="This is not available to everyone."
+                body="We only partner when the upside justifies the investment. If you are serious about monetization, apply for consideration."
+                ctaText="Apply for Consideration"
+                whatsappNumber="+3550689007252"
+                whatsappMessage="I am interested in applying for the Shadow Operator Program. I have an existing audience and am serious about building something real."
+                triggerType="timer"
+                timerDelay={10000}
+            />
         </section>
     );
 }

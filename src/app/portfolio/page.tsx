@@ -102,11 +102,11 @@ export default function PortfolioPage() {
                         <ArrowLeft size={20} />
                         Back to Home
                     </Link>
-                    <h1 className="text-4xl md:text-6xl font-bold font-heading mb-6">
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-heading mb-8">
                         Our <span className="text-gradient">Portfolio</span>
                     </h1>
                     <p className="text-slate-400 text-lg max-w-2xl">
-                        A collection of our recent projects delivering tangible results and exceptional user experiences.
+                        Recent projects delivering tangible results.
                     </p>
                 </motion.div>
 

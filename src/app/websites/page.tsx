@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Globe, MessageCircle, CheckCircle2, X, Layout, Zap, TrendingUp, Target, DollarSign, Phone } from 'lucide-react';
+import CategoryPopup from '@/components/CategoryPopup';
 
 export default function Websites() {
     const whatsappNumber = '+3550689007252';
@@ -89,12 +90,12 @@ export default function Websites() {
                     transition={{ duration: 0.6 }}
                     className="mb-24 text-center"
                 >
-                    <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold font-heading mb-8 tracking-tight leading-tight">
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold font-heading mb-12 tracking-tight leading-tight">
                         Websites Built as<br />
                         <span className="text-gradient">Revenue Infrastructure</span>
                     </h1>
-                    <p className="text-slate-300 text-2xl md:text-3xl max-w-4xl mx-auto font-light leading-relaxed mb-12">
-                        Not design projects. Not templates. Systems engineered to convert attention into clients.
+                    <p className="text-slate-300 text-xl md:text-2xl max-w-3xl mx-auto font-light leading-relaxed mb-16">
+                        Systems engineered to convert attention into clients.
                     </p>
                     <motion.div
                         initial={{ opacity: 0, y: 10 }}
@@ -118,9 +119,9 @@ export default function Websites() {
                     transition={{ duration: 0.6, delay: 0.2 }}
                     className="mb-24"
                 >
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-12 text-white text-center leading-tight">
-                        Most Websites Look Good<br />
-                        and Still <span className="text-primary">Lose Money</span>
+                    <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading mb-16 text-white text-center leading-tight">
+                        Most Websites<br />
+                        <span className="text-primary">Lose Money</span>
                     </h2>
                     <div className="max-w-4xl mx-auto space-y-8 mt-12">
                         {problemPoints.map((point, index) => (
@@ -151,22 +152,16 @@ export default function Websites() {
                     transition={{ duration: 0.6, delay: 0.4 }}
                     className="mb-24"
                 >
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-12 text-white text-center leading-tight">
+                    <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading mb-12 text-white text-center leading-tight">
                         How We <span className="text-gradient">Approach</span> Websites
                     </h2>
-                    <div className="max-w-4xl mx-auto space-y-8 text-center">
-                        <p className="text-slate-300 text-2xl md:text-3xl font-light leading-relaxed">
-                            We do not build websites as standalone assets.
-                        </p>
-                        <p className="text-slate-300 text-2xl md:text-3xl font-light leading-relaxed">
-                            We build them as part of a larger operating system.
+                    <div className="max-w-3xl mx-auto space-y-8 text-center">
+                        <p className="text-slate-300 text-xl md:text-2xl font-light leading-relaxed">
+                            We build websites as part of a larger operating system.
                         </p>
                         <div className="pt-8 space-y-6">
                             <p className="text-white text-3xl md:text-4xl font-semibold">
-                                Every page exists for one reason.
-                            </p>
-                            <p className="text-white text-3xl md:text-4xl font-semibold">
-                                To move the visitor closer to a <span className="text-gradient">business outcome</span>.
+                                Every page moves visitors closer to a <span className="text-gradient">business outcome</span>.
                             </p>
                         </div>
                     </div>
@@ -179,7 +174,7 @@ export default function Websites() {
                     transition={{ duration: 0.6, delay: 0.6 }}
                     className="mb-24"
                 >
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-12 text-white text-center leading-tight">
+                    <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading mb-12 text-white text-center leading-tight">
                         What a <span className="text-gradient">Codrix Website</span> Includes
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -222,7 +217,7 @@ export default function Websites() {
                     <div className="bg-gradient-to-br from-primary/20 to-secondary/20 p-12 rounded-3xl border-2 border-primary/30">
                         <div className="flex items-center gap-4 mb-8 justify-center">
                             <DollarSign className="w-10 h-10 text-primary" />
-                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-white text-center leading-tight">
+                            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading text-white text-center leading-tight">
                                 How This <span className="text-gradient">Pays for Itself</span>
                             </h2>
                         </div>
@@ -257,7 +252,7 @@ export default function Websites() {
                     transition={{ duration: 0.6, delay: 1.0 }}
                     className="mb-24"
                 >
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-12 text-white text-center leading-tight">
+                    <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading mb-12 text-white text-center leading-tight">
                         How We <span className="text-gradient">Work</span>
                     </h2>
                     <div className="max-w-4xl mx-auto space-y-8">
@@ -284,7 +279,7 @@ export default function Websites() {
                     transition={{ duration: 0.6, delay: 1.2 }}
                     className="mb-24"
                 >
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-12 text-white text-center leading-tight">
+                    <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading mb-12 text-white text-center leading-tight">
                         Who This <span className="text-gradient">Is For</span>
                     </h2>
                     <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -310,7 +305,7 @@ export default function Websites() {
                     transition={{ duration: 0.6, delay: 1.4 }}
                     className="mb-24"
                 >
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-12 text-white text-center leading-tight">
+                    <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading mb-12 text-white text-center leading-tight">
                         Who This <span className="text-primary">Is Not For</span>
                     </h2>
                     <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -336,9 +331,9 @@ export default function Websites() {
                     transition={{ duration: 0.6, delay: 1.6 }}
                     className="text-center p-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl border-2 border-primary/20"
                 >
-                    <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-12 text-white leading-tight">
+                    <h3 className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading mb-12 text-white leading-tight">
                         Build a Website<br />
-                        That <span className="text-gradient">Actually Works</span>.
+                        That <span className="text-gradient">Actually Works</span>
                     </h3>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-12">
                         <button
@@ -358,6 +353,17 @@ export default function Websites() {
                     </div>
                 </motion.div>
             </div>
+
+            <CategoryPopup
+                pageKey="websites"
+                title="Is your website actually making you money?"
+                body="A premium website should convert visitors into leads automatically. Most sites never do."
+                ctaText="Turn My Website Into an Asset"
+                whatsappNumber="+3550689007252"
+                whatsappMessage="I want to discuss building a website that works as revenue infrastructure for my business."
+                triggerType="scroll-or-exit"
+                scrollThreshold={60}
+            />
         </section>
     );
 }

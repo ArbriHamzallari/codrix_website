@@ -45,11 +45,11 @@ export default function Testimonials() {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-3xl md:text-5xl font-bold font-heading mb-6">
+                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold font-heading mb-8">
                         What Our <span className="text-gradient">Clients Say</span>
                     </h2>
                     <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-                        Businesses that built revenue systems with us. Real results from real clients.
+                        Real results from real clients.
                     </p>
                 </motion.div>
 

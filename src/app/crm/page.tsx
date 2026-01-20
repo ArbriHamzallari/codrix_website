@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { MessageCircle, CheckCircle2, TrendingUp, DollarSign, Users, Zap, ArrowRight } from 'lucide-react';
+import CategoryPopup from '@/components/CategoryPopup';
 
 export default function CRM() {
     const whatsappNumber = '+3550689007252';
@@ -23,11 +24,11 @@ export default function CRM() {
         },
         {
             title: 'Smart Lead Prioritization',
-            description: 'Lead information is automatically organized, prioritized, and segmented — helping you know who is ready to buy now vs who needs a follow-up nurture message.'
+            description: 'Lead information is automatically organized, prioritized, and segmented. You know who is ready to buy now versus who needs nurturing.'
         },
         {
             title: 'Automated Follow-Up',
-            description: 'Workflows trigger automated messages (email, SMS, WhatsApp) so follow-up happens instantly, every time — without manual work.'
+            description: 'Workflows trigger automated messages instantly. Email, SMS, WhatsApp. No manual work required.'
         },
         {
             title: 'Self-Service Scheduling',
@@ -39,16 +40,16 @@ export default function CRM() {
         },
         {
             title: 'Intelligent Nudging',
-            description: 'The system automatically nudges leads toward booking or purchase based on behavior — boosting revenue without extra staff.'
+            description: 'The system automatically nudges leads toward booking or purchase based on behavior. Boosts revenue without extra staff.'
         }
     ];
 
     const financialBenefits = [
-        'Traditional business models waste money on manual follow-up and lost opportunities. Our CRM eliminates that waste.',
-        'Instead of hiring multiple staff for messaging, reminders, lead tracking, and scheduling, this system automates all of it — reducing staffing costs significantly.',
-        'With automated follow-ups and multi-channel reach, more leads turn into paying clients — directly increasing revenue.',
-        'You never pay for missed calls, lost texts, or human delays — the system ensures every lead is touched automatically.',
-        'Manual errors, forgotten messages, and scheduling conflicts melt away, replaced with workflows that nurture clients 24/7.'
+        'Traditional models waste money on manual follow-up and lost opportunities. Our CRM eliminates that waste.',
+        'Instead of hiring staff for messaging, reminders, and scheduling, this system automates all of it. Significant cost reduction.',
+        'Automated follow-ups and multi-channel reach turn more leads into paying clients. Direct revenue increase.',
+        'No missed calls, lost texts, or human delays. The system ensures every lead is touched automatically.',
+        'Manual errors and forgotten messages disappear. Workflows nurture clients 24/7.'
     ];
 
     const revenueDrivers = [
@@ -60,7 +61,7 @@ export default function CRM() {
         {
             benefit: 'Automated follow-up',
             outcome: 'more booked clients',
-            explanation: 'Consistent, timely nurturing means leads never go cold — they stay engaged until they\'re ready to buy.'
+            explanation: 'Consistent, timely nurturing means leads never go cold. They stay engaged until they\'re ready to buy.'
         },
         {
             benefit: 'Self-service scheduling',
@@ -99,11 +100,12 @@ export default function CRM() {
                     transition={{ duration: 0.6 }}
                     className="mb-20 text-center"
                 >
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-6 tracking-tight leading-tight">
-                        CRM That Turns Leads Into Revenue<br />— Without Manual Follow-Up
+                    <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold font-heading mb-8 tracking-tight leading-tight">
+                        CRM That Turns Leads<br />
+                        <span className="text-gradient">Into Revenue</span>
                     </h1>
-                    <p className="text-slate-300 text-xl md:text-2xl max-w-4xl mx-auto font-light leading-relaxed mb-10">
-                        A premium client management system built to reduce wasted work, automate follow-up, and increase conversions — all in one place.
+                    <p className="text-slate-300 text-xl max-w-3xl mx-auto font-light leading-relaxed mb-12">
+                        Automated client management. No manual follow-up required.
                     </p>
                     <motion.div
                         initial={{ opacity: 0, y: 10 }}
@@ -127,11 +129,11 @@ export default function CRM() {
                     transition={{ duration: 0.6, delay: 0.2 }}
                     className="mb-20"
                 >
-                    <h2 className="text-3xl md:text-4xl font-bold font-heading mb-6 text-white">
-                        What Our CRM System Handles For You
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-8 text-white">
+                        What Our CRM Handles
                     </h2>
-                    <p className="text-slate-400 text-lg mb-10 max-w-3xl leading-relaxed">
-                        Your business finally has an always-on, revenue-focused assistant that runs behind the scenes.
+                    <p className="text-slate-400 text-lg mb-12 max-w-2xl leading-relaxed">
+                        Always-on revenue assistant that runs behind the scenes.
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {systemCapabilities.map((capability, index) => (
@@ -166,12 +168,12 @@ export default function CRM() {
                     <div className="bg-gradient-to-br from-primary/10 to-secondary/10 p-10 rounded-2xl border border-primary/20">
                         <div className="flex items-center gap-3 mb-6">
                             <DollarSign className="w-8 h-8 text-primary" />
-                            <h2 className="text-3xl md:text-4xl font-bold font-heading text-white">
-                                Why This System Saves Money and Increases Revenue
+                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-white">
+                                Why This <span className="text-gradient">Saves Money</span>
                             </h2>
                         </div>
                         <p className="text-slate-300 text-lg mb-8 leading-relaxed">
-                            This is not an expense — it's a <span className="font-semibold text-white">predictable ROI engine</span> that pays for itself quickly.
+                            A <span className="font-semibold text-white">predictable ROI engine</span> that pays for itself quickly.
                         </p>
                         <div className="space-y-4">
                             {financialBenefits.map((benefit, index) => (
@@ -199,8 +201,8 @@ export default function CRM() {
                 >
                     <div className="flex items-center gap-3 mb-6">
                         <TrendingUp className="w-8 h-8 text-primary" />
-                        <h2 className="text-3xl md:text-4xl font-bold font-heading text-white">
-                            How Our CRM Drives Revenue — Not Just Organizes Contacts
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-white">
+                            How This <span className="text-gradient">Drives Revenue</span>
                         </h2>
                     </div>
                     <div className="space-y-6">
@@ -235,12 +237,12 @@ export default function CRM() {
                 >
                     <div className="flex items-center gap-3 mb-6">
                         <Users className="w-8 h-8 text-primary" />
-                        <h2 className="text-3xl md:text-4xl font-bold font-heading text-white">
-                            Who Profits Most From This CRM System
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-white">
+                            Who This <span className="text-gradient">Is For</span>
                         </h2>
                     </div>
-                    <p className="text-slate-400 text-lg mb-8 max-w-3xl leading-relaxed">
-                        This system is designed for serious growth — not hobby projects.
+                    <p className="text-slate-400 text-lg mb-8 max-w-2xl leading-relaxed">
+                        Designed for serious growth, not hobby projects.
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {targetBusinesses.map((business, index) => (
@@ -265,12 +267,10 @@ export default function CRM() {
                     transition={{ duration: 0.6, delay: 1.0 }}
                     className="text-center p-12 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl border border-primary/20"
                 >
-                    <h3 className="text-3xl md:text-4xl font-bold font-heading mb-6 text-white leading-tight">
-                        Stop losing leads and money.<br />Upgrade to a CRM that runs your customer lifecycle automatically.
+                    <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-8 text-white leading-tight">
+                        Stop losing leads.<br />
+                        <span className="text-gradient">Automate your lifecycle.</span>
                     </h3>
-                    <p className="text-slate-300 mb-8 text-lg max-w-2xl mx-auto leading-relaxed">
-                        Contact us to discuss how this system can transform your revenue and reduce your operational costs.
-                    </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                         <button
                             onClick={handleContactClick}
@@ -288,6 +288,17 @@ export default function CRM() {
                     </div>
                 </motion.div>
             </div>
+
+            <CategoryPopup
+                pageKey="crm"
+                title="How many leads are you losing right now?"
+                body="A CRM system ensures every inquiry is captured, followed up, and converted. Lost leads cost more than any system ever will."
+                ctaText="Fix My Lead System"
+                whatsappNumber="+3550689007252"
+                whatsappMessage="I'd like to discuss how your CRM system can help my business save money and increase revenue."
+                triggerType="scroll-or-exit"
+                scrollThreshold={50}
+            />
         </section>
     );
 }

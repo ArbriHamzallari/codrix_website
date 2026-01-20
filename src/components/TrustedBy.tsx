@@ -36,7 +36,7 @@ export default function TrustedBy() {
                     className="text-center"
                 >
                     <p className="text-slate-300 text-lg md:text-xl mb-6 max-w-3xl mx-auto leading-relaxed font-light">
-                        We install revenue systems for serious businesses and creators who want leverage.
+                        Revenue systems for serious businesses who want leverage.
                     </p>
                     
                     <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8 mt-8">
