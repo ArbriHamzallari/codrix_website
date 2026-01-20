@@ -1,35 +1,30 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Building2, ShoppingBag, Rocket, Code, Briefcase } from 'lucide-react';
+import { Building2, UtensilsCrossed, Heart, Users } from 'lucide-react';
 
 const clientCategories = [
     {
-        icon: <Rocket className="w-6 h-6 text-primary" />,
-        label: 'Startups'
+        icon: <Heart className="w-6 h-6 text-primary" />,
+        label: 'Clinics'
     },
     {
-        icon: <ShoppingBag className="w-6 h-6 text-secondary" />,
-        label: 'E-commerce Brands'
+        icon: <Building2 className="w-6 h-6 text-secondary" />,
+        label: 'Hotels'
     },
     {
-        icon: <Code className="w-6 h-6 text-purple-400" />,
-        label: 'Tech Innovators'
+        icon: <UtensilsCrossed className="w-6 h-6 text-purple-400" />,
+        label: 'Restaurants'
     },
     {
-        icon: <Building2 className="w-6 h-6 text-green-400" />,
-        label: 'Enterprise Companies'
-    },
-    {
-        icon: <Briefcase className="w-6 h-6 text-orange-400" />,
-        label: 'Growing Businesses'
+        icon: <Users className="w-6 h-6 text-green-400" />,
+        label: 'Creators'
     }
 ];
 
 export default function TrustedBy() {
     return (
         <section className="py-16 bg-dark-lighter relative overflow-hidden">
-            {/* Background Gradients */}
             <div className="absolute top-0 left-1/2 w-1/3 h-1/3 bg-primary/5 blur-[100px] rounded-full pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -40,8 +35,8 @@ export default function TrustedBy() {
                     transition={{ duration: 0.6 }}
                     className="text-center"
                 >
-                    <p className="text-slate-300 text-lg md:text-xl mb-6 max-w-3xl mx-auto leading-relaxed">
-                        Trusted by forward-thinking businesses worldwide to deliver exceptional digital experiences.
+                    <p className="text-slate-300 text-lg md:text-xl mb-6 max-w-3xl mx-auto leading-relaxed font-light">
+                        We install revenue systems for serious businesses and creators who want leverage.
                     </p>
                     
                     <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8 mt-8">

@@ -4,7 +4,7 @@ import { MessageCircle, CheckCircle2 } from 'lucide-react';
 
 export default function CTA() {
     const whatsappNumber = '+355682061862';
-    const whatsappMessage = encodeURIComponent('I\'m ready to discuss how Codrix can help grow my business.');
+    const whatsappMessage = encodeURIComponent('I\'m ready to discuss installing a revenue system for my business.');
 
     const handleWhatsAppClick = () => {
         window.open(`https://wa.me/${whatsappNumber.replace(/\D/g, '')}?text=${whatsappMessage}`, '_blank');
@@ -15,11 +15,11 @@ export default function CTA() {
             <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-primary/10 blur-[150px] rounded-full" />
 
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-                <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold font-heading mb-8 leading-tight">
-                    Ready to Build <span className="text-gradient">Your System?</span>
+                <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold font-heading mb-8 leading-tight tracking-tight">
+                    Ready to Install <span className="text-gradient">Your System?</span>
                 </h2>
                 <p className="text-xl md:text-2xl text-slate-300 mb-12 max-w-3xl mx-auto font-light leading-relaxed">
-                    Limited spots available. We work with businesses that are serious about growth.
+                    We work with serious businesses and creators who understand leverage. Limited capacity for Q1 2026.
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
@@ -38,22 +38,22 @@ export default function CTA() {
                     <div className="flex items-start gap-3 p-6 bg-white/5 rounded-xl border border-white/5">
                         <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
                         <div>
-                            <div className="font-semibold text-white mb-1">No Commitment</div>
-                            <div className="text-sm text-slate-400">Free consultation to discuss your project</div>
+                            <div className="font-semibold text-white mb-1">Operator-Led</div>
+                            <div className="text-sm text-slate-400">Founders who install systems, not agencies</div>
                         </div>
                     </div>
                     <div className="flex items-start gap-3 p-6 bg-white/5 rounded-xl border border-white/5">
                         <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
                         <div>
-                            <div className="font-semibold text-white mb-1">Fast Response</div>
-                            <div className="text-sm text-slate-400">We respond within 24 hours</div>
+                            <div className="font-semibold text-white mb-1">Systems Focus</div>
+                            <div className="text-sm text-slate-400">We install leverage, not deliver services</div>
                         </div>
                     </div>
                     <div className="flex items-start gap-3 p-6 bg-white/5 rounded-xl border border-white/5">
                         <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
                         <div>
-                            <div className="font-semibold text-white mb-1">Outcome-Focused</div>
-                            <div className="text-sm text-slate-400">We build systems that drive results</div>
+                            <div className="font-semibold text-white mb-1">Premium Results</div>
+                            <div className="text-sm text-slate-400">Measurable outcomes, not deliverables</div>
                         </div>
                     </div>
                 </div>

@@ -21,18 +21,18 @@ export default function Footer() {
                             </div>
                             <span className="text-xl font-bold font-heading text-white">Codrix</span>
                         </Link>
-                        <p className="text-slate-400 text-sm leading-relaxed">
-                            Premium website development for ambitious businesses in worldwide.
+                        <p className="text-slate-400 text-sm leading-relaxed font-light">
+                            Operator-led company that installs revenue systems for serious businesses and creators.
                         </p>
                     </div>
 
                     <div>
-                        <h3 className="text-white font-bold mb-4 font-heading">Services</h3>
+                        <h3 className="text-white font-bold mb-4 font-heading">Systems</h3>
                         <ul className="space-y-2 text-sm text-slate-400">
-                            <li><Link href="#" className="hover:text-primary transition-colors">Web Development</Link></li>
-                            <li><Link href="#" className="hover:text-primary transition-colors">UI/UX Design</Link></li>
-                            <li><Link href="#" className="hover:text-primary transition-colors">E-Commerce</Link></li>
-                            <li><Link href="#" className="hover:text-primary transition-colors">SEO Optimization</Link></li>
+                            <li><Link href="/#services" className="hover:text-primary transition-colors">CRM Systems</Link></li>
+                            <li><Link href="/#services" className="hover:text-primary transition-colors">Automation</Link></li>
+                            <li><Link href="/#services" className="hover:text-primary transition-colors">AI Agents</Link></li>
+                            <li><Link href="/#services" className="hover:text-primary transition-colors">Shadow Operator</Link></li>
                         </ul>
                     </div>
 

@@ -6,8 +6,8 @@ const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit', display: 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 
 export const metadata: Metadata = {
-  title: 'Codrix Solutions | Revenue Systems That Scale',
-  description: 'Operator-led development agency. We build revenue systems, not websites. Transform your business with systems that generate revenue and create competitive advantages.',
+  title: 'Codrix Solutions | Premium Revenue Systems & Leverage',
+  description: 'Operator-led company that installs revenue systems for serious businesses. CRM systems, automation, AI agents, and Shadow Operator partnerships. We create leverage, not services.',
 };
 
 import Navbar from '@/components/Navbar';

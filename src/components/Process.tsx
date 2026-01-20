@@ -7,27 +7,27 @@ import { cn } from '@/lib/utils';
 const steps = [
     {
         icon: <MessageSquare className="w-6 h-6" />,
-        title: 'Strategy & Systems',
-        description: 'We analyze your business model to identify revenue opportunities and build systems that create measurable outcomes. Not just features—systems that scale.',
-        outcome: 'Clear roadmap to revenue',
+        title: 'Discovery & Architecture',
+        description: 'We analyze your business model, identify leverage points, and architect systems that create measurable outcomes. This isn&apos;t consulting—it&apos;s system design.',
+        outcome: 'Clear system architecture',
     },
     {
         icon: <PenTool className="w-6 h-6" />,
-        title: 'Design for Conversion',
-        description: 'Every pixel is designed to convert. We build high-converting interfaces that turn visitors into customers, not just pretty designs.',
-        outcome: 'Higher conversion rates',
+        title: 'Build & Integrate',
+        description: 'We build revenue systems using proven tech stacks and integrate them into your existing operations. Your system handles the work—you handle the strategy.',
+        outcome: 'Seamless system integration',
     },
     {
         icon: <Code2 className="w-6 h-6" />,
-        title: 'Build & Automate',
-        description: 'We build fast, scalable systems using proven tech stacks. Your platform handles operations, reduces costs, and frees your team.',
-        outcome: 'Operational efficiency',
+        title: 'Install & Configure',
+        description: 'We install your systems, configure automation, and ensure everything operates without your input. This is where leverage is created.',
+        outcome: 'Automated operations',
     },
     {
         icon: <Rocket className="w-6 h-6" />,
-        title: 'Launch & Optimize',
-        description: 'We launch your system, track performance, and continuously optimize for better results. Your success is our metric.',
-        outcome: 'Sustained growth',
+        title: 'Operate & Scale',
+        description: 'We monitor performance, optimize systems, and scale operations. As your Shadow Operator, we ensure your systems perform at peak efficiency.',
+        outcome: 'Sustained leverage',
     }
 ];
 
@@ -42,11 +42,11 @@ export default function Process() {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-3xl md:text-5xl font-bold font-heading mb-6">
-                        How We <span className="text-gradient">Deliver</span>
+                    <h2 className="text-3xl md:text-5xl font-bold font-heading mb-6 tracking-tight">
+                        How We <span className="text-gradient">Install</span>
                     </h2>
-                    <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-                        A proven system to build revenue-generating platforms. Every step is designed to create measurable business outcomes.
+                    <p className="text-slate-400 text-xl max-w-3xl mx-auto font-light leading-relaxed">
+                        Our proven framework for installing revenue systems. Operator-led, outcome-focused, built for scale.
                     </p>
                 </motion.div>
 

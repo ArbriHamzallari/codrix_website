@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 export default function ConversionPopup() {
     const [isOpen, setIsOpen] = useState(false);
     const whatsappNumber = '+355682061862';
-    const whatsappMessage = encodeURIComponent('Hi, I\'d like to discuss how Codrix can help grow my business.');
+    const whatsappMessage = encodeURIComponent('I\'d like to discuss installing a revenue system for my business.');
 
     useEffect(() => {
         // Show popup after 3 seconds or when user scrolls 50% down
@@ -85,11 +85,11 @@ export default function ConversionPopup() {
                                 </div>
 
                                 <h3 className="text-2xl font-bold font-heading text-white mb-3">
-                                    Ready to Build Your System?
+                                    Ready to Install Your System?
                                 </h3>
                                 
                                 <p className="text-slate-300 mb-6 leading-relaxed">
-                                    Let&apos;s discuss how we can help you build a revenue system that scales your business.
+                                    Let&apos;s discuss installing a revenue system that creates leverage for your business.
                                 </p>
 
                                 <button

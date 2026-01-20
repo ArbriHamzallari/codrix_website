@@ -15,7 +15,7 @@ export default function Contact() {
     const [errorMessage, setErrorMessage] = useState('');
     
     const whatsappNumber = '+355682061862';
-    const whatsappMessage = encodeURIComponent('Hi, I\'d like to discuss how Codrix can help grow my business.');
+    const whatsappMessage = encodeURIComponent('I\'d like to discuss installing a revenue system for my business.');
 
     const handleWhatsAppClick = () => {
         window.open(`https://wa.me/${whatsappNumber.replace(/\D/g, '')}?text=${whatsappMessage}`, '_blank');
@@ -68,11 +68,11 @@ export default function Contact() {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-16"
                 >
-                    <h1 className="text-4xl md:text-6xl font-bold font-heading mb-6">
-                        Let&apos;s Build <span className="text-gradient">Your System</span>
+                    <h1 className="text-4xl md:text-6xl font-bold font-heading mb-6 tracking-tight">
+                        Install <span className="text-gradient">Your System</span>
                     </h1>
-                    <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-                        Discuss your project with us. We respond within 24 hours and work with businesses serious about growth.
+                    <p className="text-slate-400 text-xl max-w-3xl mx-auto font-light leading-relaxed">
+                        Discuss installing a revenue system for your business. We work with serious businesses and creators who understand leverage.
                     </p>
                     
                     <motion.div
@@ -133,9 +133,9 @@ export default function Contact() {
                         </div>
 
                         <div className="bg-gradient-to-br from-primary to-secondary p-8 rounded-2xl text-white">
-                            <h3 className="text-2xl font-bold font-heading mb-4">Limited Availability</h3>
-                            <p className="mb-6 opacity-90">
-                                We&apos;re accepting new projects for Q1 2026. We work with businesses that are serious about growth and ready to build systems that scale.
+                            <h3 className="text-2xl font-bold font-heading mb-4">Limited Capacity</h3>
+                            <p className="mb-6 opacity-90 leading-relaxed">
+                                We&apos;re accepting new installations for Q1 2026. We work with serious businesses and creators who understand leverage.
                             </p>
                             <button
                                 onClick={handleWhatsAppClick}
