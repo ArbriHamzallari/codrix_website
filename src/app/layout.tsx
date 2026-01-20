@@ -6,12 +6,13 @@ const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit', display: 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 
 export const metadata: Metadata = {
-  title: 'Codrix Solutions | Premium Website Development Worldwide',
-  description: 'The top-tier website development partner for businesses worldwide. Modern, fast, and conversion-focused websites.',
+  title: 'Codrix Solutions | Revenue Systems That Scale',
+  description: 'Operator-led development agency. We build revenue systems, not websites. Transform your business with systems that generate revenue and create competitive advantages.',
 };
 
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import ConversionPopup from '@/components/ConversionPopup';
 
 export default function RootLayout({
   children,
@@ -26,6 +27,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <ConversionPopup />
       </body>
     </html>
   );

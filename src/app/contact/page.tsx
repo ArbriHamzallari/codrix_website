@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Phone, Send, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Mail, MapPin, Phone, Send, Loader2, CheckCircle2, AlertCircle, MessageCircle } from 'lucide-react';
 import { useState } from 'react';
 
 export default function Contact() {
@@ -13,6 +13,13 @@ export default function Contact() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
     const [errorMessage, setErrorMessage] = useState('');
+    
+    const whatsappNumber = '+355682061862';
+    const whatsappMessage = encodeURIComponent('Hi, I\'d like to discuss how Codrix can help grow my business.');
+
+    const handleWhatsAppClick = () => {
+        window.open(`https://wa.me/${whatsappNumber.replace(/\D/g, '')}?text=${whatsappMessage}`, '_blank');
+    };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -62,11 +69,26 @@ export default function Contact() {
                     className="text-center mb-16"
                 >
                     <h1 className="text-4xl md:text-6xl font-bold font-heading mb-6">
-                        Get in <span className="text-gradient">Touch</span>
+                        Let&apos;s Build <span className="text-gradient">Your System</span>
                     </h1>
                     <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-                        Have a project in mind? We&apos;d love to hear from you.
+                        Discuss your project with us. We respond within 24 hours and work with businesses serious about growth.
                     </p>
+                    
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="mt-8 flex justify-center"
+                    >
+                        <button
+                            onClick={handleWhatsAppClick}
+                            className="inline-flex items-center gap-3 px-8 py-4 bg-primary hover:bg-primary/90 text-white font-semibold rounded-full transition-all hover:scale-105 shadow-lg shadow-primary/20"
+                        >
+                            <MessageCircle size={20} />
+                            Start on WhatsApp (Recommended)
+                        </button>
+                    </motion.div>
                 </motion.div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -111,10 +133,17 @@ export default function Contact() {
                         </div>
 
                         <div className="bg-gradient-to-br from-primary to-secondary p-8 rounded-2xl text-white">
-                            <h3 className="text-2xl font-bold font-heading mb-4">Ready to start?</h3>
+                            <h3 className="text-2xl font-bold font-heading mb-4">Limited Availability</h3>
                             <p className="mb-6 opacity-90">
-                                We are currently accepting new projects for Q1 2026. Secure your spot today.
+                                We&apos;re accepting new projects for Q1 2026. We work with businesses that are serious about growth and ready to build systems that scale.
                             </p>
+                            <button
+                                onClick={handleWhatsAppClick}
+                                className="w-full px-6 py-3 bg-white text-primary font-semibold rounded-lg hover:bg-slate-100 transition-colors flex items-center justify-center gap-2"
+                            >
+                                <MessageCircle size={20} />
+                                Start on WhatsApp
+                            </button>
                         </div>
                     </motion.div>
 

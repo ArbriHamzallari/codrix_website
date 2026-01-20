@@ -51,10 +51,10 @@ export default function Portfolio() {
                         transition={{ duration: 0.6 }}
                     >
                         <h2 className="text-3xl md:text-5xl font-bold font-heading mb-4">
-                            Featured <span className="text-gradient">Work</span>
+                            Featured <span className="text-gradient">Results</span>
                         </h2>
                         <p className="text-slate-400 text-lg max-w-xl">
-                            A selection of our recent projects delivering tangible results.
+                            Systems we&apos;ve built. Results they&apos;ve generated.
                         </p>
                     </motion.div>
 

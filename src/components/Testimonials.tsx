@@ -49,7 +49,7 @@ export default function Testimonials() {
                         What Our <span className="text-gradient">Clients Say</span>
                     </h2>
                     <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-                        Don't just take our word for it. Hear from businesses that have transformed their digital presence with us.
+                        Businesses that built revenue systems with us. Real results from real clients.
                     </p>
                 </motion.div>
 

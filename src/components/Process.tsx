@@ -7,23 +7,27 @@ import { cn } from '@/lib/utils';
 const steps = [
     {
         icon: <MessageSquare className="w-6 h-6" />,
-        title: 'Discovery',
-        description: 'We dive deep into your business goals, target audience, and brand identity to define a winning strategy.',
+        title: 'Strategy & Systems',
+        description: 'We analyze your business model to identify revenue opportunities and build systems that create measurable outcomes. Not just features—systems that scale.',
+        outcome: 'Clear roadmap to revenue',
     },
     {
         icon: <PenTool className="w-6 h-6" />,
-        title: 'Design',
-        description: 'We craft intuitive, high-fidelity prototypes that align with your vision and user needs.',
+        title: 'Design for Conversion',
+        description: 'Every pixel is designed to convert. We build high-converting interfaces that turn visitors into customers, not just pretty designs.',
+        outcome: 'Higher conversion rates',
     },
     {
         icon: <Code2 className="w-6 h-6" />,
-        title: 'Development',
-        description: 'We build your site using the latest tech stack (Next.js, Tailwind) ensuring speed, security, and scalability.',
+        title: 'Build & Automate',
+        description: 'We build fast, scalable systems using proven tech stacks. Your platform handles operations, reduces costs, and frees your team.',
+        outcome: 'Operational efficiency',
     },
     {
         icon: <Rocket className="w-6 h-6" />,
-        title: 'Launch & Scale',
-        description: 'We deploy your site, optimize for search engines, and provide ongoing support to help you grow.',
+        title: 'Launch & Optimize',
+        description: 'We launch your system, track performance, and continuously optimize for better results. Your success is our metric.',
+        outcome: 'Sustained growth',
     }
 ];
 
@@ -39,10 +43,10 @@ export default function Process() {
                     className="text-center mb-16"
                 >
                     <h2 className="text-3xl md:text-5xl font-bold font-heading mb-6">
-                        Our <span className="text-gradient">Process</span>
+                        How We <span className="text-gradient">Deliver</span>
                     </h2>
                     <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-                        From concept to launch, we guide you through every step of the journey.
+                        A proven system to build revenue-generating platforms. Every step is designed to create measurable business outcomes.
                     </p>
                 </motion.div>
 
@@ -69,9 +73,14 @@ export default function Process() {
                                 <h3 className="text-xl font-bold font-heading mb-3 text-white">
                                     {step.title}
                                 </h3>
-                                <p className="text-slate-400 text-sm leading-relaxed">
+                                <p className="text-slate-400 text-sm leading-relaxed mb-4">
                                     {step.description}
                                 </p>
+                                <div className="pt-4 border-t border-white/5">
+                                    <span className="text-xs font-semibold text-primary uppercase tracking-wide">
+                                        {step.outcome}
+                                    </span>
+                                </div>
                             </motion.div>
                         ))}
                     </div>
