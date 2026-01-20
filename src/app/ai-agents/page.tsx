@@ -1,91 +1,300 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Bot, MessageCircle, CheckCircle2, ArrowLeft } from 'lucide-react';
-import Link from 'next/link';
+import { MessageCircle, CheckCircle2, TrendingUp, DollarSign, Users, Zap, ArrowRight, Clock, Globe, Headphones } from 'lucide-react';
 
 export default function AIAgents() {
-    const whatsappNumber = '+355682061862';
-    const whatsappMessage = encodeURIComponent('I\'d like to discuss installing AI agents for my business.');
-
-    const handleWhatsAppClick = () => {
+    const whatsappNumber = '+3550689007252';
+    const phoneNumber = '+3550689007252';
+    
+    const handleContactClick = () => {
+        const whatsappMessage = encodeURIComponent('I\'d like to discuss how AI Agents can reduce costs and increase revenue for my business.');
         window.open(`https://wa.me/${whatsappNumber.replace(/\D/g, '')}?text=${whatsappMessage}`, '_blank');
     };
 
-    const features = [
-        '24/7 customer inquiry handling',
-        'Lead qualification and routing',
-        'Automated appointment scheduling',
-        'Customer support automation',
-        'Intelligent conversation flows',
-        'Integration with your existing systems',
+    const handlePhoneClick = () => {
+        window.open(`tel:${phoneNumber.replace(/\s/g, '')}`, '_self');
+    };
+
+    const agentCapabilities = [
+        {
+            icon: Clock,
+            title: 'Instant 24/7 Response',
+            description: 'The AI Agent responds instantly to customers 24/7 on WhatsApp, phone, and website, ensuring no inquiry is missed and no potential client is lost due to delayed replies.'
+        },
+        {
+            icon: Globe,
+            title: 'Multilingual Communication',
+            description: 'It communicates with international clients in foreign languages, allowing businesses to serve tourists and international customers without hiring multilingual staff.'
+        },
+        {
+            icon: CheckCircle2,
+            title: 'Automated Booking Confirmation',
+            description: 'It automatically confirms bookings and reservations, reducing manual coordination, errors, and staff workload.'
+        },
+        {
+            icon: Headphones,
+            title: 'Instant Question Resolution',
+            description: 'It answers repetitive questions instantly, freeing staff from answering the same inquiries hundreds of times per month.'
+        },
+        {
+            icon: TrendingUp,
+            title: 'Proactive Client Nurturing',
+            description: 'It proactively informs customers about offers, services, and availability, helping convert interest into paid bookings.'
+        },
+        {
+            icon: Users,
+            title: 'Smart Lead Routing',
+            description: 'It organizes and routes conversations so only serious or qualified clients reach your team.'
+        }
+    ];
+
+    const financialBenefits = [
+        'Hiring and managing staff is expensive and scales poorly. The AI Agent replaces a large portion of front-desk and customer support work.',
+        'Businesses typically reduce staff workload by up to 60%, allowing existing employees to focus on higher-value work that drives revenue.',
+        'The cost of the AI Agent is significantly lower than hiring even a single employee — with none of the overhead, training, or management complexity.',
+        'There are no sick days, no vacations, no night shifts, and no human error. The AI Agent operates consistently, every hour of every day.',
+        'This is a predictable monthly operating cost that replaces unpredictable staffing expenses — giving you better control over your bottom line.'
+    ];
+
+    const revenueDrivers = [
+        {
+            benefit: 'Faster responses',
+            outcome: 'higher conversion rates',
+            explanation: 'When customers get immediate answers, they\'re more likely to book. Delayed responses often mean lost sales.'
+        },
+        {
+            benefit: '24/7 availability',
+            outcome: 'captures clients outside working hours',
+            explanation: 'International clients in different time zones can book at their convenience, not yours. This captures revenue that would otherwise be missed.'
+        },
+        {
+            benefit: 'Automated follow-ups',
+            outcome: 'reduces lost leads',
+            explanation: 'The AI Agent never forgets to follow up. Every lead is nurtured systematically until it converts or is explicitly declined.'
+        },
+        {
+            benefit: 'Consistent communication',
+            outcome: 'improves customer trust and professionalism',
+            explanation: 'Professional, accurate responses every time build confidence in your brand and increase booking likelihood.'
+        },
+        {
+            benefit: 'International client support',
+            outcome: 'increases booking likelihood',
+            explanation: 'When international clients feel understood and supported immediately, they\'re more likely to commit to bookings and reservations.'
+        }
+    ];
+
+    const targetBusinesses = [
+        'Clinics working with international clients',
+        'Hotels and hospitality businesses',
+        'Restaurants handling high inquiry volume',
+        'Service businesses relying on bookings and reservations',
+        'Businesses looking to grow without hiring more staff'
     ];
 
     return (
         <section className="min-h-screen pt-32 pb-20 bg-dark relative overflow-hidden">
             <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
 
-            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <Link href="/systems" className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors mb-12">
-                    <ArrowLeft size={18} />
-                    Back to Systems
-                </Link>
-
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                {/* Hero Section */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="mb-16"
+                    className="mb-20 text-center"
                 >
-                    <div className="mb-8 p-4 rounded-xl bg-purple-400/10 w-fit">
-                        <Bot className="w-12 h-12 text-purple-400" />
-                    </div>
-                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-heading mb-6 tracking-tight">
-                        AI <span className="text-gradient">Agents</span>
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-6 tracking-tight leading-tight">
+                        AI Agents That Reduce Costs<br />and Increase Revenue
                     </h1>
-                    <p className="text-slate-400 text-xl md:text-2xl max-w-3xl font-light leading-relaxed mb-12">
-                        Intelligent AI agents that handle customer inquiries, qualify leads, schedule appointments, and manage operations 24/7. Your business never sleeps.
+                    <p className="text-slate-300 text-xl md:text-2xl max-w-4xl mx-auto font-light leading-relaxed mb-10">
+                        Our AI Agents handle customer communication, bookings, and follow-ups automatically — allowing businesses to grow without increasing staff.
                     </p>
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                    >
+                        <button
+                            onClick={handleContactClick}
+                            className="inline-flex items-center gap-3 px-10 py-5 bg-primary hover:bg-primary/90 text-white font-semibold rounded-full transition-all hover:scale-105 shadow-lg shadow-primary/20 text-lg"
+                        >
+                            <MessageCircle size={22} />
+                            Talk to Us
+                        </button>
+                    </motion.div>
                 </motion.div>
 
+                {/* What The AI Agent Does */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="mb-16"
+                    className="mb-20"
                 >
-                    <h2 className="text-2xl md:text-3xl font-bold font-heading mb-8 text-white">
-                        What We Install
+                    <h2 className="text-3xl md:text-4xl font-bold font-heading mb-6 text-white">
+                        What Our AI Agents Handle For You
                     </h2>
+                    <p className="text-slate-400 text-lg mb-10 max-w-3xl leading-relaxed">
+                        The AI Agent acts as a digital front desk and sales assistant that works 24/7, handling the repetitive communication tasks that consume your staff's time.
+                    </p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {features.map((feature, index) => (
-                            <div key={index} className="flex items-start gap-4 p-6 bg-white/5 rounded-xl border border-white/5">
-                                <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
-                                <p className="text-slate-300 text-lg">{feature}</p>
-                            </div>
-                        ))}
+                        {agentCapabilities.map((capability, index) => {
+                            const IconComponent = capability.icon;
+                            return (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                                    className="p-6 bg-dark-lighter rounded-xl border border-white/5 hover:border-primary/20 transition-colors"
+                                >
+                                    <div className="flex items-start gap-4">
+                                        <div className="p-2 bg-primary/10 rounded-lg flex-shrink-0">
+                                            <IconComponent className="w-5 h-5 text-primary" />
+                                        </div>
+                                        <div>
+                                            <h3 className="font-semibold text-white mb-2 text-lg">{capability.title}</h3>
+                                            <p className="text-slate-300 leading-relaxed">{capability.description}</p>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            );
+                        })}
                     </div>
                 </motion.div>
 
+                {/* The Financial Impact */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.4 }}
-                    className="text-center p-10 bg-white/5 rounded-2xl border border-white/5"
+                    className="mb-20"
                 >
-                    <h3 className="text-2xl font-bold font-heading mb-4 text-white">
-                        Ready to Install AI Agents?
-                    </h3>
-                    <p className="text-slate-400 mb-8 text-lg max-w-2xl mx-auto">
-                        Let&apos;s discuss how AI agents can automate operations and create leverage.
+                    <div className="bg-gradient-to-br from-primary/10 to-secondary/10 p-10 rounded-2xl border border-primary/20">
+                        <div className="flex items-center gap-3 mb-6">
+                            <DollarSign className="w-8 h-8 text-primary" />
+                            <h2 className="text-3xl md:text-4xl font-bold font-heading text-white">
+                                Why This Saves You Money
+                            </h2>
+                        </div>
+                        <p className="text-slate-300 text-lg mb-8 leading-relaxed">
+                            A <span className="font-semibold text-white">predictable monthly operating cost</span> that replaces unpredictable staffing expenses.
+                        </p>
+                        <div className="space-y-4">
+                            {financialBenefits.map((benefit, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, x: -20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+                                    className="flex items-start gap-4"
+                                >
+                                    <ArrowRight className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+                                    <p className="text-slate-300 leading-relaxed">{benefit}</p>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                </motion.div>
+
+                {/* How It Makes You More Money */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.6 }}
+                    className="mb-20"
+                >
+                    <div className="flex items-center gap-3 mb-6">
+                        <TrendingUp className="w-8 h-8 text-primary" />
+                        <h2 className="text-3xl md:text-4xl font-bold font-heading text-white">
+                            How the AI Agent Increases Revenue
+                        </h2>
+                    </div>
+                    <p className="text-slate-400 text-lg mb-10 max-w-3xl leading-relaxed">
+                        The AI Agent doesn't just save money — it helps close more deals.
                     </p>
-                    <button
-                        onClick={handleWhatsAppClick}
-                        className="inline-flex items-center gap-3 px-10 py-5 bg-primary hover:bg-primary/90 text-white font-semibold rounded-full transition-all hover:scale-105 shadow-lg shadow-primary/20 text-lg"
-                    >
-                        <MessageCircle size={22} />
-                        Start on WhatsApp
-                    </button>
+                    <div className="space-y-6">
+                        {revenueDrivers.map((driver, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
+                                className="p-6 bg-dark-lighter rounded-xl border border-white/5"
+                            >
+                                <div className="flex items-start gap-4">
+                                    <Zap className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                                    <div>
+                                        <p className="text-white font-semibold mb-2 text-lg">
+                                            <span className="text-primary">{driver.benefit}</span> = <span className="text-gradient">{driver.outcome}</span>
+                                        </p>
+                                        <p className="text-slate-300 leading-relaxed">{driver.explanation}</p>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </motion.div>
+
+                {/* Who This Is For */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.8 }}
+                    className="mb-20"
+                >
+                    <div className="flex items-center gap-3 mb-6">
+                        <Users className="w-8 h-8 text-primary" />
+                        <h2 className="text-3xl md:text-4xl font-bold font-heading text-white">
+                            Who Benefits Most From AI Agents
+                        </h2>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {targetBusinesses.map((business, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.5, delay: 0.9 + index * 0.1 }}
+                                className="flex items-center gap-4 p-4 bg-white/5 rounded-lg border border-white/5"
+                            >
+                                <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
+                                <p className="text-slate-300">{business}</p>
+                            </motion.div>
+                        ))}
+                    </div>
+                </motion.div>
+
+                {/* Final CTA */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 1.0 }}
+                    className="text-center p-12 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl border border-primary/20"
+                >
+                    <h3 className="text-3xl md:text-4xl font-bold font-heading mb-6 text-white leading-tight">
+                        Replace manual work with an AI Agent<br />that pays for itself.
+                    </h3>
+                    <p className="text-slate-300 mb-8 text-lg max-w-2xl mx-auto leading-relaxed">
+                        Contact us to discuss how AI Agents can reduce your operational costs and increase your revenue.
+                    </p>
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <button
+                            onClick={handleContactClick}
+                            className="inline-flex items-center gap-3 px-10 py-5 bg-primary hover:bg-primary/90 text-white font-semibold rounded-full transition-all hover:scale-105 shadow-lg shadow-primary/20 text-lg"
+                        >
+                            <MessageCircle size={22} />
+                            Contact Us
+                        </button>
+                        <button
+                            onClick={handlePhoneClick}
+                            className="inline-flex items-center gap-3 px-10 py-5 text-white font-medium hover:text-primary transition-colors border border-white/20 hover:border-primary/50 rounded-full text-lg"
+                        >
+                            {phoneNumber}
+                        </button>
+                    </div>
                 </motion.div>
             </div>
         </section>
