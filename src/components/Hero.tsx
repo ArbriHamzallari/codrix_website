@@ -11,6 +11,13 @@ export default function Hero() {
         window.open(`https://wa.me/${whatsappNumber.replace(/\D/g, '')}?text=${whatsappMessage}`, '_blank');
     };
 
+    const handleScrollToServices = () => {
+        const servicesSection = document.getElementById('services');
+        if (servicesSection) {
+            servicesSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
             {/* Background Effects - More Minimal */}
@@ -20,84 +27,45 @@ export default function Hero() {
             </div>
 
             <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    className="mb-12"
-                >
-                    <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm text-sm text-slate-300 mb-8">
-                        <span className="relative flex h-2 w-2">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                        </span>
-                        Limited Spots Available — Q1 2026
-                    </div>
-                </motion.div>
-
                 <motion.h1
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.1 }}
-                    className="text-5xl md:text-7xl lg:text-8xl font-bold font-heading tracking-tight mb-8 leading-tight"
+                    transition={{ duration: 0.6 }}
+                    className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold font-heading tracking-tight mb-8 leading-tight text-white"
                 >
-                    We Build <span className="text-gradient">Revenue Systems</span> <br />
-                    That Scale Your Business
+                    We Build AI Systems That Replace Manual Work<br className="hidden md:block" />
+                    <span className="text-gradient">& Turn Attention Into Revenue</span>
                 </motion.h1>
 
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto mb-12 leading-relaxed font-light"
+                    className="text-lg md:text-xl lg:text-2xl text-slate-300 max-w-4xl mx-auto mb-12 leading-relaxed font-light"
                 >
-                    Operator-led development agency. We don&apos;t build websites—we build systems that generate revenue, automate operations, and create competitive advantages.
+                    For clinics, hotels, restaurants & creators who want more clients — without hiring more staff.
                 </motion.p>
 
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.3 }}
-                    className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                    className="flex flex-col sm:flex-row items-center justify-center gap-4"
                 >
                     <button
-                        onClick={handleWhatsAppClick}
-                        className="group relative px-10 py-5 bg-primary text-white font-semibold rounded-full overflow-hidden transition-all hover:shadow-[0_0_40px_-10px_rgba(79,110,247,0.5)] hover:scale-105"
+                        onClick={handleScrollToServices}
+                        className="px-10 py-5 bg-primary text-white font-semibold rounded-full transition-all hover:shadow-[0_0_40px_-10px_rgba(79,110,247,0.5)] hover:scale-105 text-lg"
                     >
-                        <span className="relative flex items-center gap-3 text-lg">
-                            <MessageCircle size={24} />
-                            Start on WhatsApp
-                        </span>
+                        See How It Works
                     </button>
 
-                    <a
-                        href="#work"
-                        className="px-10 py-5 text-slate-300 font-medium hover:text-white transition-colors flex items-center gap-2 text-lg"
+                    <button
+                        onClick={handleWhatsAppClick}
+                        className="px-10 py-5 text-white font-medium hover:text-primary transition-colors flex items-center gap-2 text-lg border border-white/20 hover:border-primary/50 rounded-full"
                     >
-                        See Results →
-                    </a>
-                </motion.div>
-
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.8, delay: 0.5 }}
-                    className="max-w-4xl mx-auto"
-                >
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-                        <div className="p-6 bg-white/5 rounded-xl border border-white/5">
-                            <div className="text-3xl font-bold text-white mb-2">2-4x</div>
-                            <div className="text-slate-400 text-sm">Average Revenue Increase</div>
-                        </div>
-                        <div className="p-6 bg-white/5 rounded-xl border border-white/5">
-                            <div className="text-3xl font-bold text-white mb-2">30-60</div>
-                            <div className="text-slate-400 text-sm">Days to Launch</div>
-                        </div>
-                        <div className="p-6 bg-white/5 rounded-xl border border-white/5">
-                            <div className="text-3xl font-bold text-white mb-2">100%</div>
-                            <div className="text-slate-400 text-sm">Operated by Founders</div>
-                        </div>
-                    </div>
+                        <MessageCircle size={20} />
+                        WhatsApp Us
+                    </button>
                 </motion.div>
             </div>
         </section>
