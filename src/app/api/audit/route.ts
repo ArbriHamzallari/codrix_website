@@ -19,7 +19,7 @@ export async function POST(request: Request) {
         }
 
         // Send email to the owner
-        const data = await resend.emails.send({
+        const { data, error } = await resend.emails.send({
             from: 'Codrix Website <onboarding@resend.dev>', // Update this if you have a custom domain
             to: ['info@codrix.org'], // Replace with your actual email if different
             subject: `New System Audit Request: ${businessName}`,
@@ -39,8 +39,11 @@ export async function POST(request: Request) {
             `,
         });
 
-        return NextResponse.json({ success: true, id: data.id });
+        if (error) {
+            return NextResponse.json({ error }, { status: 500 });
+        }
 
+        return NextResponse.json({ success: true, id: data?.id });
     } catch (error) {
         console.error('Error sending email:', error);
         return NextResponse.json(
