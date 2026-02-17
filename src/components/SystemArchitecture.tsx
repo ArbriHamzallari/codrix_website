@@ -145,54 +145,47 @@ export default function SystemArchitecture() {
                             </svg>
                         </div>
 
-                        {/* Mobile: vertical flow layout */}
-                        <div className="flex flex-col items-center gap-0 w-full sm:hidden">
-                            {/* Input Row */}
-                            <div className="flex flex-row justify-center gap-4 relative z-10">
-                                {inputs.map((node) => (
-                                    <NodeCard
-                                        key={node.id}
-                                        node={node}
-                                        isActive={activeNode?.id === node.id}
-                                        onHover={setActiveNode}
+                        {/* Mobile Lines (SVG Layer) — mobile only */}
+                        <div className="absolute inset-0 pointer-events-none block sm:hidden">
+                            <svg className="w-full h-full" viewBox="0 0 500 1000" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="line-gradient-mobile" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stopColor="rgba(59, 130, 246, 0.1)" />
+                                        <stop offset="100%" stopColor="rgba(59, 130, 246, 0.8)" />
+                                    </linearGradient>
+                                </defs>
+
+                                {/* Mobile: Input (Top) -> Brain (Middle) */}
+                                {inputs.map((input, i) => (
+                                    <FlowLine
+                                        key={`line-in-mobile-${i}`}
+                                        startX={100 + i * 150} // 20%, 50%, 80% approx width-wise
+                                        startY={150} // Top row
+                                        endX={250} // Center
+                                        endY={500} // Middle
+                                        active={activeNode?.id === input.id || activeNode?.id === 'brain'}
                                     />
                                 ))}
-                            </div>
-                            {/* Arrow down */}
-                            <div className="flex flex-col items-center py-2">
-                                <div className="w-px h-6 bg-primary/30" />
-                                <div className="w-0 h-0 border-l-[6px] border-r-[6px] border-t-[8px] border-l-transparent border-r-transparent border-t-primary/30" />
-                            </div>
-                            {/* Brain */}
-                            <div className="relative z-10">
-                                <NodeCard
-                                    node={process}
-                                    isActive={activeNode?.id === process.id}
-                                    onHover={setActiveNode}
-                                    isMain
-                                />
-                            </div>
-                            {/* Arrow down */}
-                            <div className="flex flex-col items-center py-2">
-                                <div className="w-px h-6 bg-primary/30" />
-                                <div className="w-0 h-0 border-l-[6px] border-r-[6px] border-t-[8px] border-l-transparent border-r-transparent border-t-primary/30" />
-                            </div>
-                            {/* Output Row */}
-                            <div className="flex flex-row justify-center gap-4 relative z-10">
-                                {outputs.map((node) => (
-                                    <NodeCard
-                                        key={node.id}
-                                        node={node}
-                                        isActive={activeNode?.id === node.id}
-                                        onHover={setActiveNode}
+
+                                {/* Mobile: Brain (Middle) -> Output (Bottom) */}
+                                {outputs.map((output, i) => (
+                                    <FlowLine
+                                        key={`line-out-mobile-${i}`}
+                                        startX={250} // Center
+                                        startY={500} // Middle
+                                        endX={100 + i * 150} // 20%, 50%, 80% approx width-wise
+                                        endY={850} // Bottom row
+                                        active={activeNode?.id === output.id || activeNode?.id === 'brain'}
                                     />
                                 ))}
-                            </div>
+                            </svg>
                         </div>
 
-                        {/* Desktop: horizontal layout with SVG lines */}
-                        <div className="hidden sm:flex sm:flex-row items-center justify-between w-full h-full">
-                            <div className="flex flex-col justify-center gap-12 relative z-10 h-full">
+                        {/* Content: Unified Structure with Responsive Flex Direction */}
+                        <div className="flex flex-col sm:flex-row items-center justify-between w-full h-full relative z-10 py-4 sm:py-0">
+
+                            {/* Inputs: Row on Mobile, Column on Desktop */}
+                            <div className="flex flex-row sm:flex-col justify-center gap-4 sm:gap-12 relative z-10 sm:h-full w-full sm:w-auto">
                                 {inputs.map((node) => (
                                     <NodeCard
                                         key={node.id}
@@ -202,7 +195,9 @@ export default function SystemArchitecture() {
                                     />
                                 ))}
                             </div>
-                            <div className="flex flex-col justify-center relative z-10 h-full">
+
+                            {/* Brain: Center */}
+                            <div className="flex flex-col justify-center relative z-10 sm:h-full my-8 sm:my-0">
                                 <NodeCard
                                     node={process}
                                     isActive={activeNode?.id === process.id}
@@ -210,7 +205,9 @@ export default function SystemArchitecture() {
                                     isMain
                                 />
                             </div>
-                            <div className="flex flex-col justify-center gap-12 relative z-10 h-full">
+
+                            {/* Outputs: Row on Mobile, Column on Desktop */}
+                            <div className="flex flex-row sm:flex-col justify-center gap-4 sm:gap-12 relative z-10 sm:h-full w-full sm:w-auto">
                                 {outputs.map((node) => (
                                     <NodeCard
                                         key={node.id}
