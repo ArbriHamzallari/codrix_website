@@ -105,8 +105,8 @@ export default function SystemArchitecture() {
                     {/* Main Diagram Area */}
                     <div className="lg:col-span-8 relative flex flex-col sm:flex-row items-center justify-between px-4 lg:px-12 py-8 bg-white/5 rounded-lg border border-white/10 backdrop-blur-sm min-h-[300px] sm:min-h-[400px] overflow-hidden">
 
-                        {/* Connecting Lines (SVG Layer) */}
-                        <div className="absolute inset-0 pointer-events-none">
+                        {/* Connecting Lines (SVG Layer) — desktop only */}
+                        <div className="absolute inset-0 pointer-events-none hidden sm:block">
                             <svg className="w-full h-full" viewBox="0 0 1000 500" preserveAspectRatio="none">
                                 <defs>
                                     <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -145,38 +145,81 @@ export default function SystemArchitecture() {
                             </svg>
                         </div>
 
-                        {/* Column 1: Inputs */}
-                        <div className="flex flex-row sm:flex-col justify-center gap-4 sm:gap-12 relative z-10 sm:h-full">
-                            {inputs.map((node) => (
+                        {/* Mobile: vertical flow layout */}
+                        <div className="flex flex-col items-center gap-0 w-full sm:hidden">
+                            {/* Input Row */}
+                            <div className="flex flex-row justify-center gap-4 relative z-10">
+                                {inputs.map((node) => (
+                                    <NodeCard
+                                        key={node.id}
+                                        node={node}
+                                        isActive={activeNode?.id === node.id}
+                                        onHover={setActiveNode}
+                                    />
+                                ))}
+                            </div>
+                            {/* Arrow down */}
+                            <div className="flex flex-col items-center py-2">
+                                <div className="w-px h-6 bg-primary/30" />
+                                <div className="w-0 h-0 border-l-[6px] border-r-[6px] border-t-[8px] border-l-transparent border-r-transparent border-t-primary/30" />
+                            </div>
+                            {/* Brain */}
+                            <div className="relative z-10">
                                 <NodeCard
-                                    key={node.id}
-                                    node={node}
-                                    isActive={activeNode?.id === node.id}
+                                    node={process}
+                                    isActive={activeNode?.id === process.id}
                                     onHover={setActiveNode}
+                                    isMain
                                 />
-                            ))}
+                            </div>
+                            {/* Arrow down */}
+                            <div className="flex flex-col items-center py-2">
+                                <div className="w-px h-6 bg-primary/30" />
+                                <div className="w-0 h-0 border-l-[6px] border-r-[6px] border-t-[8px] border-l-transparent border-r-transparent border-t-primary/30" />
+                            </div>
+                            {/* Output Row */}
+                            <div className="flex flex-row justify-center gap-4 relative z-10">
+                                {outputs.map((node) => (
+                                    <NodeCard
+                                        key={node.id}
+                                        node={node}
+                                        isActive={activeNode?.id === node.id}
+                                        onHover={setActiveNode}
+                                    />
+                                ))}
+                            </div>
                         </div>
 
-                        {/* Column 2: Process (Brain) */}
-                        <div className="flex flex-col justify-center relative z-10 sm:h-full my-4 sm:my-0">
-                            <NodeCard
-                                node={process}
-                                isActive={activeNode?.id === process.id}
-                                onHover={setActiveNode}
-                                isMain
-                            />
-                        </div>
-
-                        {/* Column 3: Outputs */}
-                        <div className="flex flex-row sm:flex-col justify-center gap-4 sm:gap-12 relative z-10 sm:h-full">
-                            {outputs.map((node) => (
+                        {/* Desktop: horizontal layout with SVG lines */}
+                        <div className="hidden sm:flex sm:flex-row items-center justify-between w-full h-full">
+                            <div className="flex flex-col justify-center gap-12 relative z-10 h-full">
+                                {inputs.map((node) => (
+                                    <NodeCard
+                                        key={node.id}
+                                        node={node}
+                                        isActive={activeNode?.id === node.id}
+                                        onHover={setActiveNode}
+                                    />
+                                ))}
+                            </div>
+                            <div className="flex flex-col justify-center relative z-10 h-full">
                                 <NodeCard
-                                    key={node.id}
-                                    node={node}
-                                    isActive={activeNode?.id === node.id}
+                                    node={process}
+                                    isActive={activeNode?.id === process.id}
                                     onHover={setActiveNode}
+                                    isMain
                                 />
-                            ))}
+                            </div>
+                            <div className="flex flex-col justify-center gap-12 relative z-10 h-full">
+                                {outputs.map((node) => (
+                                    <NodeCard
+                                        key={node.id}
+                                        node={node}
+                                        isActive={activeNode?.id === node.id}
+                                        onHover={setActiveNode}
+                                    />
+                                ))}
+                            </div>
                         </div>
                     </div>
 
