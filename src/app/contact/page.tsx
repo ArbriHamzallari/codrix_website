@@ -13,8 +13,8 @@ export default function Contact() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
     const [errorMessage, setErrorMessage] = useState('');
-    
-    const whatsappNumber = '+355682061862';
+
+    const whatsappNumber = '+3550689007252';
     const whatsappMessage = encodeURIComponent('I\'d like to discuss installing a revenue system for my business.');
 
     const handleWhatsAppClick = () => {
@@ -44,7 +44,7 @@ export default function Contact() {
 
             setSubmitStatus('success');
             setFormData({ name: '', email: '', message: '' });
-            
+
             // Reset success message after 5 seconds
             setTimeout(() => {
                 setSubmitStatus('idle');
@@ -74,7 +74,7 @@ export default function Contact() {
                     <p className="text-slate-400 text-xl max-w-2xl mx-auto font-light leading-relaxed">
                         We work with serious businesses who understand leverage.
                     </p>
-                    
+
                     <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -200,7 +200,7 @@ export default function Contact() {
                                     <p>Message sent successfully! We&apos;ll get back to you shortly.</p>
                                 </div>
                             )}
-                            
+
                             {submitStatus === 'error' && (
                                 <div className="p-4 bg-red-500/10 border border-red-500/50 rounded-lg flex items-center gap-3 text-red-400">
                                     <AlertCircle size={20} />

@@ -18,7 +18,7 @@ export default function Navbar() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const whatsappNumber = '+355682061862';
+    const whatsappNumber = '+3550689007252';
     const whatsappMessage = encodeURIComponent('I\'d like to discuss installing a revenue system for my business.');
 
     const handleWhatsAppClick = () => {
@@ -50,7 +50,7 @@ export default function Navbar() {
                     <Link href="/" className="flex items-center gap-2 group">
                         <div className="relative w-10 h-10 overflow-hidden">
                             <Image
-                                src="/logo.jpg"
+                                src="/logo.png"
                                 alt="Codrix Logo"
                                 fill
                                 className="object-cover object-center rounded-lg"

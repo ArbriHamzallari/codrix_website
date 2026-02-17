@@ -3,11 +3,12 @@
 import { motion } from 'framer-motion';
 import { Globe, MessageCircle, CheckCircle2, X, Layout, Zap, TrendingUp, Target, DollarSign, Phone } from 'lucide-react';
 import CategoryPopup from '@/components/CategoryPopup';
+import Portfolio from '@/components/Portfolio';
 
 export default function Websites() {
     const whatsappNumber = '+3550689007252';
     const phoneNumber = '+3550689007252';
-    
+
     const handleContactClick = () => {
         const whatsappMessage = encodeURIComponent('I want to discuss building a website that works as revenue infrastructure for my business.');
         window.open(`https://wa.me/${whatsappNumber.replace(/\D/g, '')}?text=${whatsappMessage}`, '_blank');
@@ -206,6 +207,11 @@ export default function Websites() {
                         })}
                     </div>
                 </motion.div>
+
+                {/* Featured Results (Moved from Home) */}
+                <div className="mb-24">
+                    <Portfolio />
+                </div>
 
                 {/* Business Impact */}
                 <motion.div
