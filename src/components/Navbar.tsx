@@ -18,6 +18,16 @@ export default function Navbar() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    // Lock body scroll when mobile menu is open
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => { document.body.style.overflow = ''; };
+    }, [isOpen]);
+
     const whatsappNumber = '+3550689007252';
     const whatsappMessage = encodeURIComponent('I\'d like to discuss installing a revenue system for my business.');
 

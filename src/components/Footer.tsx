@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Github, Twitter, Linkedin, Mail, Instagram } from 'lucide-react';
+import { Linkedin, Instagram } from 'lucide-react';
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
@@ -13,7 +13,7 @@ export default function Footer() {
                         <Link href="/" className="flex items-center gap-2 mb-4">
                             <div className="relative w-8 h-8 overflow-hidden rounded-lg">
                                 <Image
-                                    src="/logo.jpg"
+                                    src="/logo.png"
                                     alt="Codrix Logo"
                                     fill
                                     className="object-cover"
@@ -49,11 +49,8 @@ export default function Footer() {
                     <div>
                         <h3 className="text-white font-bold mb-4 font-heading">Connect</h3>
                         <div className="flex space-x-4">
-                            <a href="#" className="text-slate-400 hover:text-primary transition-colors"><Twitter size={20} /></a>
-                            <a href="https://www.instagram.com/codrix.solutions/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-primary transition-colors"><Instagram size={20} /></a>
-                            <a href="#" className="text-slate-400 hover:text-primary transition-colors"><Github size={20} /></a>
-                            <a href="#" className="text-slate-400 hover:text-primary transition-colors"><Linkedin size={20} /></a>
-                            <a href="#" className="text-slate-400 hover:text-primary transition-colors"><Mail size={20} /></a>
+                            <a href="https://www.instagram.com/codrix.al/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-primary transition-colors"><Instagram size={20} /></a>
+                            <a href="https://www.linkedin.com/company/codrix-solutions/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-primary transition-colors"><Linkedin size={20} /></a>
                         </div>
                     </div>
                 </div>

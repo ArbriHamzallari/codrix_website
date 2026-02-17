@@ -100,10 +100,10 @@ export default function SystemArchitecture() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 h-[600px] lg:h-[500px]">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:min-h-[500px]">
 
                     {/* Main Diagram Area */}
-                    <div className="lg:col-span-8 relative flex items-center justify-between px-4 lg:px-12 py-8 bg-white/5 rounded-lg border border-white/10 backdrop-blur-sm">
+                    <div className="lg:col-span-8 relative flex flex-col sm:flex-row items-center justify-between px-4 lg:px-12 py-8 bg-white/5 rounded-lg border border-white/10 backdrop-blur-sm min-h-[300px] sm:min-h-[400px] overflow-hidden">
 
                         {/* Connecting Lines (SVG Layer) */}
                         <div className="absolute inset-0 pointer-events-none">
@@ -146,7 +146,7 @@ export default function SystemArchitecture() {
                         </div>
 
                         {/* Column 1: Inputs */}
-                        <div className="flex flex-col justify-center gap-12 relative z-10 h-full">
+                        <div className="flex flex-row sm:flex-col justify-center gap-4 sm:gap-12 relative z-10 sm:h-full">
                             {inputs.map((node) => (
                                 <NodeCard
                                     key={node.id}
@@ -158,7 +158,7 @@ export default function SystemArchitecture() {
                         </div>
 
                         {/* Column 2: Process (Brain) */}
-                        <div className="flex flex-col justify-center relative z-10 h-full">
+                        <div className="flex flex-col justify-center relative z-10 sm:h-full my-4 sm:my-0">
                             <NodeCard
                                 node={process}
                                 isActive={activeNode?.id === process.id}
@@ -168,7 +168,7 @@ export default function SystemArchitecture() {
                         </div>
 
                         {/* Column 3: Outputs */}
-                        <div className="flex flex-col justify-center gap-12 relative z-10 h-full">
+                        <div className="flex flex-row sm:flex-col justify-center gap-4 sm:gap-12 relative z-10 sm:h-full">
                             {outputs.map((node) => (
                                 <NodeCard
                                     key={node.id}
@@ -181,7 +181,7 @@ export default function SystemArchitecture() {
                     </div>
 
                     {/* Detail Panel */}
-                    <div className="lg:col-span-4 bg-white/5 rounded-lg border border-white/10 p-6 flex flex-col h-full bg-grid-tiny">
+                    <div className="lg:col-span-4 bg-white/5 rounded-lg border border-white/10 p-6 flex flex-col min-h-[250px] bg-grid-tiny">
                         <div className="flex items-center gap-2 mb-6 pb-4 border-b border-white/5">
                             <div className={`w-2 h-2 rounded-full ${activeNode ? 'bg-primary animate-pulse' : 'bg-slate-700'}`} />
                             <span className="text-xs font-mono text-slate-500 uppercase">
@@ -244,6 +244,7 @@ function NodeCard({ node, isActive, onHover, isMain = false }: { node: NodeType,
         <motion.div
             onMouseEnter={() => onHover(node)}
             onMouseLeave={() => onHover(null)}
+            onClick={() => onHover(node)}
             className={cn(
                 "relative group cursor-crosshair transition-all duration-300",
                 isMain ? "w-32 h-32 md:w-40 md:h-40" : "w-16 h-16 md:w-20 md:h-20"

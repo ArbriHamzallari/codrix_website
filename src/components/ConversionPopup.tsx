@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export default function ConversionPopup() {
     const [isOpen, setIsOpen] = useState(false);
-    const whatsappNumber = '+355682061862';
+    const whatsappNumber = '+3550689007252';
     const whatsappMessage = encodeURIComponent('I\'d like to discuss installing a revenue system for my business.');
 
     useEffect(() => {
@@ -21,7 +21,7 @@ export default function ConversionPopup() {
         const handleScroll = () => {
             const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
             const hasSeenPopup = localStorage.getItem('codrix_popup_seen');
-            
+
             if (scrollPercent > 50 && !hasSeenPopup && !isOpen) {
                 setIsOpen(true);
             }
@@ -61,7 +61,7 @@ export default function ConversionPopup() {
                         onClick={handleClose}
                         className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50"
                     />
-                    
+
                     {/* Popup */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -87,7 +87,7 @@ export default function ConversionPopup() {
                                 <h3 className="text-2xl font-bold font-heading text-white mb-3">
                                     Ready to Install Your System?
                                 </h3>
-                                
+
                                 <p className="text-slate-300 mb-6 leading-relaxed">
                                     Let&apos;s discuss installing a revenue system that creates leverage for your business.
                                 </p>

@@ -124,7 +124,7 @@ export default function DiagnosticPanel() {
                     </div>
 
                     {/* Content Area */}
-                    <div className="p-8 md:p-12 min-h-[400px] relative">
+                    <div className="p-4 sm:p-8 md:p-12 min-h-[300px] sm:min-h-[400px] relative overflow-y-auto">
                         <AnimatePresence mode="wait">
 
                             {/* STEP 1: BUSINESS INFO */}
@@ -248,11 +248,11 @@ export default function DiagnosticPanel() {
                                         </div>
                                     </div>
 
-                                    <div className="flex-1 bg-white rounded-xl overflow-hidden min-h-[500px] border border-white/10 relative">
+                                    <div className="flex-1 bg-white rounded-xl overflow-hidden min-h-[350px] sm:min-h-[450px] md:min-h-[500px] border border-white/10 relative">
                                         {/* Embed Calendly directly here for seamless flow */}
                                         <InlineWidget
                                             url="https://calendly.com/codrix-solutions-audit/1-1-free-audit"
-                                            styles={{ height: '100%', width: '100%', minHeight: '500px' }}
+                                            styles={{ height: '100%', width: '100%', minHeight: '350px' }}
                                             prefill={{
                                                 name: formData.businessName,
                                                 customAnswers: {

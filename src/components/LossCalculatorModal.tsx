@@ -130,7 +130,7 @@ export default function LossCalculatorModal({ isOpen, onClose, initialData, init
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onClick={onClose}
-                        className="fixed inset-0 bg-black/90 backdrop-blur-md z-[100] flex items-center justify-center p-4 overflow-y-auto"
+                        className="fixed inset-0 bg-black/90 backdrop-blur-md z-[100] flex items-start sm:items-center justify-center p-2 sm:p-4 overflow-y-auto"
                     >
                         {/* Modal Card */}
                         <motion.div
@@ -139,12 +139,12 @@ export default function LossCalculatorModal({ isOpen, onClose, initialData, init
                             exit={{ scale: 0.95, opacity: 0, y: 20 }}
                             onClick={(e) => e.stopPropagation()}
                             className={cn(
-                                "bg-dark border border-white/10 rounded-2xl w-full shadow-2xl overflow-hidden relative transition-all duration-500",
-                                step === 'booking' ? "max-w-5xl h-[80vh]" : "max-w-4xl"
+                                "bg-dark border border-white/10 rounded-2xl w-full shadow-2xl overflow-hidden relative transition-all duration-500 my-auto",
+                                step === 'booking' ? "max-w-5xl max-h-[95vh] sm:max-h-[85vh] overflow-y-auto" : "max-w-4xl max-h-[95vh] sm:max-h-[90vh] overflow-y-auto"
                             )}
                         >
                             {/* Header */}
-                            <div className="flex items-center justify-between p-6 border-b border-white/5 bg-white/5">
+                            <div className="flex items-center justify-between p-4 sm:p-6 border-b border-white/5 bg-white/5 sticky top-0 z-20 bg-dark/95 backdrop-blur-sm">
                                 <div className="flex items-center gap-3">
                                     <div className={cn(
                                         "w-10 h-10 rounded-lg flex items-center justify-center transition-colors",
@@ -153,7 +153,7 @@ export default function LossCalculatorModal({ isOpen, onClose, initialData, init
                                         {step === 'booking' ? <CheckCircle2 className="w-5 h-5" /> : <AlertTriangle className="w-5 h-5" />}
                                     </div>
                                     <div>
-                                        <h3 className="text-lg font-bold text-white leading-tight">
+                                        <h3 className="text-base sm:text-lg font-bold text-white leading-tight">
                                             {step === 'input' && "Revenue Leakage Diagnostic"}
                                             {step === 'result' && "Diagnostic Results"}
                                             {step === 'booking' && "Schedule Your Audit"}
@@ -175,7 +175,7 @@ export default function LossCalculatorModal({ isOpen, onClose, initialData, init
                                 {step === 'input' && (
                                     <div className="grid grid-cols-1 lg:grid-cols-2">
                                         {/* Left: Inputs */}
-                                        <div className="p-6 md:p-8 space-y-8 border-b lg:border-b-0 lg:border-r border-white/5">
+                                        <div className="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 border-b lg:border-b-0 lg:border-r border-white/5">
                                             {/* ... Inputs ... */}
                                             {/* Step 1: Business Type */}
                                             <div className="space-y-3">
@@ -261,14 +261,14 @@ export default function LossCalculatorModal({ isOpen, onClose, initialData, init
                                         </div>
 
                                         {/* Right: Results Preview */}
-                                        <div className="bg-black/20 p-6 md:p-8 flex flex-col justify-center relative overflow-hidden">
+                                        <div className="bg-black/20 p-4 sm:p-6 md:p-8 flex flex-col justify-center relative overflow-hidden">
                                             <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-red-600/10 blur-[100px] rounded-full pointer-events-none" />
 
                                             <div className="relative z-10 space-y-8">
                                                 <div>
                                                     <p className="text-slate-400 mb-2 font-mono text-sm">POTENTIAL GROSS LOSS</p>
                                                     <div className="flex items-baseline gap-1 text-red-500">
-                                                        <span className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter">
+                                                        <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter">
                                                             <AnimatedCounter value={monthlyLostRevenue} />
                                                         </span>
                                                         <span className="text-xl font-bold opacity-60">/mo</span>
@@ -304,13 +304,13 @@ export default function LossCalculatorModal({ isOpen, onClose, initialData, init
                                     <motion.div
                                         initial={{ opacity: 0, x: 20 }}
                                         animate={{ opacity: 1, x: 0 }}
-                                        className="p-8 md:p-12 text-center max-w-2xl mx-auto"
+                                        className="p-4 sm:p-8 md:p-12 text-center max-w-2xl mx-auto"
                                     >
                                         <div className="w-20 h-20 bg-red-500/10 rounded-full flex items-center justify-center mx-auto mb-8 text-red-500">
                                             <TrendingDown className="w-10 h-10" />
                                         </div>
 
-                                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
                                             Your business may be missing approximately <span className="text-red-500">{formatCurrency(monthlyLostRevenue)}/mo</span>
                                         </h2>
 
@@ -347,7 +347,7 @@ export default function LossCalculatorModal({ isOpen, onClose, initialData, init
                                     <motion.div
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
-                                        className="h-full min-h-[600px] w-full bg-white relative"
+                                        className="h-full min-h-[400px] sm:min-h-[500px] md:min-h-[600px] w-full bg-white relative"
                                     >
                                         <div className="absolute inset-0 z-0 flex items-center justify-center text-slate-400">
                                             Loading Calendar...

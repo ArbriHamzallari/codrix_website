@@ -8,6 +8,10 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'sw
 export const metadata: Metadata = {
   title: 'Codrix Solutions | Premium Revenue Systems & Leverage',
   description: 'Operator-led company that installs revenue systems for serious businesses. CRM systems, automation, AI agents, and Shadow Operator partnerships. We create leverage, not services.',
+  icons: {
+    icon: '/favicon.png',
+    apple: '/favicon.png',
+  },
 };
 
 import Navbar from '@/components/Navbar';
