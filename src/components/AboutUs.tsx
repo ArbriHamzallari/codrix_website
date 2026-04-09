@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 export default function AboutUs() {
@@ -8,15 +9,20 @@ export default function AboutUs() {
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col items-center text-center sm:text-left sm:items-start sm:flex-row gap-10">
-          {/* TODO: Replace with real photo of Arbri */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="mx-auto sm:mx-0 h-[120px] w-[120px] shrink-0 rounded-full bg-gradient-to-br from-primary/40 via-secondary/30 to-primary/20 border border-white/10 flex items-center justify-center text-3xl font-bold font-heading text-white shadow-lg"
-            aria-hidden
+            className="relative mx-auto sm:mx-0 h-[140px] w-[140px] sm:h-[160px] sm:w-[160px] shrink-0 rounded-full overflow-hidden border border-white/10 shadow-lg ring-2 ring-white/5 bg-white/5"
           >
-            AH
+            <Image
+              src="/arbri-hamzallari.jpg"
+              alt="Arbri Hamzallari, founder of Codrix"
+              fill
+              className="object-cover object-center"
+              sizes="(max-width: 640px) 140px, 160px"
+              priority={false}
+            />
           </motion.div>
           <div className="flex-1 space-y-6">
             <motion.h2

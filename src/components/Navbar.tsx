@@ -32,7 +32,9 @@ export default function Navbar() {
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'How It Works', href: '/#how-it-works' },
+    { name: 'Demo', href: '/#demo' },
     { name: 'Results', href: '/#results' },
+    { name: 'FAQ', href: '/#faq' },
     { name: 'Contact', href: '/contact' },
   ];
 
@@ -59,7 +61,7 @@ export default function Navbar() {
             </span>
           </Link>
 
-          <div className="hidden lg:flex items-center gap-10">
+          <div className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
@@ -93,7 +95,7 @@ export default function Navbar() {
       <div
         className={cn(
           'fixed inset-x-0 top-[65px] bg-black/95 backdrop-blur-xl border-b border-white/[0.06] lg:hidden transition-all duration-300 ease-in-out overflow-hidden',
-          isOpen ? 'max-h-[480px] opacity-100' : 'max-h-0 opacity-0'
+          isOpen ? 'max-h-[560px] opacity-100' : 'max-h-0 opacity-0'
         )}
       >
         <div className="px-4 py-6 space-y-3 flex flex-col items-center">

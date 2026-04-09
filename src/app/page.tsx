@@ -3,14 +3,18 @@
 import { useState } from 'react';
 import Hero from '@/components/Hero';
 import StatsBanner from '@/components/StatsBanner';
+import PlatformStrip from '@/components/PlatformStrip';
 import Process from '@/components/Process';
 import WhatsAppNudge from '@/components/WhatsAppNudge';
 import TimelineScenario from '@/components/TimelineScenario';
+import InteractiveDemo from '@/components/InteractiveDemo';
 import ProofResults from '@/components/ProofResults';
 import AboutUs from '@/components/AboutUs';
+import FAQ from '@/components/FAQ';
 import ProfitabilitySimulator from '@/components/ProfitabilitySimulator';
 import DiagnosticPanel from '@/components/DiagnosticPanel';
 import LossCalculatorModal, { CalculatorData } from '@/components/LossCalculatorModal';
+import MobileStickyBar from '@/components/MobileStickyBar';
 
 export default function Home() {
   const [isCalculatorOpen, setIsCalculatorOpen] = useState(false);
@@ -33,6 +37,7 @@ export default function Home() {
     <>
       <Hero />
       <StatsBanner />
+      <PlatformStrip />
       <Process />
       <WhatsAppNudge />
       <TimelineScenario
@@ -43,8 +48,10 @@ export default function Home() {
         onCalculatorDataChange={setCalculatorData}
         onCalculatorComplete={handleCalculatorComplete}
       />
+      <InteractiveDemo />
       <ProofResults />
       <AboutUs />
+      <FAQ />
       <ProfitabilitySimulator initialData={calculatorData} onOpenBooking={scrollToBook} />
       <WhatsAppNudge />
       <DiagnosticPanel />
@@ -55,6 +62,9 @@ export default function Home() {
         onDataChange={setCalculatorData}
         onComplete={handleCalculatorComplete}
       />
+      <MobileStickyBar />
+      {/* Reserve space above footer when mobile sticky CTA is present */}
+      <div className="h-16 sm:hidden shrink-0" aria-hidden />
     </>
   );
 }

@@ -1,66 +1,117 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { TrendingUp, Clock, Calendar, ArrowRight, Building2 } from 'lucide-react';
-import CountUp from './ui/CountUp';
+import { TrendingUp, ArrowRight } from 'lucide-react';
 import ClientLogosRow from './ClientLogosRow';
-
-/*
-  TODO: Replace placeholder case studies with real documented results.
-  Each case study must include: real business name or first name, photo or logo,
-  before/after numbers in €, and a genuine quote from the client.
-*/
 
 const caseStudies = [
   {
-    industry: 'Dental Clinic',
-    city: 'Tirana, AL',
-    before: ['Missed ~15 calls/week', '2h daily manual replies', 'No after-hours support'],
-    after: ['Auto-booked 12 appts', '0 missed inquiries', '24/7 instant response'],
-    impactValue: 4.5,
-    impactPrefix: '+€',
-    impactSuffix: 'k monthly revenue',
-    impactDecimals: 1,
-    impactType: 'revenue' as const,
-    quote: 'It pays for itself in 3 days.',
+    id: '#001',
+    client: 'Dental Med Austria',
+    type: 'Dental Clinic',
+    location: 'Austria, EU',
+    logo: '/clients/dental-med-austria.png',
+    before: [
+      'Missed patient inquiries outside office hours',
+      'Staff spending 2+ hours/day on WhatsApp replies',
+      'No after-hours appointment booking',
+    ],
+    after: [
+      'AI handles all first-contact inquiries 24/7',
+      'Zero missed messages during off hours',
+      '24/7 instant response to new patients',
+    ],
+    impact: 'Appointment inquiries handled automatically',
+    impactPrefix: '',
+    impactValue: '24/7',
+    quote: 'Patients now get answers even at midnight.',
   },
   {
-    industry: 'Real Estate Agency',
-    city: 'Pristina, KS',
-    before: ['Slow lead qualification', 'Lost leads to competitors', 'Manual scheduling chaos'],
-    after: ['Instant lead qualifying', '3x faster engagement', 'Auto-syncs with CRM'],
-    impactValue: 18,
-    impactPrefix: '+',
-    impactSuffix: ' hrs saved / week',
-    impactDecimals: 0,
-    impactType: 'time' as const,
-    quote: 'My agents just close deals now.',
+    id: '#002',
+    client: 'Dodo Dent',
+    type: 'Dental Practice',
+    location: 'Albania',
+    logo: '/clients/dodo-dent.png',
+    before: [
+      'High volume of repetitive FAQ messages',
+      'Manual scheduling via WhatsApp',
+      'Leads going cold before follow-up',
+    ],
+    after: [
+      'FAQs answered instantly by AI',
+      'Appointment requests captured automatically',
+      'Follow-up triggered within seconds',
+    ],
+    impact: 'Reduction in manual inbox time',
+    impactPrefix: '-',
+    impactValue: '80%',
+    quote: 'It pays for itself in the first week.',
   },
   {
-    industry: 'Esthetic Center',
-    city: 'Durrës, AL',
-    before: ['High no-show rate', 'Chaotic WhatsApp chat', 'Forgot follow-ups'],
-    after: ['-40% no-show rate', 'Centralized dashboard', 'Auto-confirmations'],
-    impactValue: 25,
-    impactPrefix: '+',
-    impactSuffix: '% bookings increase',
-    impactDecimals: 0,
-    impactType: 'bookings' as const,
-    quote: null as string | null,
+    id: '#003',
+    client: 'SMartderm',
+    type: 'Dermatology Clinic',
+    location: 'Albania',
+    logo: '/clients/SMARTDERM_page-0001-scaled.png',
+    before: [
+      'Patients messaging on Instagram with no reply',
+      'Consultation bookings done manually',
+      'No system to qualify inquiries',
+    ],
+    after: [
+      'Instagram DMs answered instantly by AI',
+      'Consultation requests captured and qualified',
+      'Staff only handles confirmed appointments',
+    ],
+    impact: 'Instagram inquiries now converted automatically',
+    impactPrefix: '',
+    impactValue: '100%',
+    quote: 'We stopped losing patients to faster competitors.',
   },
   {
-    industry: 'Legal Consultancy',
-    city: 'Tirana, AL',
-    before: ['Endless FAQ emails', 'Unqualified meetings', 'Slow client onboarding'],
-    after: ['90% FAQs automated', 'Pre-vetted consultations', 'Instant doc collection'],
-    impactValue: 3.2,
-    impactPrefix: '+€',
-    impactSuffix: 'k billable hours saved',
-    impactDecimals: 1,
-    impactType: 'revenue' as const,
-    quote: 'Freed up my senior lawyers.',
+    id: '#004',
+    client: 'Ayana Clinic',
+    type: 'Medical Clinic',
+    location: 'Albania',
+    logo: '/clients/aiyana-clinic.png',
+    before: [
+      'Chaotic multi-channel inbox (WhatsApp + Instagram)',
+      'Patients waiting hours for basic answers',
+      'Receptionist overwhelmed during peak hours',
+    ],
+    after: [
+      'Unified AI response across all channels',
+      'Patients get answers in under 2 seconds',
+      'Receptionist freed for in-clinic tasks',
+    ],
+    impact: 'Average response time',
+    impactPrefix: '',
+    impactValue: '< 2s',
+    quote: 'Our patients feel taken care of before they even walk in.',
   },
-];
+  {
+    id: '#005',
+    client: 'Trio Dental Center',
+    type: 'Dental Group',
+    location: 'Albania',
+    logo: '/clients/trio-dental-center.png',
+    before: [
+      'Three locations, inconsistent reply times',
+      'Leads lost between location handoffs',
+      'No central view of incoming patient messages',
+    ],
+    after: [
+      'Consistent AI response across all 3 locations',
+      'Every lead captured and routed correctly',
+      'Centralized visibility into all conversations',
+    ],
+    impact: 'Leads captured across all locations',
+    impactPrefix: '',
+    impactValue: '3x Locations Covered',
+    quote: 'Codrix made us feel like a bigger operation overnight.',
+  },
+] as const;
 
 export default function ProofResults() {
   return (
@@ -93,7 +144,7 @@ export default function ProofResults() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {caseStudies.map((study, index) => (
-            <ResultCard key={index} study={study} index={index} />
+            <ResultCard key={study.id} study={study} index={index} />
           ))}
         </div>
       </div>
@@ -104,28 +155,32 @@ export default function ProofResults() {
 type Study = (typeof caseStudies)[number];
 
 function ResultCard({ study, index }: { study: Study; index: number }) {
-  const isRevenue = study.impactType === 'revenue';
-  const isTime = study.impactType === 'time';
+  const impactLine = `${study.impactPrefix}${study.impactValue}`;
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.4, delay: index * 0.1 }}
+      transition={{ duration: 0.4, delay: index * 0.08 }}
       className="group relative bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:border-primary/30 transition-all duration-300"
     >
-      <div className="px-6 py-4 flex justify-between items-center border-b border-white/5 bg-white/[0.02]">
-        <div className="flex items-center gap-3">
-          <div className="p-2 rounded-lg bg-white/5 text-slate-300">
-            <Building2 className="w-4 h-4" />
-          </div>
-          <div>
-            <h3 className="text-white font-semibold text-sm tracking-wide">{study.industry}</h3>
-            <span className="text-xs text-slate-500 uppercase tracking-wider font-medium">{study.city}</span>
-          </div>
+      <div className="px-5 sm:px-6 py-4 flex gap-3 items-start border-b border-white/5 bg-white/[0.02]">
+        <div className="relative h-12 w-12 sm:h-14 sm:w-14 shrink-0 rounded-lg bg-white overflow-hidden ring-1 ring-white/10 mt-0.5">
+          <Image
+            src={study.logo}
+            alt={`${study.client} logo`}
+            fill
+            className="object-contain p-1.5"
+            sizes="56px"
+          />
         </div>
-        <div className="text-xs font-mono text-slate-600">ID: #{400 + index}</div>
+        <div className="flex-1 min-w-0">
+          <h3 className="text-base sm:text-lg font-bold text-white leading-snug tracking-tight">{study.client}</h3>
+          <p className="text-sm text-slate-400 mt-0.5">{study.type}</p>
+          <p className="text-xs text-slate-500 mt-1">{study.location}</p>
+        </div>
+        <span className="text-[10px] sm:text-xs font-mono text-slate-500 shrink-0 pt-1">{study.id}</span>
       </div>
 
       <div className="p-6 grid grid-cols-1 sm:grid-cols-2 gap-8 relative">
@@ -151,7 +206,7 @@ function ResultCard({ study, index }: { study: Study; index: number }) {
 
           <div className="text-xs text-primary uppercase tracking-widest font-bold mb-2 flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(var(--primary),0.5)]" />
-            After 30 Days
+            After
           </div>
           <ul className="space-y-3">
             {study.after.map((item, i) => (
@@ -170,39 +225,21 @@ function ResultCard({ study, index }: { study: Study; index: number }) {
       </div>
 
       <div className="px-6 py-5 bg-gradient-to-r from-primary/5 to-transparent border-t border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <div
-            className={`p-2 rounded-full ${isRevenue ? 'bg-emerald-500/10 text-emerald-400' : isTime ? 'bg-blue-500/10 text-blue-400' : 'bg-primary/10 text-primary'}`}
-          >
-            {isRevenue ? (
-              <TrendingUp className="w-5 h-5" />
-            ) : isTime ? (
-              <Clock className="w-5 h-5" />
-            ) : (
-              <Calendar className="w-5 h-5" />
-            )}
+        <div className="flex items-start gap-3">
+          <div className="p-2 rounded-full bg-emerald-500/10 text-emerald-400 shrink-0">
+            <TrendingUp className="w-5 h-5" />
           </div>
-          <div>
-            <div className="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Impact</div>
-            <div
-              className={`text-lg font-bold ${isRevenue ? 'text-emerald-400' : isTime ? 'text-blue-400' : 'text-primary'}`}
-            >
-              <CountUp
-                value={study.impactValue}
-                prefix={study.impactPrefix}
-                suffix={study.impactSuffix}
-                decimals={study.impactDecimals}
-                duration={0.8}
-              />
+          <div className="min-w-0">
+            <div className="text-[10px] text-slate-400 uppercase tracking-wider font-bold leading-tight">
+              {study.impact}
             </div>
+            <div className="text-base sm:text-lg font-bold text-emerald-400 mt-1 break-words">{impactLine}</div>
           </div>
         </div>
 
-        {study.quote && (
-          <div className="text-right sm:max-w-[200px]">
-            <p className="text-sm text-slate-400 italic">&quot;{study.quote}&quot;</p>
-          </div>
-        )}
+        <div className="text-left sm:text-right sm:max-w-[220px]">
+          <p className="text-sm text-slate-400 italic">&quot;{study.quote}&quot;</p>
+        </div>
       </div>
 
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />

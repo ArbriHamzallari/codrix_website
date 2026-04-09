@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils';
 const steps = [
   {
     id: 'audit',
+    stepLabel: 'STEP 01',
     icon: <Search className="w-6 h-6" />,
     title: 'We Audit',
     description:
@@ -14,12 +15,14 @@ const steps = [
   },
   {
     id: 'build',
+    stepLabel: 'STEP 02',
     icon: <Wrench className="w-6 h-6" />,
     title: 'We Build',
     description: 'We configure your AI response agent tailored to your business, tone, and FAQ.',
   },
   {
     id: 'install',
+    stepLabel: 'STEP 03',
     icon: <Rocket className="w-6 h-6" />,
     title: 'We Install',
     description: 'We go live on your WhatsApp and Instagram. Your leads get instant replies from day one.',
@@ -40,14 +43,14 @@ const item = {
 
 export default function Process() {
   return (
-    <section id="how-it-works" className="py-24 bg-dark-lighter relative border-b border-white/5">
+    <section id="how-it-works" className="pt-24 pb-16 md:pb-20 bg-dark-lighter relative border-b border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <h2 className="text-4xl md:text-5xl font-bold font-heading mb-4 text-white">How It Works</h2>
           <p className="text-slate-400 text-lg max-w-2xl mx-auto font-light leading-relaxed">
@@ -68,6 +71,7 @@ export default function Process() {
               variants={item}
               className="relative group bg-dark p-8 rounded-2xl border border-white/5 hover:border-primary/40 transition-colors"
             >
+              <span className="text-xs font-mono text-primary tracking-widest mb-2 block">{step.stepLabel}</span>
               <div
                 className={cn(
                   'w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-colors',

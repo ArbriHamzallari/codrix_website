@@ -1,13 +1,34 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const clients = [
-  { name: 'Dental Med Austria', type: 'Dental Clinic' },
-  { name: 'Dodo Dent', type: 'Dental Practice' },
-  { name: 'SMartderm', type: 'Dermatology Clinic' },
-  { name: 'Ayana Clinic', type: 'Medical Clinic' },
-  { name: 'Trio Dental Center', type: 'Dental Group' },
+  {
+    name: 'Dental Med Austria',
+    type: 'Dental Clinic',
+    logo: '/clients/dental-med-austria.png',
+  },
+  {
+    name: 'Dodo Dent',
+    type: 'Dental Practice',
+    logo: '/clients/dodo-dent.png',
+  },
+  {
+    name: 'SMartderm',
+    type: 'Dermatology Clinic',
+    logo: '/clients/SMARTDERM_page-0001-scaled.png',
+  },
+  {
+    name: 'Ayana Clinic',
+    type: 'Medical Clinic',
+    logo: '/clients/aiyana-clinic.png',
+  },
+  {
+    name: 'Trio Dental Center',
+    type: 'Dental Group',
+    logo: '/clients/trio-dental-center.png',
+  },
 ];
 
 export default function ClientLogosRow() {
@@ -27,9 +48,17 @@ export default function ClientLogosRow() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ delay: i * 0.1, duration: 0.4 }}
             viewport={{ once: true }}
-            className="flex-shrink-0 flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5"
+            className="flex-shrink-0 flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] pl-3 pr-4 py-2.5"
           >
-            <span className="h-2 w-2 rounded-full bg-emerald-500 shrink-0" aria-hidden />
+            <div className="relative h-10 w-[72px] shrink-0 rounded-md bg-white overflow-hidden">
+              <Image
+                src={c.logo}
+                alt={`${c.name} logo`}
+                fill
+                className="object-contain p-1"
+                sizes="72px"
+              />
+            </div>
             <div className="text-left min-w-0">
               <p className="text-sm font-semibold text-white whitespace-nowrap">{c.name}</p>
               <p className="text-xs text-slate-500 whitespace-nowrap">{c.type}</p>

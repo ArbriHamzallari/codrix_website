@@ -32,13 +32,19 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-[90vh] flex items-center border-b border-surface-border bg-background bg-grid overflow-hidden"
+      className="relative min-h-0 lg:min-h-[85vh] flex items-center border-b border-surface-border bg-background bg-grid overflow-hidden pb-12 lg:pb-12"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 md:py-0">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start pt-12 md:pt-24">
           <div className="flex flex-col gap-10 max-w-2xl">
             <div className="flex flex-col gap-6">
               <div className="space-y-2">
+                <div className="inline-flex items-center gap-2 bg-white/[0.06] border border-white/10 rounded-full px-4 py-1.5 mb-2 w-fit">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+                  <span className="text-white/70 text-xs font-medium tracking-wide">
+                    5 businesses live across Europe
+                  </span>
+                </div>
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-heading leading-[1.05] tracking-tight text-white">
                   Missing calls is <span className="text-primary">burning money</span>
                 </h1>
@@ -109,21 +115,26 @@ export default function Hero() {
               <HeroChatDemo />
             </div>
 
-            <div className="grid grid-cols-3 gap-4 mobile-grid md:flex md:gap-8">
-              {displayIndustry.metrics.map((metric, idx) => {
-                const Icon = metric.icon;
-                return (
-                  <div key={idx} className="flex flex-col gap-1 min-w-[100px]">
-                    <span className="text-xs font-mono text-slate-500 uppercase tracking-wider truncate">
-                      {metric.label}
-                    </span>
-                    <div className="flex items-center gap-2 text-white font-medium">
-                      <Icon size={16} className={metric.color} />
-                      <span>{metric.value}</span>
+            <div className="mt-10 pt-8 border-t border-white/[0.08] w-full">
+              <div className="flex flex-col gap-4 sm:grid sm:grid-cols-3 sm:gap-6">
+                {displayIndustry.metrics.map((metric, idx) => {
+                  const Icon = metric.icon;
+                  return (
+                    <div
+                      key={idx}
+                      className="flex flex-row sm:flex-col gap-3 sm:gap-1 items-center sm:items-start text-left min-w-0"
+                    >
+                      <span className="text-[10px] sm:text-xs font-mono text-slate-500 uppercase tracking-wider sm:truncate max-w-[140px] sm:max-w-none">
+                        {metric.label}
+                      </span>
+                      <div className="flex items-center gap-2 text-white font-medium text-sm sm:text-base ml-auto sm:ml-0">
+                        <Icon size={16} className={cn(metric.color, 'shrink-0')} />
+                        <span className="break-words">{metric.value}</span>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
           </div>
 
