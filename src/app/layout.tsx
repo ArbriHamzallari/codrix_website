@@ -6,8 +6,9 @@ const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit', display: 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 
 export const metadata: Metadata = {
-  title: 'Codrix Solutions | Premium Revenue Systems & Leverage',
-  description: 'Operator-led company that installs revenue systems for serious businesses. CRM systems, automation, AI agents, and Shadow Operator partnerships. We create leverage, not services.',
+  title: 'Codrix — AI Response Systems for Local Businesses Worldwide',
+  description:
+    'Codrix — AI Response Systems for Local Businesses Worldwide. Instant WhatsApp, Instagram, and web chat replies — 24/7.',
   icons: {
     icon: '/favicon.png',
     apple: '/favicon.png',
@@ -27,7 +28,7 @@ export default function RootLayout({
     <html lang="en" className={`${outfit.variable} ${inter.variable}`}>
       <body className="font-sans antialiased text-foreground bg-background selection:bg-primary selection:text-black">
         <Navbar />
-        <main className="min-h-screen">
+        <main className="min-h-screen pt-20">
           {children}
         </main>
         <Footer />

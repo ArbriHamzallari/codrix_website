@@ -1,0 +1,55 @@
+'use client';
+
+import { motion } from 'framer-motion';
+
+export default function AboutUs() {
+  return (
+    <section id="about" className="py-24 bg-dark relative overflow-hidden border-t border-white/5">
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="flex flex-col items-center text-center sm:text-left sm:items-start sm:flex-row gap-10">
+          {/* TODO: Replace with real photo of Arbri */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="mx-auto sm:mx-0 h-[120px] w-[120px] shrink-0 rounded-full bg-gradient-to-br from-primary/40 via-secondary/30 to-primary/20 border border-white/10 flex items-center justify-center text-3xl font-bold font-heading text-white shadow-lg"
+            aria-hidden
+          >
+            AH
+          </motion.div>
+          <div className="flex-1 space-y-6">
+            <motion.h2
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-3xl md:text-4xl font-bold font-heading text-white leading-tight"
+            >
+              Built by a Founder Who Saw the Problem Firsthand
+            </motion.h2>
+            <div className="space-y-4 text-slate-400 text-base leading-relaxed">
+              <p>
+                I&apos;m Arbri Hamzallari, the founder of Codrix. I started this as a solo founder after watching
+                local businesses — clinics, dental practices, restaurants — lose customers every single day simply
+                because nobody replied fast enough. A message comes in at 10pm. The business opens at 9am. The client
+                already booked somewhere else.
+              </p>
+              <p>
+                Codrix exists to fix that. We install AI response systems that handle the first conversation —
+                instantly, 24/7 — so business owners can focus on delivering great service instead of managing their
+                inbox.
+              </p>
+              <p>
+                We started in Albania. We now work with clinics and service businesses across Europe. We&apos;re a
+                small team moving fast — and every client we take on, we treat like it&apos;s our own business.
+              </p>
+            </div>
+            <p className="text-lg md:text-xl font-medium text-primary leading-snug pt-2">
+              We don&apos;t just set up bots. We make sure your clients feel heard — before you even pick up the phone.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

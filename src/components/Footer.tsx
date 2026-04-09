@@ -3,62 +3,40 @@ import Image from 'next/image';
 import { Linkedin, Instagram } from 'lucide-react';
 
 export default function Footer() {
-    const currentYear = new Date().getFullYear();
-
-    return (
-        <footer className="bg-dark-lighter border-t border-white/5 pt-16 pb-8">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-                    <div className="col-span-1 md:col-span-1">
-                        <Link href="/" className="flex items-center gap-2 mb-4">
-                            <div className="relative w-8 h-8 overflow-hidden rounded-lg">
-                                <Image
-                                    src="/logo.png"
-                                    alt="Codrix Logo"
-                                    fill
-                                    className="object-cover"
-                                />
-                            </div>
-                            <span className="text-xl font-bold font-heading text-white">Codrix</span>
-                        </Link>
-                        <p className="text-slate-400 text-sm leading-relaxed font-light">
-                            Installing revenue systems for serious businesses.
-                        </p>
-                    </div>
-
-                    <div>
-                        <h3 className="text-white font-bold mb-4 font-heading">Systems</h3>
-                        <ul className="space-y-2 text-sm text-slate-400">
-                            <li><Link href="/#services" className="hover:text-primary transition-colors">CRM Systems</Link></li>
-                            <li><Link href="/#services" className="hover:text-primary transition-colors">Automation</Link></li>
-                            <li><Link href="/#services" className="hover:text-primary transition-colors">AI Agents</Link></li>
-                            <li><Link href="/#services" className="hover:text-primary transition-colors">Shadow Operator</Link></li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h3 className="text-white font-bold mb-4 font-heading">Company</h3>
-                        <ul className="space-y-2 text-sm text-slate-400">
-                            <li><Link href="#" className="hover:text-primary transition-colors">About Us</Link></li>
-                            <li><Link href="#" className="hover:text-primary transition-colors">Our Work</Link></li>
-                            <li><Link href="#" className="hover:text-primary transition-colors">Process</Link></li>
-                            <li><Link href="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h3 className="text-white font-bold mb-4 font-heading">Connect</h3>
-                        <div className="flex space-x-4">
-                            <a href="https://www.instagram.com/codrix.al/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-primary transition-colors"><Instagram size={20} /></a>
-                            <a href="https://www.linkedin.com/company/codrix-solutions/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-primary transition-colors"><Linkedin size={20} /></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="border-t border-white/5 pt-8 text-center text-sm text-slate-500">
-                    <p>&copy; {currentYear} Codrix Solutions. All rights reserved.</p>
-                </div>
-            </div>
-        </footer>
-    );
+  return (
+    <footer className="bg-dark-lighter border-t border-white/[0.08] pt-14 pb-10">
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
+        <Link href="/" className="flex items-center gap-2 mb-5">
+          <div className="relative w-9 h-9 overflow-hidden rounded-lg">
+            <Image src="/logo.png" alt="Codrix Logo" fill className="object-cover" />
+          </div>
+          <span className="text-2xl font-bold font-heading tracking-tight text-white uppercase">Codrix</span>
+        </Link>
+        <p className="text-slate-400 text-sm leading-relaxed mb-8 max-w-md">
+          AI Response Systems for Local Businesses Worldwide
+        </p>
+        <div className="flex items-center justify-center gap-6 mb-10">
+          <a
+            href="https://www.instagram.com/codrix.al/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-slate-400 hover:text-primary transition-colors"
+            aria-label="Instagram"
+          >
+            <Instagram size={22} />
+          </a>
+          <a
+            href="https://www.linkedin.com/company/codrix-solutions/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-slate-400 hover:text-primary transition-colors"
+            aria-label="LinkedIn"
+          >
+            <Linkedin size={22} />
+          </a>
+        </div>
+        <p className="text-sm text-slate-500">© 2026 Codrix. All rights reserved.</p>
+      </div>
+    </footer>
+  );
 }

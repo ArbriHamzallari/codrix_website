@@ -50,7 +50,7 @@ export default function TimelineScenario({
     const monthlyLoss = Math.round(calculatorData.dailyMessages * currentRate * 30 * calculatorData.avgValue);
 
     return (
-        <section className="py-24 bg-dark-lighter relative border-b border-white/5 overflow-hidden">
+        <section id="cost-of-delay" className="py-24 bg-dark-lighter relative border-b border-white/5 overflow-hidden">
             {/* Ambient Light */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-red-500/5 blur-[120px] rounded-full pointer-events-none" />
 
