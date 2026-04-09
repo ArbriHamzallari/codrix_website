@@ -48,9 +48,10 @@ export default function Hero() {
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-heading leading-[1.05] tracking-tight text-white">
                   Missing calls is <span className="text-primary">burning money</span>
                 </h1>
-                <p className="text-lg sm:text-xl text-slate-400 font-light pt-4 max-w-xl leading-relaxed">
-                  We install AI agents that reply instantly on WhatsApp, Instagram, and web chat — 24/7, without lifting
-                  a finger. Trusted by clinics and local businesses across Europe and beyond.
+                <p className="text-lg sm:text-xl text-slate-400 font-light pt-4 max-w-2xl leading-relaxed">
+                  We build AI agents that answer your customers on WhatsApp, Instagram, and web chat instantly, around
+                  the clock, so you never lose a lead to a late reply. Clinics and local businesses across Europe already
+                  trust us to handle their first conversation.
                 </p>
               </div>
 

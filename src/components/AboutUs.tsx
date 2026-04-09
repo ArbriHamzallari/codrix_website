@@ -35,23 +35,34 @@ export default function AboutUs() {
             </motion.h2>
             <div className="space-y-4 text-slate-400 text-base leading-relaxed">
               <p>
-                I&apos;m Arbri Hamzallari, the founder of Codrix. I started this as a solo founder after watching
-                local businesses — clinics, dental practices, restaurants — lose customers every single day simply
-                because nobody replied fast enough. A message comes in at 10pm. The business opens at 9am. The client
-                already booked somewhere else.
+                I&apos;m Arbri Hamzallari, and I built Codrix because I kept seeing the same problem everywhere. A
+                patient messages a clinic at 10pm. A customer DMs a restaurant on Instagram. Nobody replies until
+                morning, and by then they&apos;ve already gone somewhere else.
               </p>
               <p>
-                Codrix exists to fix that. We install AI response systems that handle the first conversation —
-                instantly, 24/7 — so business owners can focus on delivering great service instead of managing their
-                inbox.
+                That&apos;s not a technology problem. That&apos;s lost revenue, every single day, for businesses that
+                are actually great at what they do.
               </p>
               <p>
-                We started in Albania. We now work with clinics and service businesses across Europe. We&apos;re a
-                small team moving fast — and every client we take on, we treat like it&apos;s our own business.
+                Codrix is an AI automation startup. We build and install intelligent response agents that handle the
+                first conversation with your customers instantly, on the channels they already use. WhatsApp, Instagram,
+                web chat. No delays, no missed messages, no hiring someone to sit on their phone all night.
+              </p>
+              <p>
+                I started this in Albania because this is where I saw the gap first. Local clinics, dental practices,
+                service businesses, they all had the same blind spot. The service was excellent but the response time
+                was killing them. So I built something that fixes it.
+              </p>
+              <p>
+                We are now working with businesses across Europe, and we&apos;re growing fast. But the mindset
+                hasn&apos;t changed. Every client we onboard, we treat like a partner. We don&apos;t hand you a chatbot
+                and disappear. We make sure your customers feel like they&apos;re talking to someone who cares, before
+                you even see the notification.
               </p>
             </div>
             <p className="text-lg md:text-xl font-medium text-primary leading-snug pt-2">
-              We don&apos;t just set up bots. We make sure your clients feel heard — before you even pick up the phone.
+              Albania is where we started. It&apos;s not where we stop. The opportunity for AI-powered business
+              automation is massive, and we&apos;re building Codrix to lead that wave, starting from the ground up.
             </p>
           </div>
         </div>
