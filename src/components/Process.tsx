@@ -1,61 +1,42 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Search, Wrench, Rocket } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { MessageCircle, Wrench, Rocket } from 'lucide-react';
+import type { Dict } from '@/i18n';
 
-const steps = [
-  {
-    id: 'audit',
-    stepLabel: 'STEP 01',
-    icon: <Search className="w-6 h-6" />,
-    title: 'We Audit',
-    description:
-      'We analyse your current response setup and find where leads are slipping through.',
-  },
-  {
-    id: 'build',
-    stepLabel: 'STEP 02',
-    icon: <Wrench className="w-6 h-6" />,
-    title: 'We Build',
-    description: 'We configure your AI response agent tailored to your business, tone, and FAQ.',
-  },
-  {
-    id: 'install',
-    stepLabel: 'STEP 03',
-    icon: <Rocket className="w-6 h-6" />,
-    title: 'We Install',
-    description: 'We go live on your WhatsApp and Instagram. Your leads get instant replies from day one.',
-  },
+const icons = [
+  <MessageCircle key="0" className="w-6 h-6" />,
+  <Wrench key="1" className="w-6 h-6" />,
+  <Rocket key="2" className="w-6 h-6" />,
 ];
 
 const container = {
   hidden: {},
-  show: {
-    transition: { staggerChildren: 0.2 },
-  },
+  show: { transition: { staggerChildren: 0.15 } },
 };
 
 const item = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.45 } },
 };
 
-export default function Process() {
+export default function Process({ dict }: { dict: Dict }) {
+  const p = dict.process;
+
   return (
-    <section id="how-it-works" className="pt-24 pb-16 md:pb-20 bg-dark-lighter relative border-b border-white/5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="si-funksionon" className="py-24 px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          transition={{ duration: 0.5 }}
+          className="text-center mb-14"
         >
-          <h2 className="text-4xl md:text-5xl font-bold font-heading mb-4 text-white">How It Works</h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto font-light leading-relaxed">
-            Audit, build, install — then your leads get answers while you sleep.
-          </p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-white mb-4">
+            {p.title}
+          </h2>
+          <p className="text-muted text-lg max-w-2xl mx-auto leading-relaxed">{p.subtitle}</p>
         </motion.div>
 
         <motion.div
@@ -63,25 +44,19 @@ export default function Process() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-80px' }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
         >
-          {steps.map((step) => (
+          {p.steps.map((step, i) => (
             <motion.div
-              key={step.id}
+              key={step.title}
               variants={item}
-              className="relative group bg-dark p-8 rounded-2xl border border-white/5 hover:border-primary/40 transition-colors"
+              className="group bg-surface p-8 rounded-2xl border border-surface-border hover:border-primary/40 transition-colors shadow-card"
             >
-              <span className="text-xs font-mono text-primary tracking-widest mb-2 block">{step.stepLabel}</span>
-              <div
-                className={cn(
-                  'w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-colors',
-                  'bg-primary/10 text-primary group-hover:bg-primary group-hover:text-black'
-                )}
-              >
-                {step.icon}
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 bg-primary-dim text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                {icons[i]}
               </div>
               <h3 className="text-xl font-bold font-heading mb-3 text-white">{step.title}</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">{step.description}</p>
+              <p className="text-muted text-sm leading-relaxed">{step.text}</p>
             </motion.div>
           ))}
         </motion.div>
