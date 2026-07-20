@@ -19,11 +19,24 @@ let redisResolved = false;
 function getRedis(): Redis | null {
   if (redisResolved) return redisClient;
   redisResolved = true;
-  const url = process.env.UPSTASH_REDIS_REST_URL;
-  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
-  redisClient = url && token ? new Redis({ url, token }) : null;
-  if (!redisClient) {
+
+  // Tolerate values pasted with surrounding quotes/whitespace (a common Vercel
+  // mistake when copying from Upstash's `.env` tab).
+  const url = process.env.UPSTASH_REDIS_REST_URL?.trim().replace(/^["']|["']$/g, '');
+  const token = process.env.UPSTASH_REDIS_REST_TOKEN?.trim().replace(/^["']|["']$/g, '');
+
+  if (!url || !token) {
     console.warn('ratelimit: Upstash Redis not configured — limiters fail open');
+    return null;
+  }
+
+  // Constructing the client can throw on a malformed URL. Never let that crash
+  // the request — fall back to fail-open, exactly as when Redis is unset.
+  try {
+    redisClient = new Redis({ url, token });
+  } catch (err) {
+    console.error('ratelimit: failed to init Upstash Redis, failing open', err);
+    redisClient = null;
   }
   return redisClient;
 }
