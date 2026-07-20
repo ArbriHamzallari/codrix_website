@@ -10,7 +10,7 @@ const config = {
             colors: {
                 background: "#05060E", // deep navy-black
                 foreground: "#FFFFFF",
-                muted: "#9BA3B8", // secondary text
+                muted: "#AEB4C7", // secondary text (bumped for 4.5:1 contrast on #05060E)
                 primary: {
                     DEFAULT: "#3B6BFF", // trust blue
                     dim: "rgba(59, 107, 255, 0.15)",
@@ -46,12 +46,31 @@ const config = {
                 "grid-pattern": "linear-gradient(to right, #1E2438 1px, transparent 1px), linear-gradient(to bottom, #1E2438 1px, transparent 1px)",
                 "glow-subtle": "radial-gradient(circle at center, rgba(59, 107, 255, 0.08) 0%, transparent 70%)",
             },
+            borderRadius: {
+                card: "1rem",
+                xl2: "1.25rem",
+                xl3: "1.5rem",
+            },
             boxShadow: {
-                "card": "0 1px 0 0 rgba(255,255,255,0.04) inset, 0 8px 32px rgba(0,0,0,0.35)",
-                "cta": "0 4px 24px rgba(59, 107, 255, 0.35)",
-                "glow": "0 0 20px rgba(59, 107, 255, 0.15)",
+                // Layered/diffused, respond.io-style — never one harsh shadow
+                "soft": "0 1px 2px rgba(0,0,0,0.20), 0 4px 12px rgba(0,0,0,0.24)",
+                "soft-lg": "0 2px 4px rgba(0,0,0,0.20), 0 12px 32px rgba(0,0,0,0.34)",
+                "card": "0 1px 0 0 rgba(255,255,255,0.05) inset, 0 2px 6px rgba(0,0,0,0.22), 0 16px 40px rgba(0,0,0,0.36)",
+                "elevated": "0 1px 0 0 rgba(255,255,255,0.06) inset, 0 8px 24px rgba(0,0,0,0.40), 0 24px 64px rgba(0,0,0,0.44)",
+                "cta": "0 2px 8px rgba(37, 211, 102, 0.24), 0 8px 28px rgba(37, 211, 102, 0.22)",
+                "cta-blue": "0 2px 8px rgba(59, 107, 255, 0.24), 0 8px 28px rgba(59, 107, 255, 0.28)",
+                "glow": "0 0 24px rgba(59, 107, 255, 0.16)",
                 "sharp": "0 0 0 1px #1E2438",
-            }
+            },
+            keyframes: {
+                "marquee": {
+                    from: { transform: "translateX(0)" },
+                    to: { transform: "translateX(-50%)" },
+                },
+            },
+            animation: {
+                "marquee": "marquee 28s linear infinite",
+            },
         },
     },
     plugins: [],

@@ -16,16 +16,28 @@ export const sq: Dict = {
   },
   hero: {
     badge: 'Ndërtuar në Shqipëri për bizneset shqiptare',
+    pill: 'E re — Demo live falas, pa regjistrim',
     title: 'Sa klientë humbisni sepse s\'keni kohë t\'u përgjigjeni?',
     subtitle:
       'Klientët marrin përgjigje në WhatsApp dhe Instagram brenda 2 sekondash, në çdo orë të ditës. Edhe kur ju jeni të zënë ose duke fjetur.',
     ctaDemo: 'Provoje falas',
     ctaWhatsapp: 'Na shkruani në WhatsApp',
+    credibility: '9 biznese aktive · Klinika në Shqipëri dhe Austri · Përgjigje mesatare 2 sekonda',
     stats: [
-      { value: '2 sek', label: 'Përgjigje mesatare' },
+      { num: 2, suffix: ' sek', label: 'Përgjigje mesatare' },
       { value: '24/7', label: 'Gjithmonë aktiv' },
-      { value: '9+', label: 'Biznese reale na besojnë' },
+      { num: 9, suffix: '+', label: 'Biznese që na besojnë' },
     ],
+    phone: {
+      header: 'Klinika Dentare',
+      online: 'online',
+      customer: 'Përshëndetje, sa kushton një pastrim dhëmbësh?',
+      agent: 'Përshëndetje! Pastrimi është 3.000 lekë. Doni ta rezervoni një vizitë?',
+      customer2: 'Po, nesër në mëngjes nëse ka.',
+      agent2: 'Sigurisht — nesër në 10:00. Si e keni emrin dhe numrin? 😊',
+      capturedBadge: 'Klienti u kap automatikisht · 2 sek',
+      tryLive: 'Provoje live',
+    },
   },
   logos: {
     title: 'Klinika dhe biznese reale që na besojnë',
@@ -122,6 +134,12 @@ export const sq: Dict = {
     subtitle: 'Këto janë klientët tanë, me emra dhe logo reale — jo dëshmi anonime.',
     beforeLabel: 'Para',
     afterLabel: 'Pas',
+    detailsLabel: 'Shiko detajet',
+    metrics: [
+      { num: 2, suffix: ' sek', label: 'Përgjigje mesatare', source: 'Ayana Clinic' },
+      { num: 80, suffix: '%', label: 'Më pak kohë në inbox', source: 'Dodo Dent' },
+      { num: 24, suffix: '/7', label: 'Përgjigje pa ndërprerje', source: 'Dental Med Austria' },
+    ],
     caseStudies: [
       {
         client: 'Dental Med Austria',
@@ -220,6 +238,46 @@ export const sq: Dict = {
       },
     ],
   },
+  founder: {
+    badge: 'THEMELUESI',
+    heading: 'Nuk është program i blerë. Është ndërtuar këtu.',
+    paragraphs: [
+      'Jam Arbri Hamzallari, inxhinier informatike nga Tirana. Codrix nuk është agjenci që rishet një program të huaj — asistentin e ndërtoj vetë dhe e përshtat për çdo biznes veç e veç.',
+      'Kjo do të thotë tri gjëra për ju: flet shqip ashtu si flasin klientët tuaj, ndryshon brenda ditës kur ju duhet diçka, dhe kur keni një problem, flisni direkt me personin që e ka ndërtuar.',
+    ],
+    points: [
+      'Ndërtuar nga zero — jo i rishitur',
+      'Ndryshime brenda 24 orësh, direkt nga unë',
+      'Shqip dhe anglisht, i testuar me klientë realë',
+    ],
+    signature: 'Arbri Hamzallari — Themelues, Codrix',
+    cta: 'Na shkruani në WhatsApp',
+  },
+  story: {
+    problem: {
+      eyebrow: 'PROBLEMI',
+      title: 'Ku ikin klientët tuaj',
+      body: 'Një mesazh në orën 21:00. Një pyetje ndërsa jeni me një klient. Një kërkesë të dielën. Nëse përgjigja vjen vonë, klienti ka shkuar diku tjetër — dhe ju as që e merrni vesh.',
+      items: [
+        { title: 'Kap', text: 'Çdo mesazh merr përgjigje, edhe në mesnatë.' },
+        { title: 'Kthen', text: 'Pyetjet bëhen termine, jo biseda të harruara.' },
+        { title: 'Mban', text: 'Çdo kontakt ruhet — asnjë klient nuk humbet në inbox.' },
+      ],
+    },
+    channels: {
+      eyebrow: 'KANALET',
+      title: 'Një inbox për WhatsApp, Instagram dhe Facebook',
+      body: 'Klientët ju shkruajnë ku të duan. Asistenti u përgjigjet në të njëjtën mënyrë kudo, dhe çdo bisedë ruhet në një vend të vetëm.',
+      inboxLabel: 'Një inbox',
+      list: [
+        { name: 'WhatsApp' },
+        { name: 'Instagram' },
+        { name: 'Facebook Messenger' },
+        { name: 'Web chat' },
+      ],
+      soonLabel: 'së shpejti',
+    },
+  },
   pricing: {
     title: 'Çmime të qarta, pa surpriza',
     subtitle: 'Paguani nga muaji në muaj dhe e ndaloni kur të doni. WhatsApp i përfshirë në çdo plan.',
@@ -292,16 +350,24 @@ export const sq: Dict = {
     subtitle: 'Gjithçka që duhet të dini para se të filloni.',
     items: [
       {
-        q: 'Sa kohë duhet për ta instaluar?',
-        a: 'Zakonisht 48-72 orë. Ne bëjmë gjithçka — ju duhet vetëm të na jepni akses në WhatsApp Business dhe Instagram. Nuk keni nevojë për asnjë njohuri teknike.',
-      },
-      {
         q: 'A do të duket si robot para klientëve të mi?',
         a: 'Jo. Asistentin e trajnojmë me emrin e biznesit tuaj, mënyrën si flisni ju, dhe përgjigjet tuaja. U përgjigjet klientëve ashtu siç do t\'u përgjigjeshit ju — thjesht më shpejt. Shumë klientë mendojnë se po flasin me një person real.',
       },
       {
+        q: 'Sa kohë duhet për ta instaluar?',
+        a: 'Zakonisht 48-72 orë. Ne bëjmë gjithçka — ju duhet vetëm të na jepni akses në WhatsApp Business dhe Instagram. Nuk keni nevojë për asnjë njohuri teknike.',
+      },
+      {
+        q: 'A e ndërtoni vetë apo rishisni një program të huaj?',
+        a: 'E ndërtojmë vetë. Nuk rishesim një program të gatshëm — asistentin e programojmë dhe e përshtatim për biznesin tuaj. Kjo do të thotë që flet shqip natyrshëm, ndryshon shpejt kur ju duhet diçka, dhe kur keni një problem flisni direkt me personin që e ka ndërtuar.',
+      },
+      {
         q: 'Po kur pyetja është shumë e ndërlikuar?',
         a: 'Asistenti e di kufirin e vet. Kur një pyetje del jashtë njohurive të tij, i thotë klientit se dikush nga stafi do t\'i kthehet shpejt — dhe ju merrni njoftim në çast që të ndërhyni.',
+      },
+      {
+        q: 'A janë të sigurta të dhënat e klientëve të mi?',
+        a: 'Po. Nuk ruajmë biseda më shumë se ç\'duhet për të funksionuar asistenti. Respektojmë GDPR-në dhe nuk i ndajmë kurrë të dhënat tuaja apo të klientëve tuaj me palë të treta.',
       },
       {
         q: 'A më duhet kontratë afatgjatë?',
@@ -310,10 +376,6 @@ export const sq: Dict = {
       {
         q: 'A funksionon edhe jashtë Shqipërisë dhe Kosovës?',
         a: 'Po. Punojmë me biznese në gjithë Evropën. Asistenti punon në çdo gjuhë dhe me çdo llogari WhatsApp Business apo Instagram, pavarësisht vendit.',
-      },
-      {
-        q: 'A janë të sigurta të dhënat e klientëve të mi?',
-        a: 'Po. Nuk ruajmë biseda më shumë se ç\'duhet për të funksionuar asistenti. Respektojmë GDPR-në dhe nuk i ndajmë kurrë të dhënat tuaja apo të klientëve tuaj me palë të treta.',
       },
       {
         q: 'Cili plan është për mua?',
@@ -327,8 +389,53 @@ export const sq: Dict = {
     cta: 'Na shkruani në WhatsApp',
   },
   footer: {
-    tagline: 'Asistentë për WhatsApp dhe Instagram që u përgjigjen klientëve 24 orë në ditë. Teknologji e ndërtuar në Shqipëri.',
+    tagline: 'Asistentë për WhatsApp dhe Instagram që u përgjigjen klientëve 24 orë në ditë.',
     rights: 'Të gjitha të drejtat e rezervuara.',
+    builtIn: 'Ndërtuar në Shqipëri 🇦🇱',
+    colServices: {
+      title: 'Shërbime',
+      items: ['Asistent WhatsApp', 'Asistent Instagram', 'Facebook Messenger', 'Chat në faqe'],
+    },
+    colCompany: {
+      title: 'Kompania',
+      items: [
+        { label: 'Provoje vetë', href: '/#demo' },
+        { label: 'Rezultate', href: '/#rezultate' },
+        { label: 'Themeluesi', href: '/#themeluesi' },
+        { label: 'Çmimet', href: '/#cmimet' },
+      ],
+    },
+    colContact: { title: 'Kontakt & Ligjore' },
+    email: 'info@codrix.org',
+    hours: 'Tiranë, Shqipëri',
+    privacy: 'Politika e privatësisë',
+    terms: 'Kushtet e shërbimit',
+  },
+  legal: {
+    privacy: {
+      title: 'Politika e privatësisë',
+      updated: 'Përditësuar më 20 korrik 2026',
+      body: [
+        'Codrix (“ne”) ndërton dhe instalon asistentë që u përgjigjen klientëve të bizneseve në WhatsApp, Instagram dhe chat në faqe. Kjo politikë shpjegon si i trajtojmë të dhënat.',
+        'Të dhënat e biznesit. Kur na jepni akses në llogaritë tuaja WhatsApp Business ose Instagram, i përdorim vetëm për të konfiguruar dhe mbajtur në punë asistentin tuaj. Nuk i ndajmë me palë të treta.',
+        'Bisedat me klientët. Asistenti përpunon mesazhet e klientëve për t’u përgjigjur dhe për të kapur të dhëna kontakti (emër, telefon, kërkesë). Nuk ruajmë përmbajtjen e bisedave më shumë se sa duhet për të funksionuar shërbimi.',
+        'Demoja në faqe. Bisedat në demon tonë live dërgohen te një ofrues modeli gjuhësor vetëm për të gjeneruar përgjigjen. Nuk ju kërkojmë emër, email apo regjistrim për ta provuar.',
+        'Të drejtat tuaja (GDPR). Keni të drejtë të kërkoni akses, korrigjim ose fshirje të të dhënave tuaja. Na shkruani në info@codrix.org.',
+        'Kjo faqe përdor vetëm cookie teknike të nevojshme për funksionim. Nuk përdorim gjurmim reklamash.',
+      ],
+    },
+    terms: {
+      title: 'Kushtet e shërbimit',
+      updated: 'Përditësuar më 20 korrik 2026',
+      body: [
+        'Duke përdorur shërbimet e Codrix, pranoni këto kushte.',
+        'Shërbimi. Ne ndërtojmë, instalojmë dhe mbajmë në punë një asistent që u përgjigjet klientëve tuaj në kanalet e zgjedhura. Përmbajtja e përgjigjeve konfigurohet sipas informacioneve që na jepni.',
+        'Pagesat. Planet janë mujore dhe faturohen paraprakisht. Mund ta anuloni kur të doni; shërbimi vazhdon deri në fund të periudhës së paguar.',
+        'Përgjegjësitë tuaja. Ju siguroni informacione të sakta për biznesin dhe akses të vlefshëm në llogaritë përkatëse. Ju mbeteni përgjegjës për marrëdhënien me klientët tuaj.',
+        'Kufizimi i përgjegjësisë. Bëjmë çmos që asistenti të përgjigjet saktë, por ju rekomandojmë të mbikëqyrni bisedat e ndjeshme. Codrix nuk mban përgjegjësi për vendime të marra vetëm mbi bazën e përgjigjeve automatike.',
+        'Kontakt. Për çdo pyetje mbi këto kushte, na shkruani në info@codrix.org.',
+      ],
+    },
   },
   sticky: {
     label: 'Na shkruani në WhatsApp',

@@ -105,22 +105,20 @@ export default function DemoLive({ dict }: { dict: Dict }) {
   const now = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
 
   return (
-    <section id="demo" className="relative py-24 px-4 sm:px-6 bg-section-glow">
+    <section id="demo" className="relative section-y px-4 sm:px-6 bg-section-glow">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary-dim px-4 py-1.5 text-sm font-medium text-primary mb-5">
             <Sparkles className="w-4 h-4" />
             {d.badge}
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-white mb-4">
-            {d.title}
-          </h2>
-          <p className="text-muted text-lg max-w-2xl mx-auto">{d.subtitle}</p>
+          <h2 className="type-h2 font-bold font-heading text-white mb-4">{d.title}</h2>
+          <p className="type-lead text-secondary max-w-2xl mx-auto">{d.subtitle}</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.3fr_1fr] gap-5">
           {/* Left: business picker + knowledge editor */}
-          <div className="rounded-2xl border border-surface-border bg-surface p-5 shadow-card">
+          <div className="rounded-card border border-surface-border bg-surface p-5 shadow-elevated">
             <p className="text-sm font-semibold text-white mb-3">{d.pickBusiness}</p>
             <div className="flex flex-wrap gap-2 mb-6">
               {d.businesses.map((b) => (
@@ -150,7 +148,7 @@ export default function DemoLive({ dict }: { dict: Dict }) {
           </div>
 
           {/* Middle: WhatsApp-style chat */}
-          <div className="rounded-2xl border border-surface-border bg-surface overflow-hidden shadow-card flex flex-col min-h-[480px]">
+          <div className="rounded-card border border-surface-border bg-surface overflow-hidden shadow-elevated flex flex-col min-h-[480px]">
             <div className="flex items-center gap-3 px-4 py-3 bg-[#075E54]">
               <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center text-white font-bold">
                 {business.label.charAt(0)}
@@ -270,7 +268,7 @@ export default function DemoLive({ dict }: { dict: Dict }) {
           </div>
 
           {/* Right: captured lead panel */}
-          <div className="rounded-2xl border border-surface-border bg-surface p-5 shadow-card">
+          <div className="rounded-card border border-surface-border bg-surface p-5 shadow-elevated">
             <p className="text-sm font-semibold text-white mb-1">{d.leadTitle}</p>
             <p className="text-xs text-muted mb-5">{d.leadHint}</p>
             <div className="space-y-3">

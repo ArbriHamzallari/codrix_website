@@ -1,0 +1,25 @@
+---
+description: Codrix website project context — always applied
+alwaysApply: true
+---
+
+Read `CLAUDE.md` at the repository root before proposing or writing any code, copy or design
+change. It is the source of truth for this project.
+
+Non-negotiables (full reasoning in CLAUDE.md):
+
+- The buyer is a non-technical local business owner in Albania/Kosovo. Never use technical
+  vocabulary in user-facing copy ("AI response system", "audit", "diagnostic", "leakage
+  channels"). Name the lost customers, not the technology.
+- Albanian is the default language of the site. English is secondary, for EU clients.
+- Pricing is €79, €159 ,€279 and custom per month. Starter , Growth , Advanced, Enterprise. Do not lower it or propose lowering it.
+- One primary call to action: WhatsApp. Do not add competing CTAs.
+- Never invent clients, testimonials, logos, metrics or case studies. Only real ones.
+- Never mention, name or compare against a competitor.
+- API keys stay server-side, in route handlers. Never in client components.
+- Do not present modelled revenue estimates as real results.
+
+Before deleting files, adding dependencies, adding pages, changing pricing, or changing brand
+colours wholesale — ask first.
+
+If a request conflicts with CLAUDE.md, say which section conflicts and ask before proceeding.

@@ -1,80 +1,97 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { MessageCircle, ArrowRight } from 'lucide-react';
+import { MessageCircle, ArrowRight, ArrowDown } from 'lucide-react';
 import type { Dict } from '@/i18n';
 import { whatsappUrl } from '@/i18n';
+import Reveal from '@/components/ui/Reveal';
+import CountUp from '@/components/ui/CountUp';
+import HeroPhone from '@/components/HeroPhone';
 
 export default function Hero({ dict }: { dict: Dict }) {
   const h = dict.hero;
 
   return (
-    <section className="relative pt-36 pb-20 px-4 sm:px-6 bg-hero-glow overflow-hidden">
-      <div className="max-w-5xl mx-auto text-center relative z-10">
-        <motion.span
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="inline-flex items-center gap-2 rounded-full border border-surface-border bg-surface/70 px-4 py-1.5 text-sm text-muted mb-8"
-        >
-          <span className="inline-block w-2 h-2 rounded-full bg-success" />
-          {h.badge}
-        </motion.span>
+    <section className="relative overflow-hidden px-4 sm:px-6 pt-32 pb-20 md:pt-40 md:pb-28">
+      {/* layered background depth */}
+      <div className="absolute inset-0 -z-10 bg-hero-glow" aria-hidden />
+      <div className="absolute inset-0 -z-10 bg-grid-faint opacity-40" aria-hidden />
+      <div className="absolute inset-0 -z-10 bg-vignette" aria-hidden />
+      <div className="absolute inset-0 -z-10 bg-noise opacity-[0.15] mix-blend-soft-light" aria-hidden />
 
-        <motion.h1
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.05 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-heading text-white leading-[1.05] tracking-tight mb-6"
-        >
-          {h.title}
-        </motion.h1>
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-8 items-center">
+        {/* left: copy */}
+        <div className="text-center lg:text-left">
+          <Reveal>
+            <a
+              href="#demo"
+              className="inline-flex items-center gap-2 rounded-full border border-surface-border bg-surface/70 px-4 py-1.5 text-sm text-secondary hover:text-white hover:border-primary/40 transition-colors mb-7"
+            >
+              <span className="inline-block w-2 h-2 rounded-full bg-success animate-pulse" />
+              {h.pill}
+              <ArrowRight className="w-3.5 h-3.5" />
+            </a>
+          </Reveal>
 
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="text-lg sm:text-xl text-muted max-w-3xl mx-auto leading-relaxed mb-10"
-        >
-          {h.subtitle}
-        </motion.p>
+          <Reveal delay={0.05}>
+            <h1 className="type-h1 font-bold font-heading text-white mb-6 text-balance">
+              {h.title}
+            </h1>
+          </Reveal>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.15 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
-        >
-          <a
-            href="#demo"
-            className="inline-flex items-center gap-2 rounded-full border border-surface-border bg-surface px-7 py-3.5 text-base font-semibold text-white hover:bg-surface-hover transition-colors w-full sm:w-auto justify-center"
-          >
-            {h.ctaDemo}
-            <ArrowRight className="w-4 h-4" />
-          </a>
-          <a
-            href={whatsappUrl(dict.nav.whatsappMessage)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-base font-semibold text-white hover:bg-primary-hover transition-colors shadow-cta w-full sm:w-auto justify-center"
-          >
-            <MessageCircle className="w-5 h-5" />
-            {h.ctaWhatsapp}
-          </a>
-        </motion.div>
+          <Reveal delay={0.1}>
+            <p className="type-lead text-secondary max-w-2xl mx-auto lg:mx-0 mb-9">{h.subtitle}</p>
+          </Reveal>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.25 }}
-          className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4"
-        >
-          {h.stats.map((s) => (
-            <div key={s.label} className="text-center">
-              <p className="text-2xl font-bold font-heading text-white">{s.value}</p>
-              <p className="text-sm text-muted">{s.label}</p>
+          <Reveal delay={0.15}>
+            <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-3.5 mb-6">
+              <a
+                href={whatsappUrl(dict.nav.whatsappMessage)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-whatsapp px-7 py-3.5 text-base font-semibold text-white hover:brightness-110 transition-all shadow-cta lift press w-full sm:w-auto justify-center"
+              >
+                <MessageCircle className="w-5 h-5" />
+                {h.ctaWhatsapp}
+              </a>
+              <a
+                href="#demo"
+                className="inline-flex items-center gap-2 rounded-full border border-surface-border bg-surface px-7 py-3.5 text-base font-semibold text-white hover:bg-surface-hover hover:border-white/20 transition-colors lift press w-full sm:w-auto justify-center"
+              >
+                {h.ctaDemo}
+                <ArrowDown className="w-4 h-4" />
+              </a>
             </div>
-          ))}
-        </motion.div>
+          </Reveal>
+
+          <Reveal delay={0.2}>
+            <p className="type-small text-tertiary mb-10">{h.credibility}</p>
+          </Reveal>
+
+          <Reveal delay={0.25}>
+            <div className="flex items-stretch justify-center lg:justify-start gap-6 sm:gap-8">
+              {h.stats.map((s, i) => (
+                <div key={s.label} className="flex items-center gap-6 sm:gap-8">
+                  {i > 0 && <span className="w-px h-10 bg-surface-border" aria-hidden />}
+                  <div className="text-center lg:text-left">
+                    <p className="text-2xl sm:text-3xl font-bold font-heading text-white">
+                      {s.num !== undefined ? (
+                        <CountUp value={s.num} suffix={s.suffix ?? ''} duration={1.2} />
+                      ) : (
+                        s.value
+                      )}
+                    </p>
+                    <p className="type-small text-tertiary mt-0.5">{s.label}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+
+        {/* right: product visual */}
+        <div className="relative">
+          <HeroPhone dict={dict} />
+        </div>
       </div>
     </section>
   );

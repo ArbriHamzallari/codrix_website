@@ -38,11 +38,23 @@ export interface Dict {
   };
   hero: {
     badge: string;
+    pill: string;
     title: string;
     subtitle: string;
     ctaDemo: string;
     ctaWhatsapp: string;
-    stats: { value: string; label: string }[];
+    credibility: string;
+    stats: { value?: string; num?: number; suffix?: string; label: string }[];
+    phone: {
+      header: string;
+      online: string;
+      customer: string;
+      agent: string;
+      customer2: string;
+      agent2: string;
+      capturedBadge: string;
+      tryLive: string;
+    };
   };
   logos: {
     title: string;
@@ -82,7 +94,33 @@ export interface Dict {
     subtitle: string;
     beforeLabel: string;
     afterLabel: string;
+    detailsLabel: string;
+    metrics: { num: number; suffix: string; label: string; source: string }[];
     caseStudies: CaseStudy[];
+  };
+  founder: {
+    badge: string;
+    heading: string;
+    paragraphs: string[];
+    points: string[];
+    signature: string;
+    cta: string;
+  };
+  story: {
+    problem: {
+      eyebrow: string;
+      title: string;
+      body: string;
+      items: { title: string; text: string }[];
+    };
+    channels: {
+      eyebrow: string;
+      title: string;
+      body: string;
+      inboxLabel: string;
+      list: { name: string; soon?: boolean }[];
+      soonLabel: string;
+    };
   };
   pricing: {
     title: string;
@@ -104,6 +142,18 @@ export interface Dict {
   footer: {
     tagline: string;
     rights: string;
+    builtIn: string;
+    colServices: { title: string; items: string[] };
+    colCompany: { title: string; items: { label: string; href: string }[] };
+    colContact: { title: string };
+    email: string;
+    hours: string;
+    privacy: string;
+    terms: string;
+  };
+  legal: {
+    privacy: { title: string; updated: string; body: string[] };
+    terms: { title: string; updated: string; body: string[] };
   };
   sticky: {
     label: string;
