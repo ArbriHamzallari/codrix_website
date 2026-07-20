@@ -1,12 +1,26 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { randomUUID } from 'node:crypto';
+import Anthropic from '@anthropic-ai/sdk';
+import { isAllowedOrigin } from '@/lib/security';
+import { getClientIp, hitLimit } from '@/lib/ratelimit';
 
 export const runtime = 'nodejs';
 
 const MAX_USER_MESSAGES = 15;
 const MAX_KNOWLEDGE_CHARS = 2000;
+const MAX_LABEL_CHARS = 80;
 const MAX_MESSAGE_CHARS = 500;
-const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
-const RATE_LIMIT_MAX_REQUESTS = 40;
+// Trim the incoming history server-side before sending it upstream, regardless
+// of what the client sends (~12 turns).
+const MAX_HISTORY_MESSAGES = 24;
+
+// Persistent per-IP limit (survives cold starts, spans instances).
+const IP_WINDOW_SECONDS = 60 * 60;
+const IP_MAX_MODEL_CALLS = 20;
+
+// Server-side per-session turn cap (the client-supplied array is NOT trusted).
+const SESSION_COOKIE = 'codrix_demo_sid';
+const SESSION_TTL_SECONDS = 60 * 60;
 
 type ChatMessage = { role: 'user' | 'assistant'; content: string };
 
@@ -17,23 +31,15 @@ type Lead = {
   slot: string | null;
 };
 
-const rateBuckets = new Map<string, { count: number; windowStart: number }>();
-
-function isRateLimited(ip: string): boolean {
-  const now = Date.now();
-  const bucket = rateBuckets.get(ip);
-  if (!bucket || now - bucket.windowStart > RATE_LIMIT_WINDOW_MS) {
-    rateBuckets.set(ip, { count: 1, windowStart: now });
-    return false;
-  }
-  bucket.count += 1;
-  // Opportunistic cleanup so the map does not grow unbounded on a long-lived instance
-  if (rateBuckets.size > 5000) {
-    for (const [key, b] of rateBuckets) {
-      if (now - b.windowStart > RATE_LIMIT_WINDOW_MS) rateBuckets.delete(key);
-    }
-  }
-  return bucket.count > RATE_LIMIT_MAX_REQUESTS;
+function withSession(res: NextResponse, sid: string): NextResponse {
+  res.cookies.set(SESSION_COOKIE, sid, {
+    httpOnly: true,
+    secure: true,
+    sameSite: 'lax',
+    path: '/',
+    maxAge: SESSION_TTL_SECONDS,
+  });
+  return res;
 }
 
 const RESPONSE_SCHEMA = {
@@ -83,17 +89,13 @@ function buildSystemPrompt(businessLabel: string, knowledge: string, locale: str
 }
 
 export async function POST(req: NextRequest) {
+  if (!isAllowedOrigin(req)) {
+    return NextResponse.json({ error: 'forbidden' }, { status: 403 });
+  }
+
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) {
     return NextResponse.json({ error: 'demo_not_configured' }, { status: 503 });
-  }
-
-  const ip =
-    req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
-    req.headers.get('x-real-ip') ||
-    'unknown';
-  if (isRateLimited(ip)) {
-    return NextResponse.json({ error: 'rate_limited' }, { status: 429 });
   }
 
   let body: {
@@ -118,68 +120,83 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'invalid_request' }, { status: 400 });
   }
 
-  const userMessageCount = messages.filter((m) => m.role === 'user').length;
-  if (userMessageCount > MAX_USER_MESSAGES) {
-    return NextResponse.json({ error: 'cap_reached' }, { status: 403 });
+  // Reject — not silently drop — any entry with an unexpected shape or role.
+  // The client may only ever send `user` / `assistant` turns; a `system` role
+  // (or anything else) is an attempt to inject instructions and is refused.
+  const shapeValid = messages.every(
+    (m) =>
+      m &&
+      (m.role === 'user' || m.role === 'assistant') &&
+      typeof m.content === 'string'
+  );
+  if (!shapeValid) {
+    return NextResponse.json({ error: 'invalid_request' }, { status: 400 });
+  }
+
+  // Establish a server-authoritative session id. The client cannot forge the
+  // turn count: it lives in Redis keyed to this id, not in the request body.
+  const cookieSid = req.cookies.get(SESSION_COOKIE)?.value;
+  const sid = cookieSid && /^[0-9a-f-]{36}$/i.test(cookieSid) ? cookieSid : randomUUID();
+
+  // Per-session turn cap (authoritative). Sending a fresh short `messages`
+  // array no longer resets this — the counter is incremented server-side.
+  const session = await hitLimit(`demo:turns:${sid}`, MAX_USER_MESSAGES, SESSION_TTL_SECONDS);
+  if (!session.allowed) {
+    return withSession(NextResponse.json({ error: 'cap_reached' }, { status: 403 }), sid);
+  }
+
+  // Persistent per-IP model-call limit — catches clients that clear the cookie
+  // to dodge the session cap. Keyed on a platform-set header, not a spoofable one.
+  const ip = getClientIp(req);
+  const ipLimit = await hitLimit(`demo:ip:${ip}`, IP_MAX_MODEL_CALLS, IP_WINDOW_SECONDS);
+  if (!ipLimit.allowed) {
+    return withSession(NextResponse.json({ error: 'rate_limited' }, { status: 429 }), sid);
   }
 
   const sanitized: ChatMessage[] = messages
-    .filter(
-      (m) =>
-        m &&
-        (m.role === 'user' || m.role === 'assistant') &&
-        typeof m.content === 'string' &&
-        m.content.trim().length > 0
-    )
-    .slice(-30)
+    .filter((m) => m.content.trim().length > 0)
+    .slice(-MAX_HISTORY_MESSAGES)
     .map((m) => ({ role: m.role, content: m.content.slice(0, MAX_MESSAGE_CHARS) }));
 
   if (sanitized.length === 0 || sanitized[sanitized.length - 1].role !== 'user') {
     return NextResponse.json({ error: 'invalid_request' }, { status: 400 });
   }
 
-  const model = process.env.DEMO_MODEL || 'claude-opus-4-8';
+  // Default to Haiku — fast and cheap for a public demo where strangers burn
+  // tokens. If replies feel weak (esp. in Albanian), set DEMO_MODEL=claude-sonnet-5.
+  // Do not use Opus here.
+  const model = process.env.DEMO_MODEL || 'claude-haiku-4-5';
+  const anthropic = new Anthropic({ apiKey });
 
   try {
-    const anthropicRes = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': apiKey,
-        'anthropic-version': '2023-06-01',
-      },
-      body: JSON.stringify({
-        model,
-        max_tokens: 600,
-        system: buildSystemPrompt(
-          businessLabel.slice(0, 100),
-          knowledge.slice(0, MAX_KNOWLEDGE_CHARS),
-          locale === 'en' ? 'en' : 'sq'
-        ),
-        messages: sanitized,
-        output_config: { format: { type: 'json_schema', schema: RESPONSE_SCHEMA } },
-      }),
+    const message = await anthropic.messages.create({
+      model,
+      max_tokens: 400,
+      system: buildSystemPrompt(
+        businessLabel.slice(0, MAX_LABEL_CHARS),
+        knowledge.slice(0, MAX_KNOWLEDGE_CHARS),
+        locale === 'en' ? 'en' : 'sq'
+      ),
+      messages: sanitized,
+      // Structured output: constrain the reply to { reply, lead } JSON.
+      output_config: { format: { type: 'json_schema', schema: RESPONSE_SCHEMA } },
     });
 
-    if (!anthropicRes.ok) {
-      console.error('demo api upstream error', anthropicRes.status, await anthropicRes.text());
-      return NextResponse.json({ error: 'upstream_error' }, { status: 502 });
+    // Safety classifiers can decline with a 200 + stop_reason "refusal";
+    // check it before reading content.
+    if (message.stop_reason === 'refusal') {
+      return withSession(
+        NextResponse.json({
+          reply: null,
+          lead: null,
+          error: 'refused',
+        }),
+        sid
+      );
     }
 
-    const data = await anthropicRes.json();
-
-    if (data.stop_reason === 'refusal') {
-      return NextResponse.json({
-        reply: null,
-        lead: null,
-        error: 'refused',
-      });
-    }
-
-    const textBlock = Array.isArray(data.content)
-      ? data.content.find((b: { type: string }) => b.type === 'text')
-      : null;
-    if (!textBlock?.text) {
+    const textBlock = message.content.find((b) => b.type === 'text');
+    if (!textBlock || textBlock.type !== 'text' || !textBlock.text) {
       return NextResponse.json({ error: 'empty_response' }, { status: 502 });
     }
 
@@ -194,12 +211,21 @@ export async function POST(req: NextRequest) {
       };
     }
 
-    return NextResponse.json({
-      reply: parsed.reply,
-      lead: parsed.lead,
-      remaining: Math.max(0, MAX_USER_MESSAGES - userMessageCount),
-    });
+    return withSession(
+      NextResponse.json({
+        reply: parsed.reply,
+        lead: parsed.lead,
+        remaining: Math.max(0, MAX_USER_MESSAGES - session.count),
+      }),
+      sid
+    );
   } catch (err) {
+    // Typed SDK errors: distinguish upstream API failures from our own bugs,
+    // and never leak the provider payload to the client.
+    if (err instanceof Anthropic.APIError) {
+      console.error('demo api upstream error', err.status, err.message);
+      return NextResponse.json({ error: 'upstream_error' }, { status: 502 });
+    }
     console.error('demo api error', err);
     return NextResponse.json({ error: 'server_error' }, { status: 500 });
   }

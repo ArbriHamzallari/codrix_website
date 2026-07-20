@@ -1,8 +1,29 @@
     import { Resend } from 'resend';
 import { NextRequest, NextResponse } from 'next/server';
+import { escapeHtml, isAllowedOrigin } from '@/lib/security';
+import { getClientIp, hitLimit } from '@/lib/ratelimit';
+
+const MAX_NAME = 200;
+const MAX_MESSAGE = 2000;
+const EMAIL_WINDOW_SECONDS = 60 * 60;
+const EMAIL_MAX_PER_IP = 10;
 
 export async function POST(request: NextRequest) {
     try {
+        if (!isAllowedOrigin(request)) {
+            console.warn('contact: rejected request from disallowed origin');
+            return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
+        }
+
+        const ip = getClientIp(request);
+        const limit = await hitLimit(`contact:ip:${ip}`, EMAIL_MAX_PER_IP, EMAIL_WINDOW_SECONDS);
+        if (!limit.allowed) {
+            return NextResponse.json(
+                { error: 'Too many requests. Please try again later.' },
+                { status: 429 }
+            );
+        }
+
         // Check for API key
         const apiKey = process.env.RESEND_API_KEY;
         if (!apiKey) {
@@ -18,10 +39,24 @@ export async function POST(request: NextRequest) {
         const body = await request.json();
         const { name, email, message } = body;
 
-        // Validate input
-        if (!name || !email || !message) {
+        // Validate input (server-side — never trust the browser form)
+        if (
+            typeof name !== 'string' ||
+            typeof email !== 'string' ||
+            typeof message !== 'string' ||
+            !name.trim() ||
+            !email.trim() ||
+            !message.trim()
+        ) {
             return NextResponse.json(
                 { error: 'All fields are required' },
+                { status: 400 }
+            );
+        }
+
+        if (name.length > MAX_NAME || message.length > MAX_MESSAGE || email.length > MAX_NAME) {
+            return NextResponse.json(
+                { error: 'One or more fields are too long' },
                 { status: 400 }
             );
         }
@@ -46,11 +81,11 @@ export async function POST(request: NextRequest) {
                         New Contact Form Submission
                     </h2>
                     <div style="margin-top: 20px;">
-                        <p><strong>Name:</strong> ${name}</p>
-                        <p><strong>Email:</strong> ${email}</p>
+                        <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+                        <p><strong>Email:</strong> ${escapeHtml(email)}</p>
                         <p><strong>Message:</strong></p>
                         <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; margin-top: 10px;">
-                            ${message.replace(/\n/g, '<br>')}
+                            ${escapeHtml(message).replace(/\n/g, '<br>')}
                         </div>
                     </div>
                     <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; color: #666; font-size: 12px;">
