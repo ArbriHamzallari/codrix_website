@@ -1,5 +1,6 @@
 import OmnichannelFeatures from '@/components/OmnichannelFeatures';
 import ProblemOverload from '@/components/ProblemOverload';
+import ArcadeTourEmbed from '@/components/ArcadeTourEmbed';
 import Process from '@/components/Process';
 import Pricing from '@/components/Pricing';
 import FAQ from '@/components/FAQ';
@@ -88,7 +89,11 @@ export default function HomeSections({ dict }: { dict: Dict }) {
       />
 
       {/* 05 — How you start. 3-step onboarding; answers "is this hard for me"
-          for non-technical owners. */}
+          for non-technical owners. The Arcade walkthrough sits directly above
+          the text steps — "watch it happen" before "read the 3 steps",
+          adjacent since that's where a visitor asking "how does this work"
+          already is. */}
+      <ArcadeTourEmbed dict={dict} />
       <Process dict={dict} />
 
       {/* 06 — Testimonials / results. Reuse: ProofResults. */}

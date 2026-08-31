@@ -90,6 +90,11 @@ export interface Dict {
     typing: string;
     businesses: DemoBusiness[];
   };
+  arcadeTour: {
+    title: string;
+    subtitle: string;
+    loading: string;
+  };
   process: {
     title: string;
     subtitle: string;

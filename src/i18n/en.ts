@@ -115,6 +115,11 @@ export const en: Dict = {
       },
     ],
   },
+  arcadeTour: {
+    title: 'See Biseda AI in action',
+    subtitle: 'From the customer\'s first message to a captured booking — 90 seconds.',
+    loading: 'Loading the demo...',
+  },
   process: {
     title: 'How it works — 3 simple steps',
     subtitle: "From first message to installation in 48-72 hours. You don't need any technical knowledge.",

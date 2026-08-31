@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, DM_Mono, Instrument_Sans, Source_Serif_4 } from 'next/font/google';
 import './globals.css';
 import AnnouncementBar from '@/components/AnnouncementBar';
+import ChatWidget from '@/components/ChatWidget';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
@@ -94,6 +95,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />
+        <ChatWidget />
       </body>
     </html>
   );

@@ -115,6 +115,11 @@ export const sq: Dict = {
       },
     ],
   },
+  arcadeTour: {
+    title: 'Shikoni Biseda AI në veprim',
+    subtitle: 'Nga biseda e parë e klientit deri te rezervimi i kapur — 90 sekonda.',
+    loading: 'Duke ngarkuar demonstrimin...',
+  },
   process: {
     title: 'Si fillojmë — 3 hapa të thjeshtë',
     subtitle: 'Nga biseda e parë deri te instalimi, brenda 48-72 orëve. Nuk keni nevojë të dini asgjë teknike.',

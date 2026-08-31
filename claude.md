@@ -363,6 +363,77 @@ the hero and demo sections, and get approval before touching the rest.
 
 Append an entry for every meaningful decision. Newest first.
 
+### 2026-08-31 — Arcade product tour embedded in "Si funksionon"
+New `src/components/ArcadeTourEmbed.tsx`, mounted directly above `<Process dict={dict} />` in
+`HomeSections.tsx` — the "watch it happen" option sits right next to the 3-step text
+explanation, where a visitor asking "how does this work" already is. Embed src/params/flow id
+are copied verbatim from Arcade's Share → Embed panel, untouched.
+- **`useInView` (framer-motion), not a hand-rolled `IntersectionObserver`.** framer-motion is
+  already a dependency and this repo already uses `useInView` for the same
+  scroll-gated-work purpose (`CountUp.tsx`, `TimelineScenario.tsx`) — reusing it instead of
+  reimplementing the same primitive. `once: true` makes the returned boolean latch permanently
+  once it fires, so no extra state was needed to remember that past the observer disconnecting.
+- **Real bug caught by measuring, not by eye: the aspect-ratio box was rendering 788px tall
+  instead of the intended ~550px.** `padding-bottom` percentages resolve against the
+  *containing block's* width — i.e. the parent's — never against the element's own `max-width`.
+  Putting `max-w-4xl` and the percentage padding-bottom on the same element meant the
+  percentage was computed against the full-width `<section>` (1312px content width at 1440px
+  viewport) instead of the 896px box visually constraining it — solved for algebraically from
+  the rendered height to confirm before fixing, not guessed. Split into two elements: an outer
+  `max-w-4xl` wrapper (no percentage math) and an inner `width:100%` box carrying the aspect
+  ratio, matching how Arcade's own Share panel structures this by default. Verified: 552px
+  rendered vs 550px expected at 1440px, and the mobile box scales correctly at 390px.
+- Copy went into `dict.arcadeTour` (`types`/`sq`/`en`) rather than hardcoded, matching every
+  other section — only the title/subtitle/loading-state text; the iframe's `title` attribute is
+  whatever the Arcade flow itself is named and is left as given, per the brief's own note.
+- Section styled with the repo's tokens/rhythm (`section-y`, `border-t border-border`,
+  `rounded-card`, `shadow-elevated`, `Reveal` for the headline) rather than the brief's
+  `gray-*`/`rounded-2xl`/`shadow-lg`, matching the substitution already made for the pricing
+  and getting-started sections.
+- The two vendor-prefixed fullscreen attributes (`webkitallowfullscreen`/`mozallowfullscreen`)
+  aren't in React's DOM attribute typings and fail `tsc` as bare JSX props — passed through via
+  object spread instead, keeping the exact attribute names Arcade's snippet uses.
+- Verified: `tsc --noEmit`, `eslint`, `npm run build` green. Playwright confirmed, via actual
+  network request logging rather than assumption: **zero** requests to `arcade.software` before
+  the section is near the viewport, then loading fires once the container crosses the 200px
+  margin (84 requests, including the real player JS and the embedded flow). Zero horizontal
+  overflow at 1440px and 390px; section order confirmed (tour above the 3-step cards).
+  **Not verified here, and can't be from this environment:** that the flow shown is Arbri's
+  *rebuilt* version and not a stale cached one — the embed genuinely loads live content from
+  `demo.arcade.software` under the flow id supplied, and a screenshot shows a real Biseda AI
+  dashboard walkthrough, but confirming it's the current version needs Arbri clicking through
+  it himself against what he actually published in Arcade.
+
+### 2026-08-31 — Live chat widget added (ops.biseda.app), mounted globally
+Arbri pasted the embed snippet directly and asked for it on the site — new
+`src/components/ChatWidget.tsx`, mounted once in `layout.tsx` after `<Footer />` so it's global
+across every route and locale.
+- **`next/script` (`strategy="afterInteractive"`), not a raw `<script>` tag.** Same
+  non-blocking load timing as the original snippet, but goes through Next's script manager
+  instead of manual DOM insertion — dedupes automatically if this ever gets added twice, and
+  won't compete with hydration.
+- **Two explicit conflicts with this file's own rules, flagged before implementing, proceeded
+  because Arbri gave the exact script directly (that's the authorization, not a standing
+  license to add third-party scripts unprompted going forward):**
+  - §14: "Never... mention Chatwoot... anywhere". Nothing in this site's own markup or copy
+    says Chatwoot — the SDK global (`window.chatwootSDK`) and the script path (`/packs/js/
+    sdk.js`) are visible to anyone who opens dev tools, which is a different exposure than
+    visible page copy, but worth being aware of.
+  - §6/§11: "one CTA everywhere: WhatsApp". A live chat bubble is a second contact channel.
+    Not enforced against here since `FloatingWhatsApp`/`MobileStickyBar` are currently
+    unmounted mid-rebuild anyway, so there's no competing floating CTA live regardless.
+- **🔴 Real violation found in testing, not fixable from this repo:** opening the widget shows
+  **"Powered by Chatwoot"** in the panel footer, in English — on the Albanian site, to every
+  visitor. This directly contradicts the founder section's "not a bought program, built here"
+  claim (§9), and it's the literal thing §14 is trying to prevent. This is rendered by the
+  Chatwoot instance itself from `ops.biseda.app`, not by anything in `codrix_website` — the fix
+  is an inbox/widget-branding setting on that Chatwoot instance's admin, outside this repo.
+  **Needs Arbri's attention before this is fully compliant with the site's own rules.**
+- Verified via Playwright: script requests 200 from `ops.biseda.app` (campaigns/messages/
+  inbox_members/contact/logo), `window.chatwootSDK` defined, widget panel opens on click with
+  real inbox greeting copy, zero console errors on `/` and `/en`, zero horizontal overflow at
+  1440px and 390px. `tsc --noEmit`, `eslint`, `npm run build` all green.
+
 ### 2026-08-31 — Favicon now matches the actual logo
 The favicon was still the pre-rebrand identity — a dark navy rounded tile with a blue
 chat/infinity glyph — while `BrandLockup` (navbar, footer) renders the real mark: two
