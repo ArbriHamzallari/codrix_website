@@ -21,32 +21,32 @@ function Chip({ name, logo }: { name: string; logo: string }) {
   return (
     <div
       title={name}
-      className="relative h-14 w-32 shrink-0 rounded-xl bg-white/95 overflow-hidden grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-200"
+      className="relative h-12 w-28 shrink-0 rounded-sm bg-white border border-border overflow-hidden grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-200"
     >
-      <Image src={logo} alt={`${name} logo`} fill className="object-contain p-2.5" sizes="128px" />
+      <Image src={logo} alt={`${name} logo`} fill className="object-contain p-2.5" sizes="112px" />
     </div>
   );
 }
 
 export default function LogosStrip({ dict }: { dict: Dict }) {
   return (
-    <section className="py-16 px-4 sm:px-6 border-y border-surface-border/60 bg-surface/30">
-      <div className="max-w-6xl mx-auto">
-        <Reveal className="text-center mb-10">
-          <h2 className="type-h3 font-bold font-heading text-white mb-1">{dict.logos.title}</h2>
-          <p className="type-small text-tertiary">{dict.logos.subtitle}</p>
+    <section className="py-14 px-8 lg:px-16 border-y border-border">
+      <div className="max-w-[1400px] mx-auto">
+        <Reveal className="text-center mb-9">
+          <h2 className="type-h3 font-heading text-ink mb-1">{dict.logos.title}</h2>
+          <p className="type-small text-ink-muted">{dict.logos.subtitle}</p>
         </Reveal>
 
         {/* desktop / tablet: uniform centered row */}
-        <div className="hidden sm:flex flex-wrap items-center justify-center gap-6 md:gap-10">
+        <div className="hidden sm:flex flex-wrap items-center justify-center gap-5 md:gap-8">
           {clients.map((c) => (
             <Chip key={c.name} {...c} />
           ))}
         </div>
 
         {/* mobile: seamless marquee (two copies for the loop) */}
-        <div className="sm:hidden overflow-hidden -mx-4">
-          <div className="marquee-track flex w-max gap-5">
+        <div className="sm:hidden overflow-hidden -mx-8">
+          <div className="marquee-track flex w-max gap-4">
             {[...clients, ...clients].map((c, i) => (
               <Chip key={`${c.name}-${i}`} {...c} />
             ))}

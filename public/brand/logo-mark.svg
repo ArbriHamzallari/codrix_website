@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" role="img" aria-label="Biseda AI">
+  <rect width="150" height="150" rx="32" fill="#FFFFFF" stroke="#EDE9FE" stroke-width="1.5"/>
+  <circle cx="52" cy="75" r="36" fill="#5B2CFF"/>
+  <circle cx="98" cy="75" r="36" fill="#A855F7" opacity="0.88"/>
+</svg>

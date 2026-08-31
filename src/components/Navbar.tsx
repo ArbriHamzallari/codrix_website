@@ -1,16 +1,15 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import { Menu, X, MessageCircle } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { getDict, whatsappUrl } from '@/i18n';
+import { getDict } from '@/i18n';
+import { BrandLockup } from '@/components/BrandLockup';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState('');
   const pathname = usePathname();
   const isEn = pathname?.startsWith('/en') ?? false;
@@ -22,13 +21,6 @@ export default function Navbar() {
       document.body.style.overflow = '';
     };
   }, [isOpen]);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   // Scroll-spy: highlight the nav link for the section in view.
   useEffect(() => {
@@ -53,27 +45,15 @@ export default function Navbar() {
     return () => observer.disconnect();
   }, [dict.nav.links]);
 
-  const waHref = whatsappUrl(dict.nav.whatsappMessage);
-
   return (
-    <nav className="fixed top-3 inset-x-3 sm:inset-x-6 z-50">
-      <div
-        className={cn(
-          'max-w-7xl mx-auto rounded-2xl px-4 sm:px-6 py-3 transition-all duration-300',
-          scrolled
-            ? 'border border-surface-border bg-surface/85 backdrop-blur-xl shadow-soft-lg'
-            : 'border border-transparent bg-surface/40 backdrop-blur-md'
-        )}
-      >
-        <div className="flex items-center justify-between">
-          <Link href={isEn ? '/en' : '/'} className="flex items-center gap-2 group">
-            <div className="relative w-9 h-9 overflow-hidden rounded-lg">
-              <Image src="/logo.png" alt="Codrix" fill className="object-cover object-center" />
-            </div>
-            <span className="text-lg font-bold font-heading tracking-tight text-white">Codrix</span>
+    <nav className="sticky top-0 z-50 bg-background border-b border-border">
+      <div className="max-w-[1400px] mx-auto px-8 lg:px-16">
+        <div className="flex items-center justify-between h-[72px]">
+          <Link href={isEn ? '/en' : '/'} className="flex items-center">
+            <BrandLockup size={30} textClassName="text-base" />
           </Link>
 
-          <div className="hidden lg:flex items-center gap-7">
+          <div className="hidden lg:flex items-center gap-9">
             {dict.nav.links.map((link) => {
               const id = link.href.split('#')[1];
               const isActive = id && active === id;
@@ -82,8 +62,8 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    'text-sm font-medium transition-colors',
-                    isActive ? 'text-white' : 'text-muted hover:text-white'
+                    'text-[15px] transition-colors',
+                    isActive ? 'text-ink font-medium' : 'text-ink-muted hover:text-ink'
                   )}
                 >
                   {link.label}
@@ -92,71 +72,65 @@ export default function Navbar() {
             })}
           </div>
 
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-6">
             <Link
               href={isEn ? '/' : '/en'}
-              className="text-sm font-medium text-muted hover:text-white transition-colors border border-surface-border rounded-full px-2.5 py-1"
+              className="text-[15px] text-ink-muted hover:text-ink transition-colors"
               aria-label={isEn ? 'Kalo në shqip' : 'Switch to English'}
             >
               {isEn ? 'SQ' : 'EN'}
             </Link>
-            <a
-              href={waHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-whatsapp text-white text-sm font-semibold hover:brightness-110 transition-all shadow-cta lift press"
+            <Link
+              href="/#demo"
+              className="inline-flex items-center rounded-sm bg-primary px-5 h-11 text-[15px] font-medium text-white hover:bg-primary-hover transition-colors"
             >
-              <MessageCircle className="w-4 h-4" />
               {dict.nav.cta}
-            </a>
+            </Link>
           </div>
 
           <button
             type="button"
-            className="lg:hidden text-muted hover:text-white transition-colors"
+            className="lg:hidden text-ink-muted hover:text-ink transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-expanded={isOpen}
             aria-label="Menu"
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            {isOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
+      </div>
 
-        <div
-          className={cn(
-            'lg:hidden overflow-hidden transition-all duration-300',
-            isOpen ? 'max-h-[480px] opacity-100 mt-4' : 'max-h-0 opacity-0'
-          )}
-        >
-          <div className="flex flex-col gap-1 pb-2">
-            {dict.nav.links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="text-base font-medium text-muted hover:text-white transition-colors py-2.5 text-center rounded-lg hover:bg-surface-hover"
-              >
-                {link.label}
-              </Link>
-            ))}
+      <div
+        className={cn(
+          'lg:hidden overflow-hidden transition-all duration-300 bg-background border-t border-border',
+          isOpen ? 'max-h-[420px] opacity-100' : 'max-h-0 opacity-0 border-transparent'
+        )}
+      >
+        <div className="flex flex-col gap-1 px-8 pb-6 pt-4">
+          {dict.nav.links.map((link) => (
             <Link
-              href={isEn ? '/' : '/en'}
+              key={link.href}
+              href={link.href}
               onClick={() => setIsOpen(false)}
-              className="text-base font-medium text-muted hover:text-white transition-colors py-2.5 text-center rounded-lg hover:bg-surface-hover"
+              className="type-body text-ink-muted hover:text-ink transition-colors py-2.5"
             >
-              {isEn ? 'Shqip' : 'English'}
+              {link.label}
             </Link>
-            <a
-              href={waHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setIsOpen(false)}
-              className="mt-2 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-whatsapp text-white font-semibold hover:brightness-110 transition-colors"
-            >
-              <MessageCircle size={18} />
-              {dict.nav.cta}
-            </a>
-          </div>
+          ))}
+          <Link
+            href={isEn ? '/' : '/en'}
+            onClick={() => setIsOpen(false)}
+            className="type-body text-ink-muted hover:text-ink transition-colors py-2.5"
+          >
+            {isEn ? 'Shqip' : 'English'}
+          </Link>
+          <Link
+            href="/#demo"
+            onClick={() => setIsOpen(false)}
+            className="mt-2 inline-flex items-center justify-center rounded-sm bg-primary h-11 text-[15px] font-medium text-white"
+          >
+            {dict.nav.cta}
+          </Link>
         </div>
       </div>
     </nav>

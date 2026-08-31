@@ -2,46 +2,50 @@ import type { Dict } from './types';
 
 export const en: Dict = {
   locale: 'en',
+  announcement: {
+    text: 'Introducing Biseda AI — automatic replies for every customer.',
+    cta: 'Learn more',
+    href: '/en#si-funksionon',
+  },
   nav: {
     links: [
       { label: 'How it works', href: '/en#si-funksionon' },
-      { label: 'Try it', href: '/en#demo' },
-      { label: 'Results', href: '/en#rezultate' },
+      { label: 'For businesses', href: '/en#rezultate' },
       { label: 'Pricing', href: '/en#cmimet' },
       { label: 'FAQ', href: '/en#pyetje' },
     ],
-    cta: 'Message us on WhatsApp',
+    cta: 'Try it free',
     whatsappMessage:
       "Hi! I'd like to learn more about the assistant that replies to customers.",
   },
   hero: {
-    badge: 'Engineered in Albania, serving clinics across Europe',
-    pill: 'New — Free live demo, no signup',
-    title: "How many customers do you lose because you can't reply in time?",
+    title: {
+      light1: 'Biseda talks to',
+      strong: 'your customers,',
+      light2: "even when you can't.",
+    },
     subtitle:
-      'Your customers get answers on WhatsApp and Instagram within 2 seconds, at any hour of the day. Even when you are busy or asleep.',
-    ctaDemo: 'Try it free',
-    ctaWhatsapp: 'Message us on WhatsApp',
-    credibility: '9 active businesses · Clinics in Albania and Austria · 2-second average reply',
-    stats: [
-      { num: 2, suffix: ' sec', label: 'Average reply time' },
-      { value: '24/7', label: 'Always on' },
-      { num: 9, suffix: '+', label: 'Businesses trust us' },
-    ],
-    phone: {
-      header: 'Dental Clinic',
+      'Biseda AI automatically replies on WhatsApp, Instagram and web chat, captures requests, qualifies leads, and books appointments.',
+    ctaPrimary: 'Try it free',
+    ctaSecondary: 'See demo',
+    credibility: '9+ businesses · Albania · ~2 sec response',
+    conversation: {
+      businessLabel: 'Hotel Riviera',
       online: 'online',
-      customer: 'Hi, how much is a dental cleaning?',
-      agent: 'Hi! A cleaning is €60. Would you like to book a visit?',
-      customer2: 'Yes, tomorrow morning if possible.',
-      agent2: "Of course — tomorrow at 10:00. What's your name and number? 😊",
-      capturedBadge: 'Lead captured automatically · 2 sec',
-      tryLive: 'Try it live',
+      customer: 'Hi, do you have a room available for Saturday?',
+      typing: 'typing…',
+      agent:
+        'Hi! Yes, we have a Deluxe room available on the 15th. The rate is €85/night. Would you like me to book it?',
+      actionLabel: 'Booking captured automatically',
+      actionValue: 'Deluxe room · Aug 15 · €85/night',
     },
   },
+  productIntro: {
+    title: 'An AI that talks to your customers.',
+  },
   logos: {
-    title: 'Trusted by real clinics and businesses',
-    subtitle: 'Real installations. Real results.',
+    title: 'Real clinics and businesses we\'ve served',
+    subtitle: 'Results from the Codrix era — same team, now Biseda AI.',
   },
   demo: {
     badge: 'Live demo',
@@ -116,22 +120,38 @@ export const en: Dict = {
     subtitle: "From first message to installation in 48-72 hours. You don't need any technical knowledge.",
     steps: [
       {
-        title: '1. Message us on WhatsApp',
+        title: 'Message us on WhatsApp',
         text: 'Tell us what business you run and how you talk to customers. We prepare a free trial with your own business details.',
+        benefits: [
+          'A few minutes to tell us what you need',
+          'We take your business details — hours, prices, services',
+          'No contract and no hidden fees to get started',
+        ],
       },
       {
-        title: '2. We build it for you',
+        title: 'We build it for you',
         text: 'We train the assistant with your hours, prices, and services, so it talks to customers the way you would — not like a robot.',
+        benefits: [
+          "The assistant learns your business's voice and style",
+          'We connect it to WhatsApp, Instagram and your website chat',
+          'We can add email, SMS or Telegram too, if you need them',
+        ],
       },
       {
-        title: '3. We install it and it goes to work',
+        title: 'We install it and it goes to work',
         text: 'Within 48-72 hours the assistant replies on your WhatsApp and Instagram. You get a notification for every new customer.',
+        benefits: [
+          'Replies to customers within seconds, day and night',
+          'You get a notification for every new customer and request',
+          'Your staff step in only when a person is genuinely needed',
+        ],
       },
     ],
   },
   proof: {
     title: 'Real results from real businesses',
-    subtitle: 'These are our clients, with real names and logos — no anonymous testimonials.',
+    subtitle:
+      'Real clients, with real names and logos — no anonymous testimonials. Results from the Codrix era, before Biseda AI.',
     beforeLabel: 'Before',
     afterLabel: 'After',
     detailsLabel: 'See details',
@@ -144,7 +164,7 @@ export const en: Dict = {
       {
         client: 'Dental Med Austria',
         type: 'Dental clinic',
-        location: 'Austria, EU',
+        location: 'Albania',
         logo: '/clients/dental-med-austria.png',
         before: [
           'Patient messages outside office hours went unanswered',
@@ -242,7 +262,7 @@ export const en: Dict = {
     badge: 'THE FOUNDER',
     heading: 'Not bought software. Built right here.',
     paragraphs: [
-      "I'm Arbri Hamzallari, a software engineer from Tirana. Codrix is not an agency reselling someone else's software — I build the assistant myself and tailor it to each business, one by one.",
+      "I'm Arbri Hamzallari, a software engineer from Tirana. I started by hand-building assistants for real clients, one by one — never reselling someone else's software. Biseda AI is the same work, the same team, now built as its own platform.",
       'That means three things for you: it speaks the way your customers speak, it changes within a day when you need something, and when you have a problem, you talk directly to the person who built it.',
     ],
     points: [
@@ -250,13 +270,13 @@ export const en: Dict = {
       'Changes within 24 hours, directly from me',
       'Albanian and English, tested with real clients',
     ],
-    signature: 'Arbri Hamzallari — Founder, Codrix',
+    signature: 'Arbri Hamzallari — Founder, Biseda AI',
     cta: 'Message us on WhatsApp',
   },
   story: {
     problem: {
       eyebrow: 'THE PROBLEM',
-      title: 'Where your customers slip away',
+      title: "Customers don't wait.",
       body: "A message at 9pm. A question while you're with a client. A request on Sunday. If the reply comes late, the customer is already somewhere else — and you never even find out.",
       items: [
         { title: 'Capture', text: 'Every message gets an answer, even at midnight.' },
@@ -266,7 +286,7 @@ export const en: Dict = {
     },
     channels: {
       eyebrow: 'CHANNELS',
-      title: 'One inbox for WhatsApp, Instagram and Facebook',
+      title: 'Every channel. One conversation.',
       body: 'Customers write wherever they like. The assistant replies the same way everywhere, and every conversation is saved in one place.',
       inboxLabel: 'One inbox',
       list: [
@@ -277,16 +297,93 @@ export const en: Dict = {
       ],
       soonLabel: 'coming soon',
     },
+    inboxShowcase: {
+      title: 'One inbox. Every conversation.',
+      tabs: [
+        { key: 'inbox', label: 'Biseda Inbox', available: true },
+        { key: 'whatsapp', label: 'WhatsApp', available: false },
+        { key: 'instagram', label: 'Instagram', available: false },
+        { key: 'webchat', label: 'Web Chat', available: false },
+      ],
+      comingSoon: 'coming soon',
+      imageAlt: 'Real screenshot of the Biseda AI inbox',
+    },
+  },
+  problemOverload: {
+    eyebrow: 'THE PROBLEM',
+    title: { line1: '20 messages.', line2Number: '0', line2Rest: 'missed replies.' },
+    bellLabel: 'Show notifications',
+    floodTitle: 'Notifications',
+    floodCountLabel: 'new',
+    handledTitle: 'Biseda AI replied',
+    handledCaption: 'Every conversation routed to the right team',
+    statusReplied: 'Replied',
+    replayLabel: 'Watch again',
+    timeNow: 'now',
+    timeMinutes: 'min',
+    timeHours: 'h',
+    notifications: [
+      { channel: 'WhatsApp', from: 'Ana K.', message: 'Good evening! Do you have anything free tomorrow morning?', minutesAgo: 1, assignee: 'Reception' },
+      { channel: 'Instagram', from: 'elonaa_23', message: 'Hi, how much is a dental cleaning?', minutesAgo: 4, assignee: 'Sales' },
+      { channel: 'Website chat', from: 'Visitor', message: 'Are you open on Saturdays or weekdays only?', minutesAgo: 9, assignee: 'Support' },
+      { channel: 'WhatsApp', from: 'Genti M.', message: 'I need to move my Thursday appointment. Is that possible?', minutesAgo: 17, assignee: 'Reception' },
+      { channel: 'Messenger', from: 'Klajdi B.', message: 'Where exactly is the clinic? I cannot find the address.', minutesAgo: 26, assignee: 'Support' },
+      { channel: 'Instagram', from: 'sara.hoxha', message: 'Do you accept payment in instalments?', minutesAgo: 38, assignee: 'Finance' },
+      { channel: 'Email', from: 'info@', message: 'Quote request — orthodontic treatment', minutesAgo: 52, assignee: 'Sales' },
+      { channel: 'WhatsApp', from: 'Unknown number', message: 'Hello? Is anyone there?', minutesAgo: 74, assignee: 'Reception' },
+      { channel: 'Instagram', from: 'dritan_p', message: 'Saw your post. How long does a first visit take?', minutesAgo: 96, assignee: 'Support' },
+    ],
+  },
+  omnichannel: {
+    eyebrow: 'One Panel. Every Channel.',
+    title: 'Your Team Replies Wherever Customers Are',
+    items: [
+      {
+        title: 'Every Channel, One Panel',
+        description:
+          'WhatsApp, Instagram and your website chat merge automatically into one panel — your staff never juggle several apps or miss a message.',
+      },
+      {
+        title: 'AI Replies Within Seconds',
+        description:
+          "Biseda's AI reads your business's knowledge base and answers customers instantly, 24 hours a day — before a staff member could even react.",
+      },
+      {
+        title: 'Staff Take Over Without Losing Context',
+        description:
+          'When a conversation needs a person, any team member sees the full history and can take over immediately — without asking the customer to repeat themselves.',
+      },
+    ],
+  },
+  action: {
+    eyebrow: 'MORE THAN REPLIES',
+    title: 'Not just replies. Action.',
+    body: 'Every conversation produces something useful — not just a message sent.',
+    items: [
+      { label: 'Captures leads', value: 'Name, phone and request saved automatically' },
+      { label: 'Qualifies', value: 'Tells a simple question apart from a ready-to-buy customer' },
+      { label: 'Books appointments', value: 'Sets the time directly in the conversation, no phone calls' },
+      { label: 'Answers questions', value: 'Hours, prices and services — from your knowledge base' },
+      { label: 'Hands off to a human', value: 'When it matters, someone on your team takes over' },
+    ],
+  },
+  knowledge: {
+    eyebrow: 'THE ENGINE',
+    title: 'An AI that learns your business.',
+    body: 'You give it the facts — hours, prices, services. Biseda AI uses them to answer customers accurately, in their own language.',
+    steps: [
+      { label: 'Knowledge base', caption: "Your business's hours, prices, services" },
+      { label: 'Biseda AI', caption: 'Understands the question and answers from your facts' },
+      { label: 'Customer', caption: 'Gets an accurate answer, instantly' },
+    ],
   },
   pricing: {
     title: 'Clear pricing, no surprises',
-    subtitle: 'No long-term contract. Cancel anytime. WhatsApp included in every plan.',
+    subtitle: 'Pay for the volume you actually handle. WhatsApp included in every plan.',
     popular: 'Most popular',
     tiers: [
       {
         name: 'Starter',
-        price: '€79',
-        period: '/month',
         tagline: 'For small businesses that want to stop losing customers on WhatsApp.',
         features: [
           'WhatsApp assistant, 24/7',
@@ -300,8 +397,6 @@ export const en: Dict = {
       },
       {
         name: 'Growth',
-        price: '€159',
-        period: '/month',
         tagline: 'For businesses that get customers from Instagram too.',
         features: [
           'Everything in Starter',
@@ -315,8 +410,6 @@ export const en: Dict = {
       },
       {
         name: 'Advanced',
-        price: '€279',
-        period: '/month',
         tagline: 'For clinics and businesses with multiple locations and high volume.',
         features: [
           'Everything in Growth',
@@ -343,6 +436,15 @@ export const en: Dict = {
         highlighted: false,
       },
     ],
+    volumeQuestion: 'How many contacts do you talk to a month?',
+    volumeTiers: ['Up to 500 contacts', '500 – 1,500 contacts', '1,500+ contacts'],
+    billingMonthly: 'Monthly',
+    billingYearly: 'Yearly',
+    yearlySave: 'save {pct}%',
+    perMonth: '/month',
+    billedYearly: '/yr (billed yearly)',
+    demoPrompt: 'Want to see how it works before you decide?',
+    demoCta: 'Try the free demo',
     footnote: 'All prices are monthly. Free trial with your own business details before you pay.',
   },
   faq: {
@@ -351,35 +453,35 @@ export const en: Dict = {
     items: [
       {
         q: 'Will it sound robotic to my customers?',
-        a: "No. We train the assistant with your business name, your tone, and your own answers. It replies the way you would — just faster. Many customers assume they're talking to a real person.",
+        a: 'No. The assistant learns how your business speaks — your tone, your language, your specific details — and replies naturally, not with canned robotic phrases.',
       },
       {
         q: 'How long does it take to set up?',
-        a: 'Usually 48-72 hours. We handle everything — you just give us access to your WhatsApp Business and Instagram. No technical knowledge required on your side.',
+        a: 'Usually 48–72 hours, from the moment you message us until the assistant starts replying to your customers.',
       },
       {
         q: "Do you build it yourself or resell someone else's software?",
-        a: "We build it ourselves. We don't resell an off-the-shelf product — we program the assistant and tailor it to your business. That means it speaks naturally, changes quickly when you need something, and when you have a problem you talk directly to the person who built it.",
+        a: 'We build it ourselves, from scratch — not a rebranded third-party product. Every change is made directly by us, within 24 hours.',
       },
       {
         q: 'What happens when a question is too complex?',
-        a: 'The assistant knows its limits. When a question falls outside its knowledge, it tells the customer a team member will follow up shortly — and you get an instant notification so you can step in.',
+        a: 'The conversation is handed to someone on your team automatically, with the full history — so the customer is never left waiting without an answer.',
       },
       {
         q: "Is my customers' data safe?",
-        a: "Yes. We don't store conversations beyond what the assistant needs to work. We comply with GDPR and never share your data or your customers' data with third parties.",
+        a: 'Yes. Data is stored on servers in the European Union and is fully isolated to your business — nobody else can see it.',
       },
       {
         q: 'Do I need a long-term contract?',
-        a: "No. All plans are monthly and you can cancel anytime. We're confident enough in the results that we don't need to lock you in.",
+        a: 'No. You pay month to month and can stop whenever you like — no minimum term.',
       },
       {
         q: 'Does it work outside Albania and Kosovo?',
-        a: 'Yes. We work with businesses across Europe. The assistant works in any language and with any WhatsApp Business or Instagram account, regardless of country.',
+        a: 'Our clients are currently in Albania, but the assistant can work anywhere — all it takes is a business whose customers message them online.',
       },
       {
         q: 'Which plan is right for me?',
-        a: "If your customers mostly write on WhatsApp, start with Starter. If you also get a lot of Instagram messages, Growth is the better choice. For multiple locations or high volume, Advanced. Not sure? Message us — we'll advise you for free.",
+        a: "It depends on how many channels and locations you have. Most small businesses start on Starter or Growth — message us and we'll advise you, no obligation.",
       },
     ],
   },

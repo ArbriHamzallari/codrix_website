@@ -8,26 +8,46 @@ const config = {
     theme: {
         extend: {
             colors: {
-                background: "#05060E", // deep navy-black
-                foreground: "#FFFFFF",
-                muted: "#AEB4C7", // secondary text (bumped for 4.5:1 contrast on #05060E)
+                // Editorial redesign palette (2026-08-14) — supersedes the
+                // prior dark-navy/blue system and refines the purple ramp's
+                // primary stop. Warm off-white base, near-black text, purple
+                // as one intentional accent rather than a background glow.
+                background: "#F7F5F0",
+                foreground: "#17151C",
+                muted: "#6E6A76",
                 primary: {
-                    DEFAULT: "#3B6BFF", // trust blue
-                    dim: "rgba(59, 107, 255, 0.15)",
-                    hover: "#2F56E6",
+                    DEFAULT: "#6D35F2", // Biseda purple
+                    deep: "#4F20C9",
+                    soft: "#EEE8FF",
+                    dim: "rgba(109, 53, 242, 0.10)",
+                    hover: "#5B29D6",
                 },
                 secondary: {
                     DEFAULT: "#2D5BFF",
                 },
                 accent: {
-                    DEFAULT: "#7B5CFF", // purple for hero gradients
-                    dim: "rgba(123, 92, 255, 0.15)",
+                    DEFAULT: "#4F20C9",
+                    dim: "rgba(79, 32, 201, 0.10)",
+                    light: "#EEE8FF",
+                    lightest: "#F7F5F0",
                 },
                 whatsapp: "#25D366",
+                // Legacy dark-surface tokens — kept only for DemoLive's
+                // WhatsApp-style chat interface, which legitimately stays
+                // dark (it's a recreation of a real dark-mode chat app, not
+                // a themed page section).
                 surface: {
                     DEFAULT: "#0C0F1C",
                     hover: "#121629",
                     border: "#1E2438",
+                },
+                cream: "#F7F5F0",
+                ink: {
+                    DEFAULT: "#17151C",
+                    muted: "#6E6A76",
+                },
+                border: {
+                    DEFAULT: "rgba(23, 21, 28, 0.12)",
                 },
                 success: "#22C55E",
                 warning: "#FBBF24",
@@ -35,32 +55,32 @@ const config = {
             },
             fontFamily: {
                 sans: ['var(--font-inter)', 'sans-serif'],
-                heading: ['var(--font-outfit)', 'sans-serif'],
-                mono: ['monospace'],
+                heading: ['var(--font-instrument-sans)', 'sans-serif'],
+                serif: ['var(--font-source-serif)', 'serif'],
+                mono: ['var(--font-dm-mono)', 'monospace'],
             },
             backgroundImage: {
                 "hero-glow":
-                    "radial-gradient(ellipse 80% 50% at 50% -10%, rgba(123, 92, 255, 0.25) 0%, rgba(59, 107, 255, 0.10) 45%, transparent 70%)",
+                    "radial-gradient(ellipse 70% 45% at 50% -10%, rgba(109, 53, 242, 0.08) 0%, transparent 65%)",
                 "section-glow":
-                    "radial-gradient(ellipse 60% 40% at 50% 0%, rgba(59, 107, 255, 0.10) 0%, transparent 70%)",
-                "grid-pattern": "linear-gradient(to right, #1E2438 1px, transparent 1px), linear-gradient(to bottom, #1E2438 1px, transparent 1px)",
-                "glow-subtle": "radial-gradient(circle at center, rgba(59, 107, 255, 0.08) 0%, transparent 70%)",
+                    "radial-gradient(ellipse 60% 40% at 50% 0%, rgba(109, 53, 242, 0.05) 0%, transparent 70%)",
             },
             borderRadius: {
-                card: "1rem",
-                xl2: "1.25rem",
-                xl3: "1.5rem",
+                sm: "0.375rem", // 6px — buttons
+                card: "0.625rem", // 10px — product UI
+                xl2: "0.75rem",
+                xl3: "0.75rem",
+                img: "0.25rem", // 4px — photography/collage
             },
             boxShadow: {
-                // Layered/diffused, respond.io-style — never one harsh shadow
-                "soft": "0 1px 2px rgba(0,0,0,0.20), 0 4px 12px rgba(0,0,0,0.24)",
-                "soft-lg": "0 2px 4px rgba(0,0,0,0.20), 0 12px 32px rgba(0,0,0,0.34)",
-                "card": "0 1px 0 0 rgba(255,255,255,0.05) inset, 0 2px 6px rgba(0,0,0,0.22), 0 16px 40px rgba(0,0,0,0.36)",
-                "elevated": "0 1px 0 0 rgba(255,255,255,0.06) inset, 0 8px 24px rgba(0,0,0,0.40), 0 24px 64px rgba(0,0,0,0.44)",
-                "cta": "0 2px 8px rgba(37, 211, 102, 0.24), 0 8px 28px rgba(37, 211, 102, 0.22)",
-                "cta-blue": "0 2px 8px rgba(59, 107, 255, 0.24), 0 8px 28px rgba(59, 107, 255, 0.28)",
-                "glow": "0 0 24px rgba(59, 107, 255, 0.16)",
-                "sharp": "0 0 0 1px #1E2438",
+                // Restrained — hairline borders do most of the work now;
+                // shadow is reserved for the one or two things per page that
+                // should read as physically above the surface.
+                "hairline": "0 0 0 1px rgba(23, 21, 28, 0.08)",
+                "soft": "0 1px 2px rgba(23, 21, 28, 0.04), 0 2px 8px rgba(23, 21, 28, 0.05)",
+                "elevated": "0 4px 16px rgba(23, 21, 28, 0.08), 0 1px 2px rgba(23, 21, 28, 0.06)",
+                "cta": "0 2px 8px rgba(37, 211, 102, 0.20), 0 6px 20px rgba(37, 211, 102, 0.16)",
+                "cta-blue": "0 2px 8px rgba(109, 53, 242, 0.18), 0 6px 20px rgba(109, 53, 242, 0.14)",
             },
             keyframes: {
                 "marquee": {

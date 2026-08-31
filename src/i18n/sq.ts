@@ -2,46 +2,50 @@ import type { Dict } from './types';
 
 export const sq: Dict = {
   locale: 'sq',
+  announcement: {
+    text: 'Prezantojmë Biseda AI — përgjigje automatike për çdo klient.',
+    cta: 'Mëso më shumë',
+    href: '/#si-funksionon',
+  },
   nav: {
     links: [
-      { label: 'Si fillojmë', href: '/#si-funksionon' },
-      { label: 'Provoje vetë', href: '/#demo' },
-      { label: 'Rezultate', href: '/#rezultate' },
+      { label: 'Si funksionon', href: '/#si-funksionon' },
+      { label: 'Për bizneset', href: '/#rezultate' },
       { label: 'Çmimet', href: '/#cmimet' },
-      { label: 'Pyetje', href: '/#pyetje' },
+      { label: 'FAQ', href: '/#pyetje' },
     ],
-    cta: 'Na shkruani në WhatsApp',
+    cta: 'Provo falas',
     whatsappMessage:
       'Përshëndetje! Pashë faqen tuaj dhe dua të di si mund të funksionojë asistenti për biznesin tim.',
   },
   hero: {
-    badge: 'Ndërtuar në Shqipëri për bizneset shqiptare',
-    pill: 'E re — Demo live falas, pa regjistrim',
-    title: 'Sa klientë humbisni sepse s\'keni kohë t\'u përgjigjeni?',
+    title: {
+      light1: 'Biseda flet me',
+      strong: 'klientët tuaj',
+      light2: 'edhe kur ju nuk mundeni.',
+    },
     subtitle:
-      'Klientët marrin përgjigje në WhatsApp dhe Instagram brenda 2 sekondash, në çdo orë të ditës. Edhe kur ju jeni të zënë ose duke fjetur.',
-    ctaDemo: 'Provoje falas',
-    ctaWhatsapp: 'Na shkruani në WhatsApp',
-    credibility: '9 biznese aktive · Klinika në Shqipëri dhe Austri · Përgjigje mesatare 2 sekonda',
-    stats: [
-      { num: 2, suffix: ' sek', label: 'Përgjigje mesatare' },
-      { value: '24/7', label: 'Gjithmonë aktiv' },
-      { num: 9, suffix: '+', label: 'Biznese që na besojnë' },
-    ],
-    phone: {
-      header: 'Klinika Dentare',
+      'Biseda AI përgjigjet automatikisht në WhatsApp, Instagram dhe web chat, kap kërkesat, kualifikon lead-et dhe rezervon takime.',
+    ctaPrimary: 'Provo falas',
+    ctaSecondary: 'Shiko demo',
+    credibility: '9+ biznese · Shqipëri · ~2 sekonda përgjigje',
+    conversation: {
+      businessLabel: 'Hotel Riviera',
       online: 'online',
-      customer: 'Përshëndetje, sa kushton një pastrim dhëmbësh?',
-      agent: 'Përshëndetje! Pastrimi është 3.000 lekë. Doni ta rezervoni një vizitë?',
-      customer2: 'Po, nesër në mëngjes nëse ka.',
-      agent2: 'Sigurisht — nesër në 10:00. Si e keni emrin dhe numrin? 😊',
-      capturedBadge: 'Klienti u kap automatikisht · 2 sek',
-      tryLive: 'Provoje live',
+      customer: 'Përshëndetje, a keni një dhomë të lirë për të shtunën?',
+      typing: 'duke shkruar…',
+      agent:
+        'Përshëndetje! Po, kemi një dhomë Deluxe të lirë për datën 15. Çmimi është €85/natë. Dëshiron ta rezervoj?',
+      actionLabel: 'Rezervim i kapur automatikisht',
+      actionValue: 'Dhomë Deluxe · 15 Gusht · €85/natë',
     },
   },
+  productIntro: {
+    title: 'Një AI që flet me klientët tuaj.',
+  },
   logos: {
-    title: 'Klinika dhe biznese reale që na besojnë',
-    subtitle: 'Biznese që e përdorin çdo ditë.',
+    title: 'Klinika dhe biznese reale që kemi shërbyer',
+    subtitle: 'Rezultate nga era e Codrix-it — e njëjta ekipe, tani Biseda AI.',
   },
   demo: {
     badge: 'Demo live',
@@ -116,22 +120,38 @@ export const sq: Dict = {
     subtitle: 'Nga biseda e parë deri te instalimi, brenda 48-72 orëve. Nuk keni nevojë të dini asgjë teknike.',
     steps: [
       {
-        title: '1. Na shkruani në WhatsApp',
+        title: 'Na shkruani në WhatsApp',
         text: 'Na tregoni çfarë biznesi keni. Ne përgatisim një provë falas me informacionet tuaja.',
+        benefits: [
+          'Vetëm disa minuta për të na thënë çfarë ju nevojitet',
+          'Marrim informacionet e biznesit tuaj — oraret, çmimet, shërbimet',
+          'Pa kontratë, pa taksa të fshehura për t\'u nisur',
+        ],
       },
       {
-        title: '2. Ne e ndërtojmë për ju',
+        title: 'Ne e ndërtojmë për ju',
         text: 'Asistenti mëson oraret, shërbimet dhe mënyrën si komunikon biznesi juaj — që të flasë natyrshëm, jo si robot.',
+        benefits: [
+          'Asistenti mësohet me zërin dhe stilin e biznesit tuaj',
+          'E lidhim me WhatsApp, Instagram dhe chat-in e faqes suaj',
+          'Mund të shtojmë edhe email, SMS apo Telegram, nëse ju duhet',
+        ],
       },
       {
-        title: '3. Fillon t\'u përgjigjet klientëve',
+        title: 'Fillon t\'u përgjigjet klientëve',
         text: 'Brenda 48-72 orëve asistenti përgjigjet në WhatsApp dhe Instagram në vendin tuaj. Ju merrni njoftim për çdo klient të ri.',
+        benefits: [
+          'Përgjigjet klientëve brenda sekondave, ditë e natë',
+          'Ju merrni njoftim për çdo klient dhe kërkesë të re',
+          'Stafi juaj merr përsipër vetëm kur duhet një person',
+        ],
       },
     ],
   },
   proof: {
     title: 'Rezultate reale nga biznese reale',
-    subtitle: 'Këto janë klientët tanë, me emra dhe logo reale — jo dëshmi anonime.',
+    subtitle:
+      'Klientë realë, me emra dhe logo reale — jo dëshmi anonime. Rezultate nga era e Codrix-it, para Biseda AI.',
     beforeLabel: 'Para',
     afterLabel: 'Pas',
     detailsLabel: 'Shiko detajet',
@@ -144,7 +164,7 @@ export const sq: Dict = {
       {
         client: 'Dental Med Austria',
         type: 'Klinikë dentare',
-        location: 'Austri, BE',
+        location: 'Shqipëri',
         logo: '/clients/dental-med-austria.png',
         before: [
           'Mesazhet e pacientëve jashtë orarit mbeteshin pa përgjigje',
@@ -242,7 +262,7 @@ export const sq: Dict = {
     badge: 'THEMELUESI',
     heading: 'Nuk është program i blerë. Është ndërtuar këtu.',
     paragraphs: [
-      'Jam Arbri Hamzallari, inxhinier informatike nga Tirana. Codrix nuk është agjenci që rishet një program të huaj — asistentin e ndërtoj vetë dhe e përshtat për çdo biznes veç e veç.',
+      'Jam Arbri Hamzallari, inxhinier informatike nga Tirana. Fillova duke ndërtuar asistentë me dorë për klientë realë, një nga një — kurrë duke rishitur programe të huaja. Biseda AI është e njëjta punë, e njëjta ekipe, tani e ndërtuar si platformë e vetja.',
       'Kjo do të thotë tri gjëra për ju: flet shqip ashtu si flasin klientët tuaj, ndryshon brenda ditës kur ju duhet diçka, dhe kur keni një problem, flisni direkt me personin që e ka ndërtuar.',
     ],
     points: [
@@ -250,13 +270,13 @@ export const sq: Dict = {
       'Ndryshime brenda 24 orësh, direkt nga unë',
       'Shqip dhe anglisht, i testuar me klientë realë',
     ],
-    signature: 'Arbri Hamzallari — Themelues, Codrix',
+    signature: 'Arbri Hamzallari — Themelues, Biseda AI',
     cta: 'Na shkruani në WhatsApp',
   },
   story: {
     problem: {
       eyebrow: 'PROBLEMI',
-      title: 'Ku ikin klientët tuaj',
+      title: 'Klientët nuk presin.',
       body: 'Një mesazh në orën 21:00. Një pyetje ndërsa jeni me një klient. Një kërkesë të dielën. Nëse përgjigja vjen vonë, klienti ka shkuar diku tjetër — dhe ju as që e merrni vesh.',
       items: [
         { title: 'Kap', text: 'Çdo mesazh merr përgjigje, edhe në mesnatë.' },
@@ -266,7 +286,7 @@ export const sq: Dict = {
     },
     channels: {
       eyebrow: 'KANALET',
-      title: 'Një inbox për WhatsApp, Instagram dhe Facebook',
+      title: 'Çdo kanal. Një bisedë.',
       body: 'Klientët ju shkruajnë ku të duan. Asistenti u përgjigjet në të njëjtën mënyrë kudo, dhe çdo bisedë ruhet në një vend të vetëm.',
       inboxLabel: 'Një inbox',
       list: [
@@ -277,16 +297,93 @@ export const sq: Dict = {
       ],
       soonLabel: 'së shpejti',
     },
+    inboxShowcase: {
+      title: 'Një inbox. Të gjitha bisedat.',
+      tabs: [
+        { key: 'inbox', label: 'Biseda Inbox', available: true },
+        { key: 'whatsapp', label: 'WhatsApp', available: false },
+        { key: 'instagram', label: 'Instagram', available: false },
+        { key: 'webchat', label: 'Web Chat', available: false },
+      ],
+      comingSoon: 'Së shpejti',
+      imageAlt: 'Pamje e vërtetë e inbox-it të Biseda AI',
+    },
+  },
+  problemOverload: {
+    eyebrow: 'PROBLEMI',
+    title: { line1: '20 mesazhe.', line2Number: '0', line2Rest: 'përgjigje të humbura.' },
+    bellLabel: 'Shfaq njoftimet',
+    floodTitle: 'Njoftime',
+    floodCountLabel: 'të reja',
+    handledTitle: 'Biseda AI u përgjigj',
+    handledCaption: 'Çdo bisedë u caktua te ekipi i duhur',
+    statusReplied: 'Përgjigjur',
+    replayLabel: 'Shihe përsëri',
+    timeNow: 'tani',
+    timeMinutes: 'min',
+    timeHours: 'orë',
+    notifications: [
+      { channel: 'WhatsApp', from: 'Ana K.', message: 'Mirëmbrëma! A keni ndonjë vend nesër në mëngjes?', minutesAgo: 1, assignee: 'Recepsioni' },
+      { channel: 'Instagram', from: 'elonaa_23', message: 'Përshëndetje, sa kushton pastrimi i dhëmbëve?', minutesAgo: 4, assignee: 'Shitjet' },
+      { channel: 'Chat i faqes', from: 'Vizitor', message: 'A punoni të shtunave apo vetëm gjatë javës?', minutesAgo: 9, assignee: 'Kujdesi' },
+      { channel: 'WhatsApp', from: 'Genti M.', message: 'Duhet ta shtyj terminin e së enjtes. A ka mundësi?', minutesAgo: 17, assignee: 'Recepsioni' },
+      { channel: 'Messenger', from: 'Klajdi B.', message: 'Ku e keni klinikën saktësisht? S\'po e gjej adresën.', minutesAgo: 26, assignee: 'Kujdesi' },
+      { channel: 'Instagram', from: 'sara.hoxha', message: 'A pranoni pagesë me këste?', minutesAgo: 38, assignee: 'Financa' },
+      { channel: 'Email', from: 'info@', message: 'Kërkesë për ofertë — trajtim ortodontik', minutesAgo: 52, assignee: 'Shitjet' },
+      { channel: 'WhatsApp', from: 'Numër i panjohur', message: 'Alo? Ka njeri aty?', minutesAgo: 74, assignee: 'Recepsioni' },
+      { channel: 'Instagram', from: 'dritan_p', message: 'E pashë postimin. Sa zgjat një vizitë e parë?', minutesAgo: 96, assignee: 'Kujdesi' },
+    ],
+  },
+  omnichannel: {
+    eyebrow: 'Një Panel. Çdo Kanal.',
+    title: 'Ekipi Juaj Përgjigjet Kudo Që Janë Klientët',
+    items: [
+      {
+        title: 'Të Gjitha Kanalet, Një Panel i Vetëm',
+        description:
+          'WhatsApp, Instagram dhe chat-i i faqes suaj bashkohen automatikisht në një panel të vetëm — stafi juaj nuk hap kurrë disa aplikacione për të mos humbur asnjë mesazh.',
+      },
+      {
+        title: 'AI Përgjigjet Brenda Sekondave',
+        description:
+          'Roboti AI i Biseda-s lexon bazën e njohurive të biznesit tuaj dhe u përgjigjet klientëve menjëherë, 24 orë në ditë — para se një anëtar i stafit të mund të reagojë.',
+      },
+      {
+        title: 'Stafi Merr Përsipër Pa Humbur Kontekstin',
+        description:
+          'Kur një bisedë kërkon një person, çdo anëtar i ekipit sheh të gjithë historikun dhe mund ta marrë përsipër menjëherë — pa i kërkuar klientit të përsërisë veten.',
+      },
+    ],
+  },
+  action: {
+    eyebrow: 'MË SHUMË SE PËRGJIGJE',
+    title: 'Jo vetëm përgjigje. Veprim.',
+    body: 'Çdo bisedë nxjerr diçka të dobishme — jo vetëm një mesazh i dërguar.',
+    items: [
+      { label: 'Kap lead-in', value: 'Emri, telefoni dhe kërkesa ruhen automatikisht' },
+      { label: 'Kualifikon', value: 'Dallon një pyetje të thjeshtë nga një klient gati për të blerë' },
+      { label: 'Rezervon takime', value: 'Cakton oraret direkt në bisedë, pa telefonata' },
+      { label: 'Përgjigjet pyetjeve', value: 'Oraret, çmimet dhe shërbimet — nga baza juaj e njohurive' },
+      { label: 'Kalon te njeriu', value: 'Kur duhet një person, bisedën e merr dikush nga ekipi juaj' },
+    ],
+  },
+  knowledge: {
+    eyebrow: 'MOTORI',
+    title: 'Një AI që mëson biznesin tuaj.',
+    body: 'I jepni faktet e biznesit tuaj — oraret, çmimet, shërbimet. Biseda AI i përdor për t\'iu përgjigjur klientëve saktë, në gjuhën e tyre.',
+    steps: [
+      { label: 'Baza e njohurive', caption: 'Oraret, çmimet, shërbimet e biznesit tuaj' },
+      { label: 'Biseda AI', caption: 'Kupton pyetjen dhe përgjigjet bazuar në faktet tuaja' },
+      { label: 'Klienti', caption: 'Merr një përgjigje të saktë, në çast' },
+    ],
   },
   pricing: {
     title: 'Çmime të qarta, pa surpriza',
-    subtitle: 'Paguani nga muaji në muaj dhe e ndaloni kur të doni. WhatsApp i përfshirë në çdo plan.',
+    subtitle: 'Paguani sipas volumit tuaj. WhatsApp i përfshirë në çdo plan.',
     popular: 'Më i zgjedhuri',
     tiers: [
       {
         name: 'Starter',
-        price: '€79',
-        period: '/muaj',
         tagline: 'Për biznese të vogla që duan të mos humbin asnjë klient në WhatsApp.',
         features: [
           'Asistent në WhatsApp 24/7',
@@ -300,8 +397,6 @@ export const sq: Dict = {
       },
       {
         name: 'Growth',
-        price: '€159',
-        period: '/muaj',
         tagline: 'Për biznese që marrin klientë edhe nga Instagrami.',
         features: [
           'Gjithçka nga Starter',
@@ -315,8 +410,6 @@ export const sq: Dict = {
       },
       {
         name: 'Advanced',
-        price: '€279',
-        period: '/muaj',
         tagline: 'Për klinika e biznese me shumë lokacione dhe volum të lartë.',
         features: [
           'Gjithçka nga Growth',
@@ -343,6 +436,15 @@ export const sq: Dict = {
         highlighted: false,
       },
     ],
+    volumeQuestion: 'Sa kontakte flisni në muaj?',
+    volumeTiers: ['Deri në 500 kontakte', '500 – 1,500 kontakte', '1,500+ kontakte'],
+    billingMonthly: 'Mujor',
+    billingYearly: 'Vjetor',
+    yearlySave: 'kurseni {pct}%',
+    perMonth: '/muaj',
+    billedYearly: '/vit (faturuar vjetor)',
+    demoPrompt: 'Doni ta shihni si funksionon para se të vendosni?',
+    demoCta: 'Provoni demon falas',
     footnote: 'E provoni me informacionet e biznesit tuaj para se të paguani.',
   },
   faq: {
@@ -351,35 +453,35 @@ export const sq: Dict = {
     items: [
       {
         q: 'A do të duket si robot para klientëve të mi?',
-        a: 'Jo. Asistentin e trajnojmë me emrin e biznesit tuaj, mënyrën si flisni ju, dhe përgjigjet tuaja. U përgjigjet klientëve ashtu siç do t\'u përgjigjeshit ju — thjesht më shpejt. Shumë klientë mendojnë se po flasin me një person real.',
+        a: 'Jo. Asistenti mëson mënyrën se si flet biznesi juaj — tonin, gjuhën, informacionet specifike — dhe përgjigjet natyrshëm, jo me fraza të gatshme robotike.',
       },
       {
         q: 'Sa kohë duhet për ta instaluar?',
-        a: 'Zakonisht 48-72 orë. Ne bëjmë gjithçka — ju duhet vetëm të na jepni akses në WhatsApp Business dhe Instagram. Nuk keni nevojë për asnjë njohuri teknike.',
+        a: 'Zakonisht 48–72 orë, nga çasti kur na shkruani deri sa asistenti fillon t\'u përgjigjet klientëve tuaj.',
       },
       {
         q: 'A e ndërtoni vetë apo rishisni një program të huaj?',
-        a: 'E ndërtojmë vetë. Nuk rishesim një program të gatshëm — asistentin e programojmë dhe e përshtatim për biznesin tuaj. Kjo do të thotë që flet shqip natyrshëm, ndryshon shpejt kur ju duhet diçka, dhe kur keni një problem flisni direkt me personin që e ka ndërtuar.',
+        a: 'E ndërtojmë vetë, nga zero — jo një program i huaj i rishitur. Çdo ndryshim bëhet drejtpërdrejt nga ne, brenda 24 orësh.',
       },
       {
         q: 'Po kur pyetja është shumë e ndërlikuar?',
-        a: 'Asistenti e di kufirin e vet. Kur një pyetje del jashtë njohurive të tij, i thotë klientit se dikush nga stafi do t\'i kthehet shpejt — dhe ju merrni njoftim në çast që të ndërhyni.',
+        a: 'Biseda kalon automatikisht te dikush nga ekipi juaj, me gjithë historikun — pa e lënë klientin të presë pa përgjigje.',
       },
       {
         q: 'A janë të sigurta të dhënat e klientëve të mi?',
-        a: 'Po. Nuk ruajmë biseda më shumë se ç\'duhet për të funksionuar asistenti. Respektojmë GDPR-në dhe nuk i ndajmë kurrë të dhënat tuaja apo të klientëve tuaj me palë të treta.',
+        a: 'Po. Të dhënat ruhen në servera në Bashkimin Evropian dhe janë të izoluara plotësisht për biznesin tuaj — askush tjetër nuk mund t\'i shohë.',
       },
       {
         q: 'A më duhet kontratë afatgjatë?',
-        a: 'Jo. Të gjitha planet janë mujore dhe mund t\'i anuloni kur të doni. Jemi aq të sigurt te rezultatet sa s\'kemi nevojë t\'ju lidhim me kontratë.',
+        a: 'Jo. Paguani muaj për muaj dhe mund ta ndaloni kur të doni — pa afat minimal.',
       },
       {
         q: 'A funksionon edhe jashtë Shqipërisë dhe Kosovës?',
-        a: 'Po. Punojmë me biznese në gjithë Evropën. Asistenti punon në çdo gjuhë dhe me çdo llogari WhatsApp Business apo Instagram, pavarësisht vendit.',
+        a: 'Aktualisht klientët tanë janë në Shqipëri, por asistenti mund të funksionojë kudo — mjafton që biznesi juaj të ketë klientë që ju shkruajnë online.',
       },
       {
         q: 'Cili plan është për mua?',
-        a: 'Nëse klientët ju shkruajnë kryesisht në WhatsApp, nisni me Starter. Nëse merrni shumë mesazhe edhe në Instagram, Growth është zgjedhja më e mirë. Për disa lokacione ose volum të lartë, Advanced. Nëse s\'jeni të sigurt, na shkruani — ju këshillojmë falas.',
+        a: 'Varet nga numri i kanaleve dhe lokacioneve që keni. Shumica e bizneseve të vogla nisin me planin Starter ose Growth — na shkruani dhe ju këshillojmë pa detyrim.',
       },
     ],
   },

@@ -1,98 +1,73 @@
 'use client';
 
-import { MessageCircle, ArrowRight, ArrowDown } from 'lucide-react';
 import type { Dict } from '@/i18n';
-import { whatsappUrl } from '@/i18n';
 import Reveal from '@/components/ui/Reveal';
-import CountUp from '@/components/ui/CountUp';
-import HeroPhone from '@/components/HeroPhone';
 
+/**
+ * Editorial, center-aligned hero. The collage blocks below are placeholder
+ * slots, not photography — no licensed/real photography was available to
+ * fill the image collage this design calls for (checked the two existing
+ * hospitality photos in /public; both are screenshots of other companies'
+ * actual websites with their own branding, not usable here). Swap the
+ * `Collage` block's flat tone fills for real crops when photography exists;
+ * the positions/sizes are already composed for it.
+ */
 export default function Hero({ dict }: { dict: Dict }) {
   const h = dict.hero;
 
   return (
-    <section className="relative overflow-hidden px-4 sm:px-6 pt-32 pb-20 md:pt-40 md:pb-28">
-      {/* layered background depth */}
-      <div className="absolute inset-0 -z-10 bg-hero-glow" aria-hidden />
-      <div className="absolute inset-0 -z-10 bg-grid-faint opacity-40" aria-hidden />
-      <div className="absolute inset-0 -z-10 bg-vignette" aria-hidden />
-      <div className="absolute inset-0 -z-10 bg-noise opacity-[0.15] mix-blend-soft-light" aria-hidden />
+    <section className="relative overflow-hidden bg-background">
+      <Collage />
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-8 items-center">
-        {/* left: copy */}
-        <div className="text-center lg:text-left">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-8 lg:px-16 pt-24 pb-20 md:pt-32 md:pb-28">
+        <div className="max-w-5xl mx-auto text-center">
           <Reveal>
-            <a
-              href="#demo"
-              className="inline-flex items-center gap-2 rounded-full border border-surface-border bg-surface/70 px-4 py-1.5 text-sm text-secondary hover:text-white hover:border-primary/40 transition-colors mb-7"
-            >
-              <span className="inline-block w-2 h-2 rounded-full bg-success animate-pulse" />
-              {h.pill}
-              <ArrowRight className="w-3.5 h-3.5" />
-            </a>
-          </Reveal>
-
-          <Reveal delay={0.05}>
-            <h1 className="type-h1 font-bold font-heading text-white mb-6 text-balance">
-              {h.title}
+            <h1 className="type-h1 font-heading text-balance">
+              <span className="font-normal text-ink-muted">{h.title.light1} </span>
+              <span className="font-medium text-ink">{h.title.strong} </span>
+              <span className="font-normal text-ink-muted">{h.title.light2}</span>
             </h1>
           </Reveal>
 
-          <Reveal delay={0.1}>
-            <p className="type-lead text-secondary max-w-2xl mx-auto lg:mx-0 mb-9">{h.subtitle}</p>
+          <Reveal delay={0.08}>
+            <p className="font-serif text-[19px] md:text-xl leading-[1.5] text-[#55525A] max-w-[680px] mx-auto mt-9">
+              {h.subtitle}
+            </p>
           </Reveal>
 
-          <Reveal delay={0.15}>
-            <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-3.5 mb-6">
-              <a
-                href={whatsappUrl(dict.nav.whatsappMessage)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-whatsapp px-7 py-3.5 text-base font-semibold text-white hover:brightness-110 transition-all shadow-cta lift press w-full sm:w-auto justify-center"
-              >
-                <MessageCircle className="w-5 h-5" />
-                {h.ctaWhatsapp}
-              </a>
+          <Reveal delay={0.14}>
+            <div className="flex items-center justify-center gap-3 mt-8">
               <a
                 href="#demo"
-                className="inline-flex items-center gap-2 rounded-full border border-surface-border bg-surface px-7 py-3.5 text-base font-semibold text-white hover:bg-surface-hover hover:border-white/20 transition-colors lift press w-full sm:w-auto justify-center"
+                className="inline-flex items-center justify-center rounded-sm bg-ink px-6 h-12 text-[15px] font-medium text-white hover:bg-ink/85 transition-colors"
               >
-                {h.ctaDemo}
-                <ArrowDown className="w-4 h-4" />
+                {h.ctaPrimary}
+              </a>
+              <a
+                href="#product"
+                className="inline-flex items-center justify-center rounded-sm border border-ink px-6 h-12 text-[15px] font-medium text-ink bg-white hover:bg-ink/[0.03] transition-colors"
+              >
+                {h.ctaSecondary}
               </a>
             </div>
           </Reveal>
 
           <Reveal delay={0.2}>
-            <p className="type-small text-tertiary mb-10">{h.credibility}</p>
+            <p className="font-mono text-[12px] text-ink-muted mt-6 tracking-tight">{h.credibility}</p>
           </Reveal>
-
-          <Reveal delay={0.25}>
-            <div className="flex items-stretch justify-center lg:justify-start gap-6 sm:gap-8">
-              {h.stats.map((s, i) => (
-                <div key={s.label} className="flex items-center gap-6 sm:gap-8">
-                  {i > 0 && <span className="w-px h-10 bg-surface-border" aria-hidden />}
-                  <div className="text-center lg:text-left">
-                    <p className="text-2xl sm:text-3xl font-bold font-heading text-white">
-                      {s.num !== undefined ? (
-                        <CountUp value={s.num} suffix={s.suffix ?? ''} duration={1.2} />
-                      ) : (
-                        s.value
-                      )}
-                    </p>
-                    <p className="type-small text-tertiary mt-0.5">{s.label}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-        </div>
-
-        {/* right: product visual */}
-        <div className="relative">
-          <HeroPhone dict={dict} />
         </div>
       </div>
     </section>
+  );
+}
+
+function Collage() {
+  return (
+    <div className="hidden lg:block pointer-events-none" aria-hidden>
+      <div className="absolute left-[6%] top-[14%] w-[150px] h-[190px] rounded-img bg-primary-soft" />
+      <div className="absolute left-[13%] top-[62%] w-[120px] h-[120px] rounded-img bg-[#E8E3DC]" />
+      <div className="absolute right-[7%] top-[10%] w-[170px] h-[130px] rounded-img bg-ink/[0.06]" />
+      <div className="absolute right-[14%] top-[58%] w-[130px] h-[170px] rounded-img bg-primary/10" />
+    </div>
   );
 }

@@ -2,16 +2,23 @@
 @config "../../tailwind.config.mjs";
 
 :root {
-  --background: #05060E;
-  --foreground: #FFFFFF;
-  /* Text tiers — verified for contrast on #05060E */
-  --text-primary: #FFFFFF;
-  --text-secondary: rgba(255, 255, 255, 0.72);
-  --text-tertiary: rgba(255, 255, 255, 0.55);
+  --background: #F7F5F0;
+  --foreground: #17151C;
+  /* Text tiers — contrast-checked against #F7F5F0 */
+  --text-primary: #17151C;
+  --text-secondary: #4A4750; /* ~9.4:1 */
+  --text-tertiary: #6E6A76; /* ~4.9:1, WCAG AA body-text floor */
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* The nav is `sticky top-0` (h-20 = 5rem) and occupies real layout height it
+   doesn't reserve during anchor scrolling — without this, every #anchor nav
+   link and CTA scrolls section headings partly behind the sticky bar. */
+[id] {
+  scroll-margin-top: 6rem;
 }
 
 body {
@@ -50,70 +57,60 @@ body {
     color: var(--text-tertiary);
   }
 
-  /* --- Type scale (locked, applied via classes on headings) --- */
+  /* --- Type scale (2026-08-14 editorial redesign) --- */
   .type-h1 {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    line-height: 1.04;
-    letter-spacing: -0.025em;
+    font-size: clamp(4rem, 7vw, 7.5rem);
+    line-height: 0.97;
+    letter-spacing: -0.055em;
   }
   .type-h2 {
-    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: -0.045em;
   }
   .type-h3 {
-    font-size: clamp(1.25rem, 2vw, 1.6rem);
+    font-size: clamp(1.375rem, 2.2vw, 1.75rem);
     line-height: 1.2;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.02em;
   }
   .type-lead {
-    font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
-    line-height: 1.6;
+    font-size: clamp(1.125rem, 1.6vw, 1.375rem);
+    line-height: 1.45;
   }
   .type-body {
-    font-size: 1.0625rem;
-    line-height: 1.6;
+    font-size: 1rem;
+    line-height: 1.5;
   }
   .type-small {
     font-size: 0.875rem;
-    line-height: 1.55;
+    line-height: 1.5;
+  }
+  .type-label {
+    font-size: 0.75rem;
+    line-height: 1.4;
+    letter-spacing: 0.08em;
   }
 
-  /* --- Consistent section rhythm --- */
+  /* --- Consistent section rhythm (120-180px desktop, per spec) --- */
   .section-y {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
   @media (min-width: 768px) {
     .section-y {
-      padding-top: 8rem;
-      padding-bottom: 8rem;
+      padding-top: 7.5rem;
+      padding-bottom: 7.5rem;
+    }
+  }
+  @media (min-width: 1280px) {
+    .section-y {
+      padding-top: 10rem;
+      padding-bottom: 10rem;
     }
   }
 
-  /* --- Premium surfaces --- */
-  .glass {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-  }
-  .glass-strong {
-    background: linear-gradient(180deg, rgba(18, 22, 41, 0.85), rgba(12, 15, 28, 0.85));
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
   /* --- Backgrounds --- */
-  .bg-grid-faint {
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-    background-size: 48px 48px;
-  }
-  .bg-vignette {
-    background: radial-gradient(ellipse 100% 80% at 50% 0%, transparent 55%, rgba(0, 0, 0, 0.45) 100%);
-  }
   .bg-noise {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
   }
@@ -160,5 +157,94 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .marquee-track {
     animation: none;
+  }
+}
+
+/* --- Skeleton frames (temporary wireframe placeholders, SectionSkeleton.tsx) ---
+   Marks the slots for sections that are being rebuilt. Delete this block once
+   every skeleton in HomeSections.tsx has been replaced by a real section. */
+.skeleton-bar {
+  position: relative;
+  overflow: hidden;
+  background: rgba(23, 21, 28, 0.06);
+}
+.skeleton-bar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.65) 50%,
+    transparent 100%
+  );
+  animation: skeleton-shimmer 1.9s ease-in-out infinite;
+}
+@keyframes skeleton-shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-bar::after {
+    display: none;
+  }
+}
+
+/* --- FAQ horizontal scroller (ui/faq-scroller.tsx) ---
+   The keyframes are useless without the classes that apply them, and
+   `.scroller-mask` has to exist or the row edges cut off hard. */
+@keyframes scroll-horizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+@keyframes scroll-horizontal-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-scroll-horizontal {
+  animation: scroll-horizontal var(--scroll-duration, 40s) linear infinite;
+}
+.animate-scroll-horizontal-reverse {
+  animation: scroll-horizontal-reverse var(--scroll-duration, 40s) linear infinite;
+}
+
+.scroller-mask {
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+/* FAQ answers are paragraph-length — a card sliding away mid-sentence is
+   genuinely hard to read, so hovering a row holds it still. */
+.scroller-mask:hover > div {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* The global kill-switch above only collapses the duration, which would
+     snap the track to its -50% end state instead of stopping it. Stop it
+     outright, and hand the row to the reader as a normal scroll container —
+     otherwise every card past the first is unreachable. The duplicated half
+     exists only to make the loop seamless, so it goes away with the loop. */
+  .animate-scroll-horizontal,
+  .animate-scroll-horizontal-reverse {
+    animation: none !important;
+    transform: none !important;
+  }
+  .scroller-mask {
+    overflow-x: auto;
+  }
+  .scroller-mask > div > div[aria-hidden='true'] {
+    display: none;
   }
 }

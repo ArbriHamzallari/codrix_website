@@ -31,12 +31,43 @@ export default function DemoLive({ dict }: { dict: Dict }) {
   const [error, setError] = useState(false);
   const [capReached, setCapReached] = useState(false);
   const chatRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const hasAutoPlayedRef = useRef(false);
+  const triggerAutoPlayRef = useRef<() => void>(() => {});
 
   const userCount = messages.filter((m) => m.role === 'user').length;
 
   useEffect(() => {
     chatRef.current?.scrollTo({ top: chatRef.current.scrollHeight, behavior: 'smooth' });
   }, [messages, loading]);
+
+  // LANDING-PAGE-SIMPLIFY.md T2: auto-send one question when the section
+  // first scrolls into view, so visitors see the agent answer before
+  // touching anything. Goes through the same send()/API/rate-limit path a
+  // manual tap would — no separate architecture, no new endpoint. Kept
+  // "latest" via a ref updated every render so the mount-only observer below
+  // never closes over stale state.
+  useEffect(() => {
+    triggerAutoPlayRef.current = () => {
+      if (hasAutoPlayedRef.current) return;
+      if (messages.length > 0 || loading || capReached) return;
+      hasAutoPlayedRef.current = true;
+      send(business.starterQuestions[0]);
+    };
+  });
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) triggerAutoPlayRef.current();
+      },
+      { threshold: 0.4 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const switchBusiness = (id: string) => {
     const next = d.businesses.find((b) => b.id === id);
@@ -105,15 +136,15 @@ export default function DemoLive({ dict }: { dict: Dict }) {
   const now = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
 
   return (
-    <section id="demo" className="relative section-y px-4 sm:px-6 bg-section-glow">
-      <div className="max-w-7xl mx-auto">
+    <section id="demo" ref={sectionRef} className="relative section-y px-8 lg:px-16 bg-section-glow">
+      <div className="max-w-[1400px] mx-auto">
         <div className="text-center mb-12">
           <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary-dim px-4 py-1.5 text-sm font-medium text-primary mb-5">
             <Sparkles className="w-4 h-4" />
             {d.badge}
           </span>
-          <h2 className="type-h2 font-bold font-heading text-white mb-4">{d.title}</h2>
-          <p className="type-lead text-secondary max-w-2xl mx-auto">{d.subtitle}</p>
+          <h2 className="type-h2 font-heading text-ink mb-4">{d.title}</h2>
+          <p className="type-lead text-ink-muted max-w-2xl mx-auto">{d.subtitle}</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.3fr_1fr] gap-5">

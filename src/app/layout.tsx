@@ -1,20 +1,42 @@
 import type { Metadata } from 'next';
-import { Outfit, Inter } from 'next/font/google';
+import { Inter, DM_Mono, Instrument_Sans, Source_Serif_4 } from 'next/font/google';
 import './globals.css';
+import AnnouncementBar from '@/components/AnnouncementBar';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
-const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit', display: 'swap' });
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
+const dmMono = DM_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-dm-mono',
+  display: 'swap',
+});
+const instrumentSans = Instrument_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  variable: '--font-instrument-sans',
+  display: 'swap',
+});
+const sourceSerif = Source_Serif_4({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-source-serif',
+  display: 'swap',
+});
 
 const SITE_URL = 'https://codrixwebsite.vercel.app';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: 'Codrix — Asistentë që u përgjigjen klientëve në WhatsApp, 24/7',
+  title: 'Biseda AI — Asistentë që u përgjigjen klientëve në WhatsApp, 24/7',
   description:
     'Ndërtojmë asistentë që u përgjigjen klientëve tuaj në WhatsApp dhe Instagram në 2 sekonda — 24 orë në ditë. Klinika dhe biznese reale na besojnë.',
-  icons: { icon: '/favicon.png', apple: '/favicon.png' },
+  // Icons come from the App Router file convention now — `app/icon.svg`,
+  // `app/icon.png` and `app/apple-icon.png`, all generated from the real
+  // brand mark in `public/brand/`. The previous explicit `/favicon.png`
+  // was the old pre-rebrand identity (dark navy chat glyph) and no longer
+  // matched the logo in the navbar and footer.
   alternates: {
     canonical: '/',
     languages: { sq: '/', en: '/en', 'x-default': '/' },
@@ -23,14 +45,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'sq_AL',
     url: SITE_URL,
-    siteName: 'Codrix',
-    title: 'Sa klientë humbisni sepse s\'keni kohë t\'u përgjigjeni?',
+    siteName: 'Biseda AI',
+    title: 'Biseda flet me klientët tuaj, edhe kur ju nuk mundeni.',
     description:
       'Asistentë që u përgjigjen klientëve tuaj në WhatsApp dhe Instagram në 2 sekonda — 24 orë në ditë.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Codrix — Asistentë që u përgjigjen klientëve në WhatsApp, 24/7',
+    title: 'Biseda AI — Asistentë që u përgjigjen klientëve në WhatsApp, 24/7',
     description:
       'Asistentë që u përgjigjen klientëve tuaj në WhatsApp dhe Instagram në 2 sekonda — 24 orë në ditë.',
   },
@@ -39,7 +61,7 @@ export const metadata: Metadata = {
 const localBusinessLd = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
-  name: 'Codrix',
+  name: 'Biseda AI',
   description:
     'Asistentë me AI që u përgjigjen klientëve në WhatsApp dhe Instagram 24/7, të ndërtuar në Shqipëri.',
   url: SITE_URL,
@@ -59,12 +81,16 @@ const localBusinessLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="sq" className={`${outfit.variable} ${inter.variable}`}>
-      <body className="font-sans antialiased text-foreground bg-background selection:bg-primary selection:text-white">
+    <html
+      lang="sq"
+      className={`${inter.variable} ${dmMono.variable} ${instrumentSans.variable} ${sourceSerif.variable}`}
+    >
+      <body className="font-sans antialiased text-foreground bg-background selection:bg-primary/20 selection:text-foreground">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessLd) }}
         />
+        <AnnouncementBar />
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />

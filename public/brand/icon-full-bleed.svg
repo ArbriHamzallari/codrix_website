@@ -1,0 +1,16 @@
+<!--
+  Source vector for OS app icons (iOS / Android adaptive / PWA maskable).
+  NOT for in-app use — see logo-mark.svg for the contained, bordered form.
+
+  Full-bleed: background fills every edge, no corner radius, no border —
+  the OS applies its own mask (superellipse on iOS, circle/squircle/square
+  on Android adaptive icons). Circle geometry is kept inside the standard
+  40%-of-width safe-zone radius (with real margin: the mark's outer reach
+  is ~33% of width here, vs. the 40% limit), so no masking shape clips the
+  two-circle overlap that makes this mark legible.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Biseda AI">
+  <rect width="512" height="512" fill="#FFFFFF"/>
+  <circle cx="191" cy="256" r="102" fill="#5B2CFF"/>
+  <circle cx="321" cy="256" r="102" fill="#A855F7" opacity="0.88"/>
+</svg>
