@@ -5,8 +5,8 @@ import { MessageCircle, CheckCircle2, TrendingUp, DollarSign, Users, Zap, ArrowR
 import CategoryPopup from '@/components/CategoryPopup';
 
 export default function CRM() {
-    const whatsappNumber = '+3550689007252';
-    const phoneNumber = '+3550689007252';
+    const whatsappNumber = '+355682061862';
+    const phoneNumber = '+355682061862';
     
     const handleContactClick = () => {
         const whatsappMessage = encodeURIComponent('I\'d like to discuss how your CRM system can help my business save money and increase revenue.');
@@ -303,7 +303,7 @@ export default function CRM() {
                 title="How many leads are you losing right now?"
                 body="A CRM system ensures every inquiry is captured, followed up, and converted. Lost leads cost more than any system ever will."
                 ctaText="Fix My Lead System"
-                whatsappNumber="+3550689007252"
+                whatsappNumber="+355682061862"
                 whatsappMessage="I'd like to discuss how your CRM system can help my business save money and increase revenue."
                 triggerType="scroll-or-exit"
                 scrollThreshold={50}

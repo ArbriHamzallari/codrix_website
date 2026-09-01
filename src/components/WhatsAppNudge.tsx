@@ -2,7 +2,7 @@ type Props = {
   message?: string;
 };
 
-const WHATSAPP_DIGITS = '355689007252';
+const WHATSAPP_DIGITS = '355682061862';
 
 export default function WhatsAppNudge({
   message = 'Prefer to chat? Message us directly on WhatsApp →',

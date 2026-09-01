@@ -14,7 +14,7 @@ export default function Contact() {
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
     const [errorMessage, setErrorMessage] = useState('');
 
-    const whatsappNumber = '+3550689007252';
+    const whatsappNumber = '+355682061862';
     const whatsappMessage = encodeURIComponent('I\'d like to discuss installing a revenue system for my business.');
 
     const handleWhatsAppClick = () => {

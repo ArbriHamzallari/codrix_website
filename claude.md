@@ -18,7 +18,7 @@ This repo is **the website only**. The AI agent product itself lives elsewhere.
 - Live: `codrixwebsite.vercel.app` (temporary — must move to the real domain)
 - Owner/founder: Arbri Hamzallari, solo founder, Tirana, Albania
 - Company email in code: `info@codrix.org`
-- WhatsApp CTA number: `+355 68 900 7252`
+- WhatsApp CTA number: `+355 68 206 1862`
 
 ### The single job of this website
 Take a business owner who arrived from an Instagram DM or WhatsApp message, convince them in

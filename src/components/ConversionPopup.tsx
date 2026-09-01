@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export default function ConversionPopup() {
     const [isOpen, setIsOpen] = useState(false);
-    const whatsappNumber = '+3550689007252';
+    const whatsappNumber = '+355682061862';
     const whatsappMessage = encodeURIComponent('I\'d like to discuss installing a revenue system for my business.');
 
     useEffect(() => {

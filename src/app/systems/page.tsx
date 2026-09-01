@@ -39,7 +39,7 @@ const systems = [
 ];
 
 export default function Systems() {
-  const whatsappNumber = '+3550689007252';
+  const whatsappNumber = '+355682061862';
   const whatsappMessage = encodeURIComponent(
     "I'd like to discuss installing a revenue system for my business."
   );

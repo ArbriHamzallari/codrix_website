@@ -5,8 +5,8 @@ import { MessageCircle, CheckCircle2, TrendingUp, DollarSign, Users, Zap, ArrowR
 import CategoryPopup from '@/components/CategoryPopup';
 
 export default function AIAgents() {
-    const whatsappNumber = '+3550689007252';
-    const phoneNumber = '+3550689007252';
+    const whatsappNumber = '+355682061862';
+    const phoneNumber = '+355682061862';
     
     const handleContactClick = () => {
         const whatsappMessage = encodeURIComponent('I\'d like to discuss how AI Agents can reduce costs and increase revenue for my business.');
@@ -312,7 +312,7 @@ export default function AIAgents() {
                 title="Still paying staff to answer the same questions?"
                 body="Our AI Agents handle conversations, bookings, and follow-ups automatically. Most businesses save significant costs within the first months."
                 ctaText="See If AI Makes Sense For Me"
-                whatsappNumber="+3550689007252"
+                whatsappNumber="+355682061862"
                 whatsappMessage="I'd like to discuss how AI Agents can reduce costs and increase revenue for my business."
                 triggerType="timer-or-exit"
                 timerDelay={8000}

@@ -67,7 +67,7 @@ const localBusinessLd = {
     'Asistentë me AI që u përgjigjen klientëve në WhatsApp dhe Instagram 24/7, të ndërtuar në Shqipëri.',
   url: SITE_URL,
   email: 'info@codrix.org',
-  telephone: '+355689007252',
+  telephone: '+355682061862',
   areaServed: ['AL', 'XK', 'EU'],
   address: {
     '@type': 'PostalAddress',
