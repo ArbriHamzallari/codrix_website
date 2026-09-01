@@ -112,10 +112,16 @@ export interface Dict {
   founder: {
     badge: string;
     heading: string;
-    paragraphs: string[];
-    points: string[];
-    signature: string;
+    paragraph: string;
+    closing: string;
+    trustHeading: string;
+    trustPoints: { title: string; description: string }[];
+    signatureName: string;
+    signatureRole: string;
+    signatureLocation: string;
+    trustBadge: string;
     cta: string;
+    ctaSecondary: string;
   };
   story: {
     problem: {
@@ -210,6 +216,7 @@ export interface Dict {
     title: string;
     subtitle: string;
     cta: string;
+    secondaryCta: string;
   };
   footer: {
     tagline: string;

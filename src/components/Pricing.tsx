@@ -84,7 +84,7 @@ export default function Pricing({ dict }: { dict: Dict }) {
           >
             {mode === 'monthly'
               ? p.billingMonthly
-              : `${p.billingYearly} (${p.yearlySave.replace('{pct}', savePct)})`}
+              : `${p.billingYearly} — ${p.yearlySave.replace('{pct}', savePct)}`}
           </button>
         ))}
       </div>

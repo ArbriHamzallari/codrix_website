@@ -24,7 +24,7 @@ html {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-geist-sans), sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
@@ -246,5 +246,29 @@ body {
   }
   .scroller-mask > div > div[aria-hidden='true'] {
     display: none;
+  }
+}
+
+/* --- Final CTA vertical marquee (FinalCTA.tsx) --- */
+@keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical var(--duration, 30s) linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Same issue as the FAQ scroller above: the global kill-switch only
+     collapses the duration, which reads as a flicker on an infinite loop
+     rather than a stop. The duplicated half is cut off by the container's
+     fixed height once the loop is frozen, so no extra hiding is needed. */
+  .animate-marquee-vertical {
+    animation: none !important;
   }
 }

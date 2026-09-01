@@ -10,7 +10,6 @@ export const en: Dict = {
   nav: {
     links: [
       { label: 'How it works', href: '/en#si-funksionon' },
-      { label: 'For businesses', href: '/en#rezultate' },
       { label: 'Pricing', href: '/en#cmimet' },
       { label: 'FAQ', href: '/en#pyetje' },
     ],
@@ -264,19 +263,32 @@ export const en: Dict = {
     ],
   },
   founder: {
-    badge: 'THE FOUNDER',
-    heading: 'Not bought software. Built right here.',
-    paragraphs: [
-      "I'm Arbri Hamzallari, a software engineer from Tirana. I started by hand-building assistants for real clients, one by one — never reselling someone else's software. Biseda AI is the same work, the same team, now built as its own platform.",
-      'That means three things for you: it speaks the way your customers speak, it changes within a day when you need something, and when you have a problem, you talk directly to the person who built it.',
+    badge: 'Founder / Biseda AI',
+    heading: 'AI should work for your business, not the other way around.',
+    paragraph:
+      "AI is changing how businesses run worldwide. We believe Albanian businesses deserve access to that too, without needing a technical team or complicated systems.",
+    closing: 'Biseda is just the beginning.',
+    trustHeading: 'Built for Albanian businesses.',
+    trustPoints: [
+      {
+        title: 'AI that adapts to how you work.',
+        description: 'Biseda learns your business\'s information, tone and way of communicating.',
+      },
+      {
+        title: 'Integrates with the tools you use every day.',
+        description: 'WhatsApp, Instagram, website chat and more.',
+      },
+      {
+        title: 'Direct contact.',
+        description: 'Talk directly with the team building and improving Biseda.',
+      },
     ],
-    points: [
-      'Built from scratch — not resold',
-      'Changes within 24 hours, directly from me',
-      'Albanian and English, tested with real clients',
-    ],
-    signature: 'Arbri Hamzallari — Founder, Biseda AI',
-    cta: 'Message us on WhatsApp',
+    signatureName: 'Arbri Hamzallari',
+    signatureRole: 'Founder of Biseda AI',
+    signatureLocation: 'Tirana, Albania',
+    trustBadge: 'Built by Arbri Hamzallari',
+    cta: 'Start a conversation',
+    ctaSecondary: 'See how it works',
   },
   story: {
     problem: {
@@ -494,6 +506,7 @@ export const en: Dict = {
     title: "Don't lose another customer",
     subtitle: "Message us on WhatsApp and within minutes we'll show you how it would work for your business — free trial.",
     cta: 'Message us on WhatsApp',
+    secondaryCta: 'View pricing',
   },
   footer: {
     tagline: 'Assistants for WhatsApp and Instagram that reply to your customers 24 hours a day.',
@@ -507,7 +520,6 @@ export const en: Dict = {
       title: 'Company',
       items: [
         { label: 'Try it', href: '/en#demo' },
-        { label: 'Results', href: '/en#rezultate' },
         { label: 'Founder', href: '/en#themeluesi' },
         { label: 'Pricing', href: '/en#cmimet' },
       ],

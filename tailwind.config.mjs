@@ -54,7 +54,7 @@ const config = {
                 error: "#EF4444",
             },
             fontFamily: {
-                sans: ['var(--font-inter)', 'sans-serif'],
+                sans: ['var(--font-geist-sans)', 'sans-serif'],
                 heading: ['var(--font-instrument-sans)', 'sans-serif'],
                 serif: ['var(--font-source-serif)', 'serif'],
                 mono: ['var(--font-dm-mono)', 'monospace'],

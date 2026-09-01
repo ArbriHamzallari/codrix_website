@@ -4,8 +4,10 @@ import ArcadeTourEmbed from '@/components/ArcadeTourEmbed';
 import Process from '@/components/Process';
 import Pricing from '@/components/Pricing';
 import FAQ from '@/components/FAQ';
-import SectionSkeleton from '@/components/SectionSkeleton';
+import FinalCTA from '@/components/FinalCTA';
+import DemoLive from '@/components/DemoLive';
 import TrustedByLogos from '@/components/TrustedByLogos';
+import AboutUs from '@/components/AboutUs';
 import { RobotHero } from '@/components/ui/robot-hero';
 import Reveal from '@/components/ui/Reveal';
 import type { Dict } from '@/i18n';
@@ -17,16 +19,16 @@ import type { Dict } from '@/i18n';
  * here — the robot hero and OmnichannelFeatures ("Një Panel. Çdo Kanal.").
  * Both are untouched: same components, same copy, same animations.
  *
- * Every other slot renders a <SectionSkeleton> in the agreed page order, so
- * the structure is visible while the real sections are written one at a time.
- * Nothing was deleted — ProductIntro, LogosStrip, StorySections, DemoLive,
- * ActionShowcase, KnowledgeFlow, InboxShowcase, Process, ProofResults,
- * AboutUs, Pricing, FAQ, FinalCTA, MobileStickyBar and FloatingWhatsApp are
- * all still in src/components, just unmounted.
+ * As of 2026-09-01 every planned slot is filled — this was the last
+ * <SectionSkeleton>. Nothing else was deleted along the way — ProductIntro,
+ * LogosStrip, StorySections, ActionShowcase, KnowledgeFlow, InboxShowcase,
+ * ProofResults and MobileStickyBar/FloatingWhatsApp are still in
+ * src/components, just unmounted.
  *
- * Skeletons keep the anchor ids the old sections used (#si-funksionon,
- * #rezultate, #cmimet, #pyetje, #demo, #kontakt) so the navbar links, the
- * hero CTAs and the footer links all still resolve.
+ * Anchor ids (#si-funksionon, #cmimet, #pyetje, #demo) match what the navbar,
+ * hero CTAs and footer already link to. The testimonials/results slot (step
+ * 06, `#rezultate`, ProofResults) was dropped outright on 2026-09-01 — not
+ * wanted — and its nav/footer links were removed with it.
  */
 export default function HomeSections({ dict }: { dict: Dict }) {
   const h = dict.hero;
@@ -54,82 +56,58 @@ export default function HomeSections({ dict }: { dict: Dict }) {
               href="#demo"
               className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-[15px] font-semibold text-white shadow-[0_8px_24px_rgba(109,53,242,0.25)] hover:bg-primary-hover transition-colors"
             >
-              {h.ctaPrimary} <span aria-hidden>→</span>
+              {h.ctaPrimary}
             </a>
             <a
-              href="#omnichannel"
-              className="inline-flex items-center justify-center rounded-lg border border-border bg-white px-6 py-3 text-[15px] font-medium text-ink hover:border-ink/30 transition-colors"
+              href="#si-funksionon"
+              className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-border bg-white px-6 py-3 text-[15px] font-medium text-ink hover:border-ink/30 transition-colors"
             >
-              {h.ctaSecondary}
+              {h.ctaSecondary} <span aria-hidden>→</span>
             </a>
           </div>
           <p className="text-sm text-ink-muted mt-6">{h.credibility}</p>
         </Reveal>
       </RobotHero>
 
-      {/* 02a — Problem. The notification bell: press it and the flood of
+      {/* 02 — Problem. The notification bell: press it and the flood of
           messages from every app arrives at once. */}
       <ProblemOverload dict={dict} />
 
-      {/* 02b — Trusted-by. The five real client logos, auto-scrolling. */}
-      <TrustedByLogos dict={dict} id="besimi" />
+      {/* 03 — Interaction demo. The Arcade product-tour embed — "watch it
+          happen" before anything else. No longer adjacent to the 3-step
+          "how you start" text (now at 06); that pairing was reordered away
+          on 2026-09-01, so it stands on its own here. */}
+      <ArcadeTourEmbed dict={dict} />
 
-      {/* 03 — What it does: one panel, every channel. KEPT AS IS. */}
+      {/* 04 — What it does: one panel, every channel. KEPT AS IS. */}
       <OmnichannelFeatures dict={dict} />
 
-      {/* 04 — Try it live. The interactive demo, the strongest differentiator.
-          Reuse: DemoLive / InteractiveDemo / ChatSimulation. */}
-      <SectionSkeleton
-        id="demo"
-        step="04"
-        label="Provoje live"
-        note="Demoja interaktive — vizitori i shkruan asistentit vetë dhe merr përgjigje reale. Diferencuesi më i fortë i faqes."
-        variant="media"
-        glow
-      />
+      {/* 05 — Try it live. The strongest differentiator: a real Claude call
+          behind /api/demo, editable knowledge box, live lead capture. Already
+          built (2026-07-19, hardened 2026-07-20) — just unmounted since the
+          08-27 rebuild. Mounted as-is, no changes. */}
+      <DemoLive dict={dict} />
 
-      {/* 05 — How you start. 3-step onboarding; answers "is this hard for me"
-          for non-technical owners. The Arcade walkthrough sits directly above
-          the text steps — "watch it happen" before "read the 3 steps",
-          adjacent since that's where a visitor asking "how does this work"
-          already is. */}
-      <ArcadeTourEmbed dict={dict} />
+      {/* 06 — How you start. 3-step onboarding; answers "is this hard for me"
+          for non-technical owners. */}
       <Process dict={dict} />
 
-      {/* 06 — Testimonials / results. Reuse: ProofResults. */}
-      <SectionSkeleton
-        id="rezultate"
-        step="06"
-        label="Dëshmi & rezultate"
-        note="Rezultate me numra dhe dëshmi nga biznese realë — jo premtime, por çfarë ndryshoi konkretisht."
-        variant="grid"
-      />
+      {/* 07 — Trusted-by. The five real client logos, auto-scrolling. */}
+      <TrustedByLogos dict={dict} id="besimi" />
 
-      {/* 07 — Founder story. Reuse: AboutUs. */}
-      <SectionSkeleton
-        id="themeluesi"
-        step="07"
-        label="Historia e themeluesit"
-        note="Kush e ndërton këtë dhe pse — fytyra dhe besueshmëria pas produktit."
-        variant="split"
-      />
+      {/* 08 — Founder story. */}
+      <AboutUs dict={dict} />
 
-      {/* 08 — Pricing. */}
+      {/* 09 — Pricing. */}
       <Pricing dict={dict} />
 
-      {/* 09 — FAQ. */}
+      {/* 10 — FAQ. */}
       <FAQ dict={dict} />
 
-      {/* 10 — Final CTA. The footer itself renders globally from layout.tsx.
-          Reuse: FinalCTA. */}
-      <SectionSkeleton
-        id="kontakt"
-        step="10"
-        label="Thirrja finale"
-        note="Një veprim i vetëm, i qartë. Footer-i vjen menjëherë poshtë, nga layout.tsx."
-        variant="cta"
-        glow
-      />
+      {/* 11 — Final CTA. Vertical marquee of business verticals (desktop) next
+          to the one WhatsApp action. The footer itself renders globally from
+          layout.tsx, right below. */}
+      <FinalCTA dict={dict} />
     </>
   );
 }

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Check, Send, User, Phone, ClipboardList, Clock, MessageCircle, Sparkles } from 'lucide-react';
+import { Check, Send, User, Phone, ClipboardList, Clock, MessageCircle } from 'lucide-react';
 import type { Dict } from '@/i18n';
 import { whatsappUrl } from '@/i18n';
 import { cn } from '@/lib/utils';
@@ -34,8 +34,6 @@ export default function DemoLive({ dict }: { dict: Dict }) {
   const sectionRef = useRef<HTMLElement>(null);
   const hasAutoPlayedRef = useRef(false);
   const triggerAutoPlayRef = useRef<() => void>(() => {});
-
-  const userCount = messages.filter((m) => m.role === 'user').length;
 
   useEffect(() => {
     chatRef.current?.scrollTo({ top: chatRef.current.scrollHeight, behavior: 'smooth' });
@@ -139,10 +137,6 @@ export default function DemoLive({ dict }: { dict: Dict }) {
     <section id="demo" ref={sectionRef} className="relative section-y px-8 lg:px-16 bg-section-glow">
       <div className="max-w-[1400px] mx-auto">
         <div className="text-center mb-12">
-          <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary-dim px-4 py-1.5 text-sm font-medium text-primary mb-5">
-            <Sparkles className="w-4 h-4" />
-            {d.badge}
-          </span>
           <h2 className="type-h2 font-heading text-ink mb-4">{d.title}</h2>
           <p className="type-lead text-ink-muted max-w-2xl mx-auto">{d.subtitle}</p>
         </div>

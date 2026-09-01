@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
-import { Inter, DM_Mono, Instrument_Sans, Source_Serif_4 } from 'next/font/google';
+import { Geist, DM_Mono, Instrument_Sans, Source_Serif_4 } from 'next/font/google';
 import './globals.css';
 import AnnouncementBar from '@/components/AnnouncementBar';
 import ChatWidget from '@/components/ChatWidget';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
+const geistSans = Geist({ subsets: ['latin'], variable: '--font-geist-sans', display: 'swap' });
 const dmMono = DM_Mono({
   subsets: ['latin'],
   weight: ['400', '500'],
@@ -84,7 +84,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="sq"
-      className={`${inter.variable} ${dmMono.variable} ${instrumentSans.variable} ${sourceSerif.variable}`}
+      className={`${geistSans.variable} ${dmMono.variable} ${instrumentSans.variable} ${sourceSerif.variable}`}
     >
       <body className="font-sans antialiased text-foreground bg-background selection:bg-primary/20 selection:text-foreground">
         <script
