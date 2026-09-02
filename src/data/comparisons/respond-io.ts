@@ -138,31 +138,31 @@ const sq: ComparisonSet['sq'] = {
   metaTitle: 'Biseda AI vs respond.io — cila zgjidhje ju përshtatet',
   metaDescription:
     'Krahasim i ndershëm mes Biseda AI dhe respond.io për klinika, salone dhe biznese lokale: kanale, automatizim AI, çmime dhe konfigurim.',
-  headline: 'Një Alternativë Më e Thjeshtë ndaj Respond.io për Biznese të Vogla e Lokale',
+  headline: 'Një Alternativë më e Thjeshtë ndaj Respond.io për Bizneset e Vogla dhe Lokale',
   subheadline:
-    "Respond.io është ndërtuar për ekipe të mesme që menaxhojnë biseda me volum të lartë dhe kritike për të ardhurat, në një duzinë kanalesh. Nëse jeni një klinikë, sallon apo restorant që ka nevojë thjesht t'u përgjigjet klientëve dhe të rezervojë takime — pa ndërtuar vetë automatizimin — kjo është një punë tjetër, dhe është pikërisht ajo për të cilën është ndërtuar Biseda.",
+    "Respond.io është krijuar për ekipe që menaxhojnë një numër të madh bisedash në shumë kanale dhe kanë nevojë për automatizime të avancuara. Nëse jeni një klinikë, sallon, restorant apo biznes lokal që thjesht dëshiron t'u përgjigjet klientëve, të kapë kërkesat dhe të rezervojë takime — pa ndërtuar vetë sisteme komplekse automatizimi — Biseda është krijuar pikërisht për këtë.",
   pillars: [
     {
-      title: 'Instalim i menaxhuar',
+      title: 'Konfigurohet për ju',
       description:
-        "Respond.io ju jep një ndërtues rrjedhash dhe pret që ta dizajnoni vetë automatizimin. Ekipi i Biseda-s e ndërton asistentin tuaj AI rreth biznesit tuaj përpara se të hyni fare në panel.",
+        'Respond.io ju ofron mjetet për të ndërtuar vetë rrjedhat e automatizimit. Me Biseda, ekipi ynë e konfiguron asistentin tuaj AI sipas biznesit tuaj, përpara se të filloni ta përdorni.',
     },
     {
       title: 'Çmim fiks dhe i parashikueshëm',
       description:
-        'Respond.io çmimon sipas Kontakteve Aktive Mujore, me shtesa për çdo anëtar ekipi. Biseda është një tarifë fikse mujore — 79€, 159€, ose 279€ — pa shkallëzim sipas numrit të kontakteve.',
+        'Respond.io përdor një model çmimi të bazuar në Kontaktet Aktive Mujore, me kosto shtesë për anëtarët e ekipit. Biseda ofron një tarifë mujore fikse — 79€, 159€ ose 279€ — pa rritje të çmimit sipas numrit të kontakteve.',
     },
     {
-      title: 'Akses direkt me ndërtuesin',
-      description: 'Nuk po hapni një bilet në një radhë suporti. Po flisni me personin që e ka ndërtuar produktin.',
+      title: 'Flisni drejtpërdrejt me ndërtuesin',
+      description: 'Nuk do të humbisni kohë duke kaluar nga një nivel mbështetjeje te tjetri. Me Biseda, keni akses të drejtpërdrejtë te personi që e ka ndërtuar produktin.',
     },
     {
-      title: 'Ndërtuar për biznese të vogla shërbimi, jo ekipe operacionesh të të ardhurave',
+      title: 'Krijuar për bizneset lokale të shërbimeve',
       description:
-        "Fazat e ciklit jetësor, tabelat e shitjeve dhe 12+ llojet e raporteve të Respond.io janë ndërtuar për ekipe që menaxhojnë kanale shitjesh. Biseda është ndërtuar për një klinikë që i përgjigjet saktë pyetjes 'jeni hapur të shtunën?', çdo herë.",
+        'Respond.io ofron mjete të fuqishme për ekipe që menaxhojnë procese komplekse shitjesh dhe komunikimi. Biseda është krijuar për nevojat e përditshme të një biznesi lokal — nga pyetjet si "A jeni hapur të shtunën?" deri te rezervimi automatik i një takimi.',
     },
   ],
-  tableTitle: 'Biseda AI vs respond.io: veçori për veçori',
+  tableTitle: 'Biseda AI vs Respond.io: krahasim veçori për veçori',
   comparisonTable: [
     {
       category: 'Kanalet',
@@ -172,74 +172,74 @@ const sq: ComparisonSet['sq'] = {
         { feature: 'Chat në faqen e internetit', biseda: true, competitor: true },
         { feature: 'Facebook Messenger', biseda: true, competitor: true },
         { feature: 'Telegram, SMS, Email', biseda: true, competitor: true },
-        { feature: 'Telefonata zanore (VoIP)', biseda: 'soon', competitor: true, note: 'Biseda: në beta' },
+        { feature: 'Telefonata zanore', biseda: 'soon', competitor: true, note: 'Biseda: në beta' },
         { feature: 'TikTok', biseda: false, competitor: true },
       ],
     },
     {
-      category: 'AI & Automatizimi',
+      category: 'AI dhe automatizimi',
       rows: [
-        { feature: 'Agjent AI që përgjigjet nga informacioni i biznesit tuaj', biseda: true, competitor: true },
-        { feature: 'Kapje automatike e lead-eve', biseda: true, competitor: true },
+        { feature: 'Agjent AI që përgjigjet bazuar në informacionin e biznesit tuaj', biseda: true, competitor: true },
+        { feature: 'Kapje automatike e klientëve potencialë', biseda: true, competitor: true },
         { feature: 'Rezervim automatik i takimeve', biseda: true, competitor: true },
-        { feature: 'Ndërtues vizual rrjedhash pune', biseda: false, competitor: true },
-        { feature: 'Fushata dalëse (broadcast)', biseda: false, competitor: true },
+        { feature: 'Ndërtues i rrjedhave të automatizimit', biseda: false, competitor: true },
+        { feature: 'Fushata masive', biseda: false, competitor: true },
       ],
     },
     {
-      category: 'Instalimi & Ekipi',
+      category: 'Konfigurimi dhe ekipi',
       rows: [
-        { feature: 'Instalimi konfigurohet për ju', biseda: true, competitor: false, note: 'Respond.io: instalim vetë-udhëhequr' },
+        { feature: 'Konfigurohet për ju', biseda: true, competitor: false, note: 'Respond.io: vetë-konfigurim' },
         { feature: 'Integrime CRM (HubSpot, Salesforce)', biseda: false, competitor: true },
         { feature: 'Aplikacion mobil vendas', biseda: false, competitor: true },
-        { feature: '12+ lloje raportesh / panel analitikash', biseda: false, competitor: true, note: 'Biseda: numërime bazike bisedash dhe lead-esh' },
+        { feature: '12+ lloje raportesh / panel analitikash', biseda: false, competitor: true, note: 'Biseda: statistika bazë për bisedat dhe klientët potencialë' },
       ],
     },
     {
-      category: 'Çmimi & Suporti',
+      category: 'Çmimi dhe mbështetja',
       rows: [
-        { feature: 'Çmim fiks mujor, pa shkallëzim sipas përdorimit', biseda: true, competitor: false },
+        { feature: 'Tarifë mujore fikse, pa rritje sipas përdorimit', biseda: true, competitor: false },
         { feature: 'Pa kontratë afatgjatë', biseda: true, competitor: true },
-        { feature: 'Akses direkt me themeluesin/ndërtuesin', biseda: true, competitor: false },
-        { feature: 'Ekip suporti 24/7 i dedikuar', biseda: false, competitor: true, note: 'Biseda: suport drejtpërdrejt nga themeluesi' },
+        { feature: 'Akses i drejtpërdrejtë te themeluesi/ndërtuesi', biseda: true, competitor: false },
+        { feature: 'Ekip i dedikuar mbështetjeje 24/7', biseda: false, competitor: true, note: 'Biseda: mbështetje e drejtpërdrejtë nga themeluesi' },
       ],
     },
   ],
   chooseUs: {
-    title: 'Zgjidhni Biseda-n nëse…',
+    title: 'Zgjidhni Biseda nëse…',
     points: [
-      'Jeni një klinikë, sallon bukurie, restorant, palestër, ose biznes lokal shërbimi',
-      "Doni që WhatsApp, Instagram dhe chat-i i faqes t'u përgjigjen automatikisht",
-      'Nuk doni ta ndërtoni vetë automatizimin',
-      'Doni një faturë të vetme e të parashikueshme mujore',
+      'Jeni klinikë, sallon bukurie, restorant, palestër ose biznes lokal shërbimesh',
+      "Dëshironi që WhatsApp, Instagram dhe chat-i i faqes t'u përgjigjen klientëve automatikisht",
+      'Nuk dëshironi të ndërtoni vetë automatizimet',
+      'Dëshironi një faturë mujore të vetme dhe të parashikueshme',
     ],
   },
   chooseThem: {
-    title: 'Zgjidhni respond.io nëse…',
+    title: 'Zgjidhni Respond.io nëse…',
     points: [
-      'Keni një ekip B2C të nivelit të mesëm me volum të lartë bisedash',
-      'Ju duhet një ndërtues vizual rrjedhash dhe integrime të thella CRM/Zapier',
-      'Ju duhen fushata broadcast, faza ciklesh jetësore dhe 12+ lloje raportesh',
-      'Keni dikë të dedikuar për të ndërtuar dhe mirëmbajtur automatizimin',
+      'Keni një ekip B2C me volum të lartë bisedash',
+      'Ju nevojiten rrjedha të avancuara automatizimi dhe integrime të thella me CRM/Zapier',
+      'Ju nevojiten fushata masive, menaxhim i ciklit të klientit dhe raporte të avancuara',
+      'Keni staf të dedikuar për ndërtimin dhe mirëmbajtjen e automatizimeve',
     ],
   },
   faqTitle: 'Pyetje të shpeshta',
   faq: [
     {
-      q: 'A është Biseda më e lirë se respond.io?',
-      a: 'Plani Starter i respond.io fillon nga 99$/muaj për 5 përdorues me automatizim të kufizuar, dhe veçoritë e tij AI/workflow hapen vetëm në planin Growth prej 199$/muaj e sipër, të çmuara sipas Kontakteve Aktive Mujore. Biseda është fikse 79–279€/muaj me AI të përfshirë që nga plani i parë.',
+      q: 'A është Biseda më e lirë se Respond.io?',
+      a: 'Plani Starter i Respond.io fillon nga 99$/muaj për 5 përdorues, ndërsa veçoritë më të avancuara të AI dhe automatizimit janë të disponueshme në planet më të larta. Çmimi varet gjithashtu nga numri i Kontakteve Aktive Mujore. Biseda ofron plane fikse nga 79€ deri në 279€/muaj, me AI të përfshirë që nga plani i parë.',
     },
     {
-      q: 'A i mbulon Biseda të njëjtat kanale si respond.io?',
-      a: 'Biseda mbulon WhatsApp, Instagram, chat në faqen e internetit, Facebook Messenger, Telegram, SMS dhe email. Telefonatat zanore janë aktualisht në beta. Respond.io mbulon shtesë TikTok-un dhe ka telefonata zanore plotësisht aktive sot — nëse ju duhen pikërisht këto tani, respond.io është zgjedhja më e mirë përkohësisht.',
+      q: 'A i mbulon Biseda të njëjtat kanale si Respond.io?',
+      a: 'Biseda mbështet WhatsApp, Instagram, chat në faqen e internetit, Facebook Messenger, Telegram, SMS dhe email. Telefonatat zanore janë aktualisht në beta. Respond.io ofron gjithashtu TikTok dhe telefonata zanore të plota. Nëse këto dy kanale janë thelbësore për biznesin tuaj sot, Respond.io mund të jetë zgjedhja më e përshtatshme.',
     },
     {
-      q: "A më duhet të ndërtoj vetë chatbot-in tim me Biseda-n?",
-      a: 'Jo. Ekipi i Biseda-s e konfiguron asistentin tuaj AI rreth biznesit tuaj real — orari, shërbimet, çmimet, politikat — përpara se të filloni. Respond.io ju jep një ndërtues rrjedhash dhe pret që ekipi juaj ta dizajnojë vetë automatizimin.',
+      q: 'A duhet ta ndërtoj vetë chatbot-in me Biseda?',
+      a: 'Jo. Ekipi i Biseda e konfiguron asistentin tuaj AI sipas biznesit tuaj — oraret, shërbimet, çmimet, politikat dhe mënyrën se si dëshironi t\'u përgjigjeni klientëve — përpara se të filloni.',
     },
     {
       q: 'Cila është më e mira për një biznes të vogël lokal?',
-      a: 'Për një klinikë, sallon apo restorant që ka nevojë kryesisht t\'u përgjigjet klientëve dhe të rezervojë takime, Biseda është ndërtuar posaçërisht për këtë punë, me çmim më të ulët e fiks. Respond.io është zgjedhja më e fortë për ekipe më të mëdha B2C të orientuara nga të ardhurat që kanë nevojë për automatizim të thellë dhe shkallë shumëkanalëshe.',
+      a: 'Për një klinikë, sallon, restorant ose biznes shërbimesh që ka nevojë kryesisht për përgjigje automatike, kapje të klientëve dhe rezervim takimesh, Biseda është krijuar posaçërisht për këtë. Respond.io është më i përshtatshëm për ekipe më të mëdha që kanë nevojë për automatizime dhe procese shumëkanalëshe më komplekse.',
     },
   ],
   ctaLabel: 'Na shkruani në WhatsApp',

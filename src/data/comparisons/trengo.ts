@@ -136,14 +136,14 @@ const sq: ComparisonSet['sq'] = {
   metaTitle: 'Biseda AI vs Trengo — cila zgjidhje ju përshtatet',
   metaDescription:
     'Krahasim i ndershëm mes Biseda AI dhe Trengo për klinika, salone dhe biznese lokale: çmime, kufij bisedash dhe konfigurim.',
-  headline: 'Një Alternativë ndaj Trengo, Ndërtuar për Biznese, Jo për Ekipe Mbështetjeje',
+  headline: 'Një Alternativë ndaj Trengo, e Krijuar për Biznese — Jo Vetëm për Ekipe Mbështetjeje',
   subheadline:
-    'Trengo është një inbox solid omnichannel për ekipe mbështetjeje evropiane, me çmime që fillojnë nga €299-349/muaj dhe kufij mujorë bisedash. Nëse doni një asistent AI që kap edhe klientë dhe rezervon takime — i konfiguruar për ju, me çmim fiks — kjo është produkt tjetër.',
+    'Trengo është një platformë omnichannel për ekipe që menaxhojnë komunikimin me klientët në disa kanale, me çmime që fillojnë nga €299-349/muaj dhe kufij mujorë bisedash. Nëse ajo që kërkoni është një asistent AI që jo vetëm përgjigjet, por edhe kap klientë potencialë dhe rezervon takime — i konfiguruar për ju dhe me çmim fiks — Biseda ofron një qasje tjetër.',
   pillars: [
     {
-      title: 'Ndërtuar për të gjithë udhëtimin e klientit, jo vetëm biletat e mbështetjes',
+      title: 'Krijuar për të gjithë udhëtimin e klientit, jo vetëm biletat e mbështetjes',
       description:
-        "Mjetet e automatizimit dhe AI të Trengo janë dizajnuar rreth bisedave mbështetëse. Biseda është ndërtuar posaçërisht për të kapur klientë dhe rezervuar takime, jo vetëm për t'u përgjigjur pyetjeve.",
+        "Mjetet e automatizimit dhe AI të Trengo janë dizajnuar rreth bisedave mbështetëse. Biseda është krijuar posaçërisht për të kapur klientë potencialë dhe për të rezervuar takime, jo vetëm për t'u përgjigjur pyetjeve.",
     },
     {
       title: 'Konfiguruar për ju',
@@ -158,46 +158,46 @@ const sq: ComparisonSet['sq'] = {
       description: 'Flisni me personin që e ndërtoi produktin, jo me një nivel mbështetjeje.',
     },
   ],
-  tableTitle: 'Biseda AI vs Trengo: veçori për veçori',
+  tableTitle: 'Biseda AI vs Trengo: krahasim veçori për veçori',
   comparisonTable: [
     {
       category: 'Kanalet',
       rows: [
         { feature: 'WhatsApp, Instagram, chat në faqen e internetit', biseda: true, competitor: true },
         { feature: 'Facebook Messenger', biseda: true, competitor: true },
-        { feature: 'Telefonata zanore (voice)', biseda: 'soon', competitor: true, note: 'Trengo: shtesë me pagesë te Boost/Pro. Biseda: në beta' },
+        { feature: 'Telefonata zanore', biseda: 'soon', competitor: true, note: 'Trengo: shtesë me pagesë te Boost/Pro. Biseda: në beta' },
       ],
     },
     {
-      category: 'AI & Automatizimi',
+      category: 'AI dhe automatizimi',
       rows: [
-        { feature: 'Agjent AI që përgjigjet nga informacioni i biznesit tuaj', biseda: true, competitor: true },
-        { feature: 'Kapje automatike e klientëve dhe rezervim takimesh', biseda: true, competitor: false, note: 'Trengo: e mundshme vetëm përmes konfigurimit të AI Journeys, jo si veçori e dedikuar' },
+        { feature: 'Agjent AI që përgjigjet bazuar në informacionin e biznesit tuaj', biseda: true, competitor: true },
+        { feature: 'Kapje automatike e klientëve potencialë dhe rezervim takimesh', biseda: true, competitor: false, note: 'Trengo: e mundshme vetëm përmes konfigurimit të AI Journeys, jo si veçori e dedikuar' },
         { feature: 'Kufi bisedash mujor, me tarifë shtesë mbi limitin', biseda: false, competitor: true, note: 'Biseda: pa kufi; Trengo: 500/muaj (Boost) ose 1.500/muaj (Pro), pastaj ~€15-18/100' },
       ],
     },
     {
-      category: 'Instalimi & Ekipi',
+      category: 'Konfigurimi dhe ekipi',
       rows: [
-        { feature: 'Instalimi bëhet për ju', biseda: true, competitor: false },
-        { feature: 'Onboarding i personalizuar në çdo plan', biseda: true, competitor: true },
+        { feature: 'Konfigurohet për ju', biseda: true, competitor: false },
+        { feature: 'Konfigurim fillestar i personalizuar në çdo plan', biseda: true, competitor: true },
       ],
     },
     {
-      category: 'Çmimi & Suporti',
+      category: 'Çmimi dhe mbështetja',
       rows: [
         { feature: 'Çmim fiks, pa kufi bisedash mujore', biseda: true, competitor: false, note: 'Trengo Boost fillon nga €299-349/muaj, me kufi 500 bisedash' },
-        { feature: 'Live chat dhe suport telefonik që në çmimin fillestar', biseda: true, competitor: false, note: 'Trengo: Boost ka vetëm email/mesazhe — live chat dhe telefoni fillojnë te Pro (€499+/muaj)' },
+        { feature: 'Live chat dhe mbështetje telefonike që në çmimin fillestar', biseda: true, competitor: false, note: 'Trengo: Boost ka vetëm email/mesazhe — live chat dhe telefoni fillojnë te Pro (€499+/muaj)' },
       ],
     },
   ],
   chooseUs: {
     title: 'Zgjidhni Biseda nëse…',
     points: [
-      'Doni klientë dhe takime të kapura automatikisht, jo vetëm mbështetje të trajtuar',
+      'Dëshironi klientë potencialë dhe takime të kapura automatikisht, jo vetëm mbështetje të trajtuar',
       'Jeni klinikë, sallon, restorant ose biznes lokal shërbimesh',
-      "Nuk doni t'i ndërtoni vetë automatizimet",
-      'Doni çmim fiks dhe të parashikueshëm',
+      "Nuk dëshironi t'i ndërtoni vetë automatizimet",
+      'Dëshironi çmim fiks dhe të parashikueshëm',
     ],
   },
   chooseThem: {

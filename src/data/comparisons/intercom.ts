@@ -135,31 +135,31 @@ const sq: ComparisonSet['sq'] = {
   metaTitle: 'Biseda AI vs Intercom — cila zgjidhje ju përshtatet',
   metaDescription:
     'Krahasim i ndershëm mes Biseda AI dhe Intercom (Fin) për klinika, salone dhe biznese lokale: çmime, faturimi për rezultat AI dhe konfigurim.',
-  headline: 'Një Alternativë ndaj Intercom, për Biznese që Nuk Duan të Ndërtojnë Vetë Bot-in e Tyre',
+  headline: 'Një Alternativë ndaj Intercom për Bizneset që Nuk Duan ta Ndërtojnë Vetë Asistentin AI',
   subheadline:
-    "Fin i Intercom është një agjent AI vërtet i aftë, ndërtuar për ekipe SaaS me staf teknik për ta trajnuar dhe mirëmbajtur. Nëse jeni klinikë apo sallon që thjesht dëshiron t'u përgjigjet klientëve — pa punësuar dikë për ta konfiguruar — kjo është punë tjetër.",
+    "Fin i Intercom është një agjent AI i fuqishëm, i krijuar kryesisht për kompani SaaS dhe ekipe që kanë burime teknike për ta konfiguruar dhe mirëmbajtur. Nëse jeni një klinikë, sallon, restorant apo biznes lokal që thjesht dëshiron t'u përgjigjet klientëve dhe të rezervojë takime — pa pasur nevojë të merret vetë me konfigurimin — Biseda është krijuar për këtë.",
   pillars: [
     {
-      title: 'Konfiguruar për ju, jo nga ju',
+      title: 'Konfigurohet për ju, jo nga ju',
       description:
-        'Fin i Intercom është vetë-shërbim — disa ekipe të vogla raportojnë se u është dashur ndihmë e jashtme vetëm për ta vendosur si duhet. Ekipi i Biseda-s e ndërton asistentin tuaj përpara se të hyni fare.',
+        'Intercom është kryesisht një platformë vetë-konfigurimi. Me Biseda, ekipi ynë e përgatit dhe e konfiguron asistentin tuaj AI sipas biznesit tuaj, përpara se të filloni ta përdorni.',
     },
     {
-      title: 'Pa faturim për çdo rezultat',
+      title: 'Pa pagesë për çdo bisedë të zgjidhur nga AI',
       description:
-        'Intercom faturon $0.99 për çdo bisedë të zgjidhur nga AI, mbi tarifën për vend pune ($29-132/vend/muaj) — kostoja rritet me ekipin dhe me volumin. Biseda është një tarifë fikse mujore me AI të përfshirë.',
+        'Intercom tarifon për çdo bisedë të zgjidhur nga AI, përveç tarifës për vendin e punës ($29-132/vend/muaj). Kjo do të thotë se kostoja mund të rritet bashkë me volumin e bisedave. Biseda ofron një tarifë mujore fikse me AI të përfshirë.',
     },
     {
-      title: 'Ndërtuar për biznese lokale shërbimesh',
+      title: 'Krijuar për bizneset lokale të shërbimeve',
       description:
-        'Përshtatja më e fortë e Intercom janë kompanitë SaaS me staf të dedikuar mbështetjeje dhe buxhet për kompleksitetin e saj. Biseda është ndërtuar për një klinikë dentare që i përgjigjet saktë "jeni hapur të shtunën?".',
+        'Intercom është veçanërisht i përshtatshëm për kompani SaaS me ekipe të dedikuara të mbështetjes dhe shitjeve. Biseda është krijuar për një klinikë dentare që duhet t\'i përgjigjet saktë pyetjeve si "A jeni hapur të shtunën?", të mbledhë të dhënat e klientit dhe të rezervojë takimin.',
     },
     {
-      title: 'Akses direkt te ndërtuesi',
-      description: 'Jo një radhë biletash mbështetjeje — personi që e ndërtoi produktin.',
+      title: 'Flisni drejtpërdrejt me ndërtuesin',
+      description: 'Jo një zinxhir biletash mbështetjeje — por akses direkt te personi që e ka ndërtuar produktin.',
     },
   ],
-  tableTitle: 'Biseda AI vs Intercom: veçori për veçori',
+  tableTitle: 'Biseda AI vs Intercom: krahasim veçori për veçori',
   comparisonTable: [
     {
       category: 'Kanalet',
@@ -167,37 +167,37 @@ const sq: ComparisonSet['sq'] = {
         { feature: 'Chat në faqen e internetit & email', biseda: true, competitor: true },
         { feature: 'WhatsApp', biseda: true, competitor: true, note: 'Intercom: me pagesë sipas përdorimit, në çdo plan' },
         { feature: 'Instagram / Facebook Messenger', biseda: true, competitor: true },
-        { feature: 'Telefonata', biseda: 'soon', competitor: true, note: 'Intercom: shtesë me pagesë. Biseda: në beta' },
+        { feature: 'Telefonata zanore', biseda: 'soon', competitor: true, note: 'Intercom: shtesë me pagesë. Biseda: në beta' },
       ],
     },
     {
-      category: 'AI & Automatizimi',
+      category: 'AI dhe automatizimi',
       rows: [
-        { feature: 'Agjent AI që përgjigjet nga informacioni i biznesit tuaj', biseda: true, competitor: true },
+        { feature: 'Agjent AI që përgjigjet bazuar në informacionin e biznesit tuaj', biseda: true, competitor: true },
         {
           feature: 'AI faturohet për çdo rezultat, mbi tarifën për vend pune',
           biseda: false,
           competitor: true,
-          note: 'Biseda: fikse, pa tarifë shtesë për çdo rezultat AI',
+          note: 'Biseda: tarifë fikse, pa kosto shtesë për çdo rezultat AI',
         },
-        { feature: 'Ndërtues vizual automatizimesh (workflow builder)', biseda: false, competitor: true, note: 'Intercom: vetëm plani Advanced e sipër' },
-        { feature: 'Kapje automatike e klientëve dhe rezervim takimesh', biseda: true, competitor: false },
+        { feature: 'Ndërtues i rrjedhave të automatizimit', biseda: false, competitor: true, note: 'Intercom: vetëm plani Advanced e sipër' },
+        { feature: 'Kapje automatike e klientëve potencialë dhe rezervim takimesh', biseda: true, competitor: false },
       ],
     },
     {
-      category: 'Instalimi & Ekipi',
+      category: 'Konfigurimi dhe ekipi',
       rows: [
-        { feature: 'Instalimi bëhet për ju', biseda: true, competitor: false, note: 'Intercom: vetë-shërbim' },
+        { feature: 'Konfigurohet për ju', biseda: true, competitor: false, note: 'Intercom: vetë-konfigurim' },
         { feature: 'Panel integrimesh të gjera (2500+)', biseda: false, competitor: true },
         { feature: 'Certifikime SOC 2 / ISO 27001 / HIPAA', biseda: false, competitor: true, note: 'HIPAA: vetëm plani Expert; SOC 2/ISO për të gjithë kompaninë' },
       ],
     },
     {
-      category: 'Çmimi & Suporti',
+      category: 'Çmimi dhe mbështetja',
       rows: [
-        { feature: 'Çmim fiks, pa faturim për çdo rezultat AI', biseda: true, competitor: false },
+        { feature: 'Tarifë fikse, pa kosto shtesë për çdo rezultat AI', biseda: true, competitor: false },
         { feature: 'Pa kontratë afatgjatë', biseda: true, competitor: true },
-        { feature: 'Akses direkt te ndërtuesi', biseda: true, competitor: false },
+        { feature: 'Akses i drejtpërdrejtë te ndërtuesi', biseda: true, competitor: false },
       ],
     },
   ],
@@ -205,37 +205,37 @@ const sq: ComparisonSet['sq'] = {
     title: 'Zgjidhni Biseda nëse…',
     points: [
       'Jeni klinikë, sallon, restorant ose biznes lokal shërbimesh',
-      'Nuk doni ta trajnoni apo mirëmbani vetë një bot',
-      'Doni një faturë fikse mujore, pa surpriza për çdo rezultat',
-      'Doni akses direkt te personi që e ndërtoi',
+      'Nuk dëshironi të trajnoni dhe mirëmbani vetë një asistent AI',
+      'Dëshironi një faturë mujore fikse pa kosto shtesë për çdo rezultat të AI',
+      'Dëshironi akses direkt te personi që e ka ndërtuar produktin',
     ],
   },
   chooseThem: {
     title: 'Zgjidhni Intercom nëse…',
     points: [
-      'Jeni kompani SaaS me ekip mbështetjeje të dedikuar',
-      'Ju duhen turne produkti brenda aplikacionit, fushata proaktive dhe integrime të thella CRM',
-      'Ju duhet përputhshmëri e audituar enterprise (SOC 2, HIPAA)',
-      'Keni staf teknik për të konfiguruar dhe trajnuar Fin',
+      'Jeni kompani SaaS me ekip të dedikuar të mbështetjes',
+      'Ju nevojiten turne produkti brenda aplikacionit, fushata proaktive dhe integrime të avancuara CRM',
+      'Ju nevojiten standarde dhe certifikime të avancuara enterprise',
+      'Keni staf teknik për konfigurimin dhe mirëmbajtjen e Fin',
     ],
   },
   faqTitle: 'Pyetje të shpeshta',
   faq: [
     {
       q: 'A është Biseda më e lirë se Intercom?',
-      a: 'Plani Essential i Intercom fillon rreth $29/vend pune/muaj, plus $0.99 për çdo bisedë të zgjidhur nga AI, pa asnjë alokim të përfshirë — kostoja rritet me ekipin dhe volumin. Biseda është një tarifë fikse €79-279/muaj me AI të përfshirë, pa faturim për çdo rezultat.',
+      a: 'Intercom kombinon tarifën për vendin e punës me tarifimin sipas përdorimit të AI. Biseda ofron plane fikse prej 79€–279€/muaj, me AI të përfshirë dhe pa tarifë shtesë për çdo rezultat të AI.',
     },
     {
-      q: 'A më duhet ndihmë teknike për të konfiguruar Fin të Intercom?',
-      a: 'Shpesh po — konfigurimi i Intercom është vetë-shërbim, dhe ekipet e vogla raportojnë shpesh që u është dashur ndihmë e jashtme për ta konfiguruar dhe trajnuar si duhet. Ekipi i Biseda-s e konfiguron asistentin tuaj rreth biznesit tuaj përpara se të filloni.',
+      q: 'A më duhet ndihmë teknike për të konfiguruar Fin?',
+      a: 'Intercom është kryesisht një platformë vetë-konfigurimi. Me Biseda, konfigurimi bëhet nga ekipi ynë përpara se të filloni, bazuar në informacionin real të biznesit tuaj.',
     },
     {
       q: 'A i ka Biseda certifikimet e Intercom?',
-      a: 'Jo — nëse ju duhet përputhshmëri e audituar SOC 2, ISO 27001 apo HIPAA, Intercom është zgjidhja më e pjekur. Biseda fokusohet te vendndodhja e të dhënave në BE, e përshtatshme për bizneset e vogla shërbimesh që synon.',
+      a: 'Jo. Nëse biznesi juaj kërkon standarde të audituara si SOC 2, ISO 27001 ose HIPAA, Intercom është alternativa më e pjekur. Biseda fokusohet te bizneset e vogla dhe lokale të shërbimeve.',
     },
     {
       q: 'Cila është më e mirë për një pronar biznesi jo-teknik?',
-      a: 'Për një klinikë, sallon apo restorant pa ekip mbështetjeje, Biseda është ndërtuar posaçërisht për këtë — konfigurim i bërë për ju, çmim fiks, pa trajnim boti. Intercom është zgjidhja më e fortë për një kompani SaaS me staf dhe buxhet për ta drejtuar.',
+      a: 'Nëse jeni pronar i një klinike, salloni, restoranti ose biznesi lokal dhe nuk keni staf teknik, Biseda është krijuar që të funksionojë pa pasur nevojë të ndërtoni apo trajnoni vetë një bot.',
     },
   ],
   ctaLabel: 'Na shkruani në WhatsApp',

@@ -127,31 +127,31 @@ const sq: ComparisonSet['sq'] = {
   metaTitle: 'Biseda AI vs Crisp — cila zgjidhje ju përshtatet',
   metaDescription:
     'Krahasim i ndershëm mes Biseda AI dhe Crisp për klinika, salone dhe biznese lokale: kanale, kredite AI, çmime dhe konfigurim.',
-  headline: 'Një Alternativë ndaj Crisp, me Asistentin Tuaj AI Tashmë të Konfiguruar',
+  headline: 'Një Alternativë ndaj Crisp, me Asistentin Tuaj AI të Konfiguruar që në Fillim',
   subheadline:
-    'Crisp është një inbox i përbashkët solid dhe i lirë, për ekipe të vogla që janë komode me konfigurim vetë-shërbim. Nëse doni WhatsApp dhe Instagram të përfshira që në fillim, me një AI të trajnuar mbi biznesin tuaj real — jo një bot FAQ me kredite të kufizuara — kjo është puna e Biseda.',
+    'Crisp është një inbox i përbashkët praktik për ekipe të vogla që preferojnë të bëjnë vetë konfigurimin. Nëse dëshironi WhatsApp dhe Instagram që në fillim, së bashku me një asistent AI të përshtatur sipas biznesit tuaj, Biseda është krijuar pikërisht për këtë.',
   pillars: [
     {
       title: 'WhatsApp dhe Instagram që në fillim',
       description:
-        'Planet Free dhe Mini të Crisp nuk përfshijnë fare WhatsApp apo Instagram — ato kërkojnë planin Essentials ($95/muaj) e sipër. Biseda i përfshin që në tarifën e parë.',
+        'Planet bazë të Crisp nuk përfshijnë WhatsApp dhe Instagram; këto kanale kërkojnë plane më të larta ($95/muaj Essentials e sipër). Me Biseda, WhatsApp dhe Instagram janë pjesë e platformës që nga plani fillestar.',
     },
     {
-      title: 'Pa tavan krediti AI',
+      title: 'Pa limite kreditesh AI',
       description:
-        "Crisp mat përdorimin e AI në kredite — alokimi i planit Mini mbulon rreth 90 biseda përpara se t'ju duhet të shtoni kredite. AI e Biseda është i përfshirë, jo i matur kundrejt një havuzi krediti që tkurret.",
+        "Crisp e mat përdorimin e AI përmes krediteve — alokimi i planit Mini mbulon rreth 90 biseda përpara se t'ju duhet të shtoni kredite. Me Biseda, AI është pjesë e planit tuaj dhe nuk varet nga një paketë kreditesh që mund të përfundojë.",
     },
     {
-      title: 'Trajnuar mbi biznesin tuaj real, jo vetëm FAQ të ngarkuara',
+      title: 'AI i përshtatur sipas biznesit tuaj',
       description:
-        'AI e Crisp (Hugo) mëson vetëm nga dokumentet që ngarkoni, jo nga historiku i bisedave, dhe përdoruesit raportojnë përgjigje jo konsistente pa mirëmbajtje manuale të vazhdueshme. Ekipi i Biseda e ndërton dhe mirëmban njohurinë e asistentit tuaj drejtpërdrejt.',
+        'Asistenti i Biseda ndërtohet mbi informacionin real të biznesit tuaj — shërbimet, çmimet, oraret, politikat dhe mënyrën se si dëshironi të komunikoni me klientët. Ekipi ynë kujdeset gjithashtu që ky informacion të mbetet i përditësuar.',
     },
     {
       title: 'Akses direkt te ndërtuesi',
-      description: 'Jo një radhë e vogël mbështetjeje — personi që e ndërtoi produktin.',
+      description: 'Kur keni nevojë për ndihmë, flisni drejtpërdrejt me personin që e ka ndërtuar produktin.',
     },
   ],
-  tableTitle: 'Biseda AI vs Crisp: veçori për veçori',
+  tableTitle: 'Biseda AI vs Crisp: krahasim veçori për veçori',
   comparisonTable: [
     {
       category: 'Kanalet',
@@ -162,66 +162,66 @@ const sq: ComparisonSet['sq'] = {
       ],
     },
     {
-      category: 'AI & Automatizimi',
+      category: 'AI dhe automatizimi',
       rows: [
-        { feature: 'Agjent AI që përgjigjet nga informacioni i biznesit tuaj', biseda: true, competitor: true },
+        { feature: 'Agjent AI që përgjigjet bazuar në informacionin e biznesit tuaj', biseda: true, competitor: true },
         {
           feature: 'AI e kufizuar në kredite, me kosto shtesë kur mbarojnë',
           biseda: false,
           competitor: true,
           note: 'Biseda: i përfshirë, pa kufi krediti',
         },
-        { feature: 'Kapje automatike e klientëve dhe rezervim takimesh', biseda: true, competitor: false },
+        { feature: 'Kapje automatike e klientëve potencialë dhe rezervim takimesh', biseda: true, competitor: false },
       ],
     },
     {
-      category: 'Instalimi & Ekipi',
+      category: 'Konfigurimi dhe ekipi',
       rows: [
-        { feature: 'Instalimi bëhet për ju', biseda: true, competitor: false, note: 'Crisp: vetë-shërbim, me kurbë mësimi për flukse komplekse' },
+        { feature: 'Konfigurohet për ju', biseda: true, competitor: false, note: 'Crisp: vetë-konfigurim, me kurbë mësimi për flukse komplekse' },
         { feature: 'Panel integrimesh (100+)', biseda: false, competitor: true, note: 'Crisp: vetëm plani Plus ($295/muaj)' },
         { feature: 'SLA formal', biseda: false, competitor: false, note: 'Asnjëra nuk ofron këtë — Crisp ofron SLA vetëm te Enterprise, me kërkesë' },
       ],
     },
     {
-      category: 'Çmimi & Suporti',
+      category: 'Çmimi dhe mbështetja',
       rows: [
         { feature: 'Çmim fiks', biseda: true, competitor: true, note: 'Të dyja janë me çmim fiks; Crisp shton kosto shtesë kur kaloni kreditet AI' },
         { feature: 'Pa kontratë afatgjatë', biseda: true, competitor: true },
-        { feature: 'Akses direkt te ndërtuesi', biseda: true, competitor: false },
+        { feature: 'Akses i drejtpërdrejtë te ndërtuesi', biseda: true, competitor: false },
       ],
     },
   ],
   chooseUs: {
     title: 'Zgjidhni Biseda nëse…',
     points: [
-      'Doni WhatsApp dhe Instagram të përfshira që në çmimin fillestar',
-      'Nuk doni të menaxhoni kredite AI apo të trajnoni vetë një chatbot',
+      'Dëshironi WhatsApp dhe Instagram që në planin fillestar',
+      'Nuk dëshironi të menaxhoni kredite AI',
       'Jeni klinikë, sallon, restorant ose biznes lokal shërbimesh',
-      'Doni AI tuajin të mbahet i përditësuar nga njerëzit që e ndërtuan',
+      'Dëshironi që asistenti AI të konfigurohet dhe mirëmbahet nga ekipi që e ka ndërtuar',
     ],
   },
   chooseThem: {
     title: 'Zgjidhni Crisp nëse…',
     points: [
-      'Jeni komod me konfigurim vetë-shërbim dhe ndërtues vizual boti',
-      'Ju duhet kryesisht web chat dhe email te plani falas ose Mini',
-      'Doni një panel të madh integrimesh (100+) te plani Plus',
-      'Drejtoni një ekip dixhital-i-parë, e-commerce apo startup',
+      'Preferoni ta konfiguroni vetë platformën',
+      'Ju nevojitet kryesisht web chat dhe email',
+      'Dëshironi një panel të gjerë integrimesh',
+      'Jeni startup, e-commerce ose ekip dixhital',
     ],
   },
   faqTitle: 'Pyetje të shpeshta',
   faq: [
     {
       q: 'A është Biseda më e lirë se Crisp?',
-      a: "Planet Free dhe Mini ($45/muaj) të Crisp nuk përfshijnë fare WhatsApp apo Instagram — ato kërkojnë planin Essentials ($95/muaj), dhe përdorimi i AI matet me kredite (alokimi i planit Mini mbulon rreth 90 biseda përpara se t'ju duhet shtesë). Biseda përfshin WhatsApp që nga €79/muaj, me AI të përfshirë, pa kufi krediti.",
+      a: "Crisp ofron plane me çmime të ndryshme, ndërsa disa veçori dhe kanale, përfshirë WhatsApp dhe Instagram, janë të disponueshme vetëm në planet më të larta ($95/muaj Essentials e sipër). Biseda i përfshin këto kanale që nga 79€/muaj, së bashku me AI.",
     },
     {
-      q: 'A mëson AI e Crisp nga bisedat e mëparshme me klientët?',
-      a: 'Jo — sipas dokumentacionit të vetë Crisp dhe raportimeve të përdoruesve, AI e tyre (Hugo) mëson vetëm nga dokumentet dhe FAQ-të që ngarkoni, jo nga historiku i bisedave live, dhe mund të përgjigjet jo konsistente pa mirëmbajtje manuale të rregullt. Ekipi i Biseda e ndërton asistentin tuaj nga informacioni real i biznesit dhe e mban të përditësuar.',
+      q: 'A mëson AI i Crisp nga bisedat e mëparshme me klientët?',
+      a: 'Sipas mënyrës së dokumentuar të funksionimit të Crisp, njohuritë e AI-së (Hugo) bazohen te dokumentet dhe burimet që i vihen në dispozicion, jo te historiku i bisedave. Me Biseda, asistenti konfigurohet drejtpërdrejt mbi informacionin e biznesit tuaj dhe mbahet i përditësuar nga ekipi ynë.',
     },
     {
       q: 'Cila është më e mirë për një pronar biznesi pa staf teknik?',
-      a: 'Crisp është vetë-shërbim, me një ndërtues automatizimesh që ka kurbë mësimi reale për çdo gjë përtej flukseve të thjeshta. Biseda konfigurohet tërësisht nga ekipi i Biseda përpara se të filloni — asnjë ndërtues për t\'u mësuar.',
+      a: 'Crisp është një zgjedhje e mirë nëse dëshironi ta konfiguroni vetë platformën. Biseda është më e përshtatshme nëse dëshironi që konfigurimi të bëhet për ju, pa pasur nevojë të mësoni ndërtues automatizimesh apo të menaxhoni vetë një chatbot.',
     },
   ],
   ctaLabel: 'Na shkruani në WhatsApp',
