@@ -7,7 +7,7 @@ const BOT_UA_PATTERN =
 
 const ALBANIAN_SPEAKING_COUNTRIES = new Set(['AL', 'XK']);
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const userAgent = request.headers.get('user-agent') || '';
   if (BOT_UA_PATTERN.test(userAgent)) {
     return NextResponse.next();
