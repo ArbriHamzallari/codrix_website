@@ -297,9 +297,10 @@ motion: single entrance via `<Reveal>` (12px rise + fade, 350ms ease-out, once, 
 - Never mix: a button is green iff it opens WhatsApp.
 
 ### Known issues to fix
-- `<html lang>` — root layout is `lang="sq"`; `/en` still inherits it (needs route-group or a
-  per-locale `<html lang>` — tracked in §13 SEO work).
-- Metadata: Albanian on `/`, English on `/en` — done; OG image + hreflang + LocalBusiness pending.
+- ~~`<html lang>` — root layout is `lang="sq"`; `/en` still inherits it~~ — fixed 2026-09-02
+  via route-group split into two real root layouts.
+- Metadata: Albanian on `/`, English on `/en` — done; hreflang + LocalBusiness done
+  (2026-09-02); OG image pending.
 - Site still on `vercel.app`. Point it at the real domain.
 - Secondary pages (`/crm`, `/systems`, `/ai-agents`, `/portfolio`, `/contact`) still carry the
   old cyan look + English copy; not yet migrated to the new tokens/locale.
@@ -362,6 +363,68 @@ the hero and demo sections, and get approval before touching the rest.
 ## 15. Changelog
 
 Append an entry for every meaningful decision. Newest first.
+
+### 2026-09-02 — Geo-redirect middleware: non-AL/XK human visitors on `/` → `/en`
+Completed the one piece of the 2026-09-02 SEO-foundation prompt deferred at the time: the
+geo-redirect for human visitors. New `src/middleware.ts`, matcher scoped to `/` only.
+- **Bot user-agents are excluded and pass straight through** — a regex covering the common
+  crawler UAs (Googlebot, Bingbot, GPTBot, ClaudeBot, PerplexityBot, Facebook's link-preview
+  bot, WhatsApp's link-preview bot, a generic `bot|crawl|spider|slurp` catch-all) always gets
+  `NextResponse.next()` regardless of IP, so crawlers keep indexing `/` (sq) and `/en`
+  independently on their own terms — this is what makes both versions indexable at all, per
+  the reasoning already in §7.
+- **Country comes from `x-vercel-ip-country`, not `request.geo`** — `request.geo` was removed
+  from `NextRequest` in this Next.js version (16.1.6); Vercel's edge network still sets the
+  header directly, which middleware reads instead.
+- Redirects to `/en` only when the header is present and is neither `AL` nor `XK`; a missing
+  header (e.g. local dev, or a network Vercel doesn't tag) fails open to `/` rather than
+  redirecting on no information.
+- **`/en` itself is untouched by the matcher** — `config.matcher: '/'` — so there is no loop
+  and no way for a human already on `/en` to be bounced anywhere.
+- Verified with `curl` against `next dev`, spoofing both the UA and `x-vercel-ip-country`
+  header: no header → 200 on `/` (sq, fail-open); `AL`/`XK` + human UA → 200 on `/` (stays);
+  `US` + human UA → 307 to `/en`; `US` + a Googlebot UA → 200 on `/` (bot exemption holds);
+  `US` + human UA hitting `/en` directly → 200, no redirect. `tsc --noEmit` and `npm run build`
+  green, `Proxy (Middleware)` listed in the build output.
+
+### 2026-09-02 — SEO foundation: real per-locale `<html lang>`, sitemap, robots.txt
+An external "English Locale + SEO Foundation" prompt proposed moving Albanian off bare `/` to
+`/sq`, framed as the fix for "search engines can't see a distinct English version." That premise
+was checked against the actual repo state and didn't hold: `/` and `/en` were already separate,
+server-rendered routes with distinct per-page metadata (not a client-side dict toggle as the
+prompt assumed), and §7 explicitly decided `/` = Albanian as the target, not `/sq`. Migrating the
+canonical indexed URL off `/` would have been a real SEO regression for no corresponding gain, so
+that part of the prompt was declined (flagged to Arbri and confirmed before proceeding) — this
+pass keeps the existing URL structure and fixes the actual gaps instead.
+- **Real, fixed problem: `<html lang="sq">` was hardcoded in the single root layout and `/en`
+  only flipped it client-side** via `SetHtmlLang` (a `useEffect`), so any crawler or user that
+  doesn't execute JS saw `lang="sq"` on the English page. Next.js can't set a different
+  `<html>` per nested route under one root layout — fixed properly via Next's "multiple root
+  layouts" route-group pattern: `src/app/(sq)/layout.tsx` (`<html lang="sq">`) and
+  `src/app/(en)/layout.tsx` (`<html lang="en">`), each a genuine root layout. **No URL changed**
+  — route groups (`(sq)`, `(en)`) don't appear in the path, so `/`, `/en`, `/crm`, `/kushtet`,
+  etc. all resolve exactly as before. Verified via `curl`: `/` now serves `<html lang="sq">` and
+  `/en` serves `<html lang="en">` in the raw server response, no JS required.
+- Shared markup extracted so the two root layouts don't duplicate real logic: `src/app/fonts.ts`
+  (the four `next/font` calls, now called once) and `src/components/SiteShell.tsx` (announcement
+  bar, navbar, footer, chat widget, the `ProfessionalService` JSON-LD — byte-identical to what
+  was in the old single layout). `SetHtmlLang.tsx` deleted — no longer needed now that each
+  locale has its own real `<html>` tag.
+- **Added `src/app/sitemap.ts` and `src/app/robots.ts`** (neither existed before). Sitemap lists
+  `/` and `/en` with `alternates.languages` (sq/en/x-default, matching the hreflang already
+  declared in each page's metadata — `x-default` stays Albanian, consistent with §7's Albanian-
+  first decision, not the external prompt's English-default suggestion). Robots disallows the
+  four `noindex` legal pages and points at the sitemap.
+- Hreflang tags (`alternates.languages`) and the `ProfessionalService` JSON-LD already existed
+  per-page from the 2026-07-20 polish pass — confirmed still correct and unchanged, just
+  verified they render from the split layouts too.
+- Not done, out of scope for this pass: OG image per locale (still one Albanian-only
+  `opengraph-image.tsx`), moving off `vercel.app`, migrating the secondary pages' English copy —
+  all pre-existing, tracked above.
+- Verified: `tsc --noEmit`, `eslint`, `npm run build` green (all 22 routes, same URL list as
+  before). `curl` confirmed per-locale `<html lang>`, `<title>`, hreflang `<link>` tags,
+  `/sitemap.xml`, `/robots.txt`; homepage anchors (`#demo`, `#cmimet`, `#pyetje`) resolve
+  identically on both `/` and `/en` (untouched — `HomeSections` wasn't modified).
 
 ### 2026-08-31 — Arcade product tour embedded in "Si funksionon"
 New `src/components/ArcadeTourEmbed.tsx`, mounted directly above `<Process dict={dict} />` in
