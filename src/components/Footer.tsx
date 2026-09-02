@@ -6,6 +6,15 @@ import { Linkedin, Instagram, Mail, MapPin } from 'lucide-react';
 import { getDict } from '@/i18n';
 import { BrandLockup } from '@/components/BrandLockup';
 
+// Add an entry here per new /vs/<competitor> page (claude.md §16) — footer-only,
+// not linked from the main nav.
+const COMPARE_LINKS = [
+  { label: 'Biseda vs respond.io', slug: 'respond-io' },
+  { label: 'Biseda vs Intercom', slug: 'intercom' },
+  { label: 'Biseda vs Crisp', slug: 'crisp' },
+  { label: 'Biseda vs Trengo', slug: 'trengo' },
+];
+
 export default function Footer() {
   const pathname = usePathname();
   const isEn = pathname?.startsWith('/en') ?? false;
@@ -18,7 +27,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-border pt-16 pb-10 px-8 lg:px-16">
       <div className="max-w-[1400px] mx-auto">
-        <div className="grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1.4fr] gap-10 mb-12">
+        <div className="grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr_1.4fr] gap-10 mb-12">
           {/* brand */}
           <div className="col-span-2 lg:col-span-1">
             <Link href={home} className="flex items-center gap-2 mb-4">
@@ -68,6 +77,23 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
+                    className="type-small text-ink-muted hover:text-ink transition-colors link-underline"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* compare */}
+          <div>
+            <p className="text-sm font-medium text-ink mb-4">{isEn ? 'Compare' : 'Krahaso'}</p>
+            <ul className="space-y-2.5">
+              {COMPARE_LINKS.map((item) => (
+                <li key={item.slug}>
+                  <Link
+                    href={isEn ? `/en/vs/${item.slug}` : `/vs/${item.slug}`}
                     className="type-small text-ink-muted hover:text-ink transition-colors link-underline"
                   >
                     {item.label}

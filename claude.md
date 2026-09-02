@@ -92,9 +92,14 @@ Where we are stronger:
 - Direct WhatsApp contact instead of a signup wall
 - Our own engineering (see §9)
 
-**Behavioural rule:** never mention, name, attack or compare against a competitor anywhere on
-the site or in copy. No "unlike other providers". We win on clarity and proof, not on
-attacking anyone. Do not publish anything about how a competitor builds their product.
+**Behavioural rule (revised 2026-09-02 — see changelog):** the ban is on disparaging or
+unfair competitor mentions, not on naming competitors at all. Factual, fair comparisons are
+allowed — crediting a competitor's real strengths, no editorializing, no disparagement, no
+invented or unverifiable claims about them. What's still banned everywhere in general site
+copy (homepage, secondary pages, FAQ, etc.): "unlike other providers"-style jabs, attacking a
+competitor, or publishing anything about how a competitor builds their product internally.
+Named, factual comparisons belong on their own dedicated `/vs/<competitor>` pages (§16) —
+never woven into general marketing copy.
 
 ---
 
@@ -351,12 +356,36 @@ the hero and demo sections, and get approval before touching the rest.
   adding a dependency, adding a new page, or changing the CTA.
 - **Never**: invent clients, testimonials, metrics or case studies; add tracking or third-party
   scripts without asking; expose API keys client-side; write copy in English for the Albanian
-  locale; add a second competing CTA; mention or compare against a competitor.
+  locale; add a second competing CTA; disparage or unfairly characterize a competitor, or name
+  one outside a dedicated `/vs/` page (§4, §16).
 - Prefer editing an existing component over creating a near-duplicate.
 - Keep changes small and reviewable. One section per pass.
 - When a request conflicts with this file, say which section conflicts and ask.
 - Business reality: the founder is solo and needs revenue. Prefer the change that helps close a
   client this week over the architecturally elegant refactor.
+
+---
+
+## 16. Comparison pages (`/vs/<competitor>`)
+
+Added 2026-09-02, alongside the §4 revision permitting factual competitor comparisons. These
+are dedicated landing pages, not something woven into general site copy.
+
+**Rules:**
+- One page per competitor, its own route, its own metadata. Not linked from the main nav —
+  footer only (a "Compare" column), plus organic/search traffic.
+- Every claim about the competitor must be factual and currently verifiable against their own
+  public pricing/feature pages — re-check before publishing, not just at write time, since
+  competitor pricing and plan gating change.
+- Credit real competitor strengths. No editorializing, no "unlike other providers" framing, no
+  invented claims about how they build their product internally.
+- Still **one CTA: WhatsApp** (§6 rule 4 applies here too — a comparison page is still a
+  closer, not a debate).
+- Structure precedent: hero naming the specific gap → category-grouped feature table → 3-4
+  pillar "why choose us" → honest "who's this for" (including who should pick the competitor)
+  → FAQ → CTA. Shared shell: `src/components/ComparisonPage.tsx`, data files in
+  `src/data/comparisons/`. Live: `respond.io`, `Intercom`, `Crisp`, `Trengo` — each at
+  `/vs/<slug>` and `/en/vs/<slug>`, footer `COMPARE_LINKS` only, see changelog.
 
 ---
 
