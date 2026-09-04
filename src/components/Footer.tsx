@@ -15,6 +15,13 @@ const COMPARE_LINKS = [
   { label: 'Biseda vs Trengo', slug: 'trengo' },
 ];
 
+// Add an entry here per new /for/<vertical> guide page (VERTICAL-GUIDE-FINAL-SPEC.md
+// §N) — footer-only, matches the COMPARE_LINKS pattern above. Slugs differ per
+// locale (the vertical noun is translated), unlike competitor names.
+const GUIDE_LINKS = [
+  { label: { sq: 'Klinikë dentare', en: 'Dental clinic' }, slug: { sq: 'klinike-dentare', en: 'dental-clinic' } },
+];
+
 export default function Footer() {
   const pathname = usePathname();
   const isEn = pathname?.startsWith('/en') ?? false;
@@ -86,7 +93,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* compare */}
+          {/* compare + guides */}
           <div>
             <p className="text-sm font-medium text-ink mb-4">{isEn ? 'Compare' : 'Krahaso'}</p>
             <ul className="space-y-2.5">
@@ -97,6 +104,21 @@ export default function Footer() {
                     className="type-small text-ink-muted hover:text-ink transition-colors link-underline"
                   >
                     {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <p className="text-sm font-medium text-ink mb-4 mt-6">
+              {isEn ? 'Choose your business' : 'Zgjidhni biznesin tuaj'}
+            </p>
+            <ul className="space-y-2.5">
+              {GUIDE_LINKS.map((item) => (
+                <li key={item.slug.sq}>
+                  <Link
+                    href={isEn ? `/en/for/${item.slug.en}` : `/for/${item.slug.sq}`}
+                    className="type-small text-ink-muted hover:text-ink transition-colors link-underline"
+                  >
+                    {isEn ? item.label.en : item.label.sq}
                   </Link>
                 </li>
               ))}

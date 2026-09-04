@@ -3,9 +3,9 @@ import HomeSections from '@/components/HomeSections';
 import { getDict } from '@/i18n';
 
 export const metadata: Metadata = {
-  title: 'Biseda AI — Assistants that reply to your customers on WhatsApp, 24/7',
+  title: 'AI Digital Receptionist for Businesses | Biseda AI',
   description:
-    'We build assistants that reply to your customers on WhatsApp and Instagram in 2 seconds — 24/7. Trusted by real clinics in Albania.',
+    "Biseda is your digital receptionist, 24/7 — it answers customer questions, understands what they need, collects their details, and hands conversations to your team when needed.",
   alternates: {
     canonical: '/en',
     languages: { sq: '/', en: '/en', 'x-default': '/' },
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
     locale: 'en_GB',
     url: 'https://codrixwebsite.vercel.app/en',
     siteName: 'Biseda AI',
-    title: "How many customers do you lose because you can't reply in time?",
+    title: "Biseda talks to your customers even when you can't.",
     description:
-      'Assistants that reply to your customers on WhatsApp and Instagram in 2 seconds — 24 hours a day.',
+      'Your digital receptionist, 24/7 — answers questions, captures enquiries, and hands off to your team when needed.',
   },
 };
 
